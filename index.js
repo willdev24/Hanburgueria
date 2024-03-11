@@ -16,6 +16,25 @@ app.get("/",(req, res)=>{
 })
 
 
+app.get("/endereco",(req, res)=>{
+
+    res.render("endereco")
+})
+
+
+app.get("/contatos",(req, res)=>{
+
+    res.render("contatos")
+})
+
+
+app.get("/menu",(req, res)=>{
+
+    res.render("menu")
+})
+
+
+
 const port = process.env.PORT || 8080
 
 app.listen(port,()=>{
