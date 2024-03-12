@@ -1,3 +1,5 @@
+
+
 const Main ={
 
     init:function(){
@@ -37,9 +39,6 @@ if(done == false){
 }
 
 }
-
-
-
 
 }
 
