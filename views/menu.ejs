@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-            <%- include("partials/head.ejs")  %>  
+    <%- include("partials/head.ejs")  %>  
+    <link rel="stylesheet" href="/stylos/cartao.css">
 </head>
 <body>
-    <%- include("partials/menu_carrinho.ejs")  %>  
 
+    <%- include("partials/menu_carrinho.ejs")  %>  
     
+<main>
+<div class="produtos">
+
+   
+    <%cadastrados.forEach( prodcadastrados => { %>
+        
+        <article class="cartao" >
+            <p id="nome"><%= prodcadastrados.nome %></p>
+            <img src="/imagens/<%=prodcadastrados.img %>" alt="mac">
+            <div id="status">
+                <p><%= prodcadastrados.recheio %></p>
+                <p id="valor">R$ <%= prodcadastrados.valor%></p>
+            </div>
+            <p id="addi"  data-local="<%= prodcadastrados.id %>">adicionar</p>
+        </article>
+
+    <% }); %> 
+    
+    </div>
+
+</main>
 </body>
 <%- include("partials/foot.ejs")  %>  
 

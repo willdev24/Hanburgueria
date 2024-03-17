@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+
+*{box-sizing: border-box;
+    margin: 0;
+    padding: 0;}
+
+
+
+.produtos{    
+
+display: inline-flex; 
+margin-top: 08%;
+flex-wrap: wrap;
+row-gap: 5ch;
+}
+
+.cartao{
+
+    width: 20%;
+    margin-left: 60px;
+    background-color: rgba(255, 208, 20, 0.961);
+    color: rgb(0, 0, 0);
+    padding: 20px 80px;
+    margin-top: 25px;
+    
+}
+
+#addi{
+    margin-top: -20px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: large;
+    font-weight: 800;
+    text-align: center;
+    width: 40vh;
+    margin-left: -20%;
+    height: 5vh;
+    margin-top: 50px;
+    
+}
+
+#addi:hover{
+    color: white;
+    background-color: black;
+}
+
+#status {
+margin-top: -50px;
+margin-left: -50px;
+width: 50%;
+}
+
+#status {
+    font-size: large;
+  font-size: larger;
+}
+
+#valor{
+    width: 150%;
+    font-size: 25px;
+color: rgb(7, 99, 0);
+cursor: pointer;
+}
+
+#valor:hover{
+    color: red;
+}
+
+#nome{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color: rgb(161, 6, 151);
+font-size: 20px;
+width: 50%;
+cursor: pointer;
+margin-left: -30px;
+}
+
+#nome:hover{
+    color: pink
+    
+}
+
+
+
+
+

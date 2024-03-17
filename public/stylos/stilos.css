@@ -1,23 +1,26 @@
 @charset "UTF-8";
 
 *{box-sizing: border-box;
-margin: 0;
-padding: 0;}
+    margin: 0;
+    padding: 0;}
+    
 
 body{
     background-color: black;
     color: aliceblue;
-    position: relative;
-
+    display: inline-block;
 }
+
 .container{
     width: 100%;
     max-width: 600px;
+    
 }
 
 h1{
     position: absolute;
     margin-right: 70%;
+    font-size: 50px;
 }
 
 .container header{
@@ -27,7 +30,8 @@ h1{
     height: 100px;
     justify-content: center;
     align-items: center;
-width: 101%
+    width: 101%;
+    background-color: black;
 }
 
 .container .lista .list-ind{
@@ -51,7 +55,7 @@ li{
     color: darkorange;
 }
 
-p{
+#carrinho{
     position: absolute;
     margin-right: -50%;
 
@@ -70,18 +74,23 @@ cursor: pointer;
 }
 
 .container .menucarrinho{
-    background-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
     height:90%;
     width: 19vw;
     top: 90px;
     position:fixed;
     right: -100%;
     transition: 500ms;
+    outline: thick double #fffefe;
 }
 .container .menucarrinho.abrirCarrinho{
-     right: 0.5%;
+    right: 0%;
     transition: 500ms;
-    }
+    border-radius: 10px;
+}
+
+
+
 
 
     

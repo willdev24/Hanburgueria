@@ -1,18 +1,16 @@
 
-
 const Main ={
 
     init:function(){
         this.buscarnoHtml()
         this.adcionarEventos()
-        
 
 },
 
 buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
     this.$menucarrinho =document.querySelector('.menucarrinho')    
-
+    this.$produtos=document.querySelectorAll(".produtos")
 
 },
 
@@ -21,6 +19,10 @@ adcionarEventos: function(){
 
     this.$carrinhoDecompras.addEventListener('click', self.Events.abrirfecharCarrinho_click.bind(self))
 
+    this.$produtos.forEach( itens => {
+        itens.addEventListener("click", self.Events.addicionarCarrinho_click.bind(self))
+    });
+  
 },
 
 Events:{
@@ -35,11 +37,21 @@ if(done == false){
 }else{
 
     carrinho.classList.remove('abrirCarrinho')
-}
+}},
+
+
+addicionarCarrinho_click:function(e){
+
+const id = e.target.dataset.local
+console.log()
 }
 
-}
 
-}
+
+
+
+
+}}
 
 Main.init()
+
