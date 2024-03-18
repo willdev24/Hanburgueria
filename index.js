@@ -33,6 +33,7 @@ app.get("/menu",(req, res)=>{
     const produtos = fs.readFileSync("./cadastrados.json")
     const produtosOBJ = JSON.parse(produtos)
 
+
      res.render("menu",{
         cadastrados:produtosOBJ
     })

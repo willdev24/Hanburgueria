@@ -1,10 +1,11 @@
 
+
 const Main ={
 
     init:function(){
         this.buscarnoHtml()
         this.adcionarEventos()
-
+       
 },
 
 buscarnoHtml: function(){
@@ -46,12 +47,9 @@ const id = e.target.dataset.local
 console.log()
 }
 
-
-
-
-
-
 }}
+
+
 
 Main.init()
 
