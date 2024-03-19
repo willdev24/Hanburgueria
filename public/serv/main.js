@@ -1,12 +1,14 @@
 
-
 const Main ={
+
+
 
     init:function(){
         this.buscarnoHtml()
         this.adcionarEventos()
-       
-},
+        this.apiDOSprodutos()       
+
+    },
 
 buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
@@ -24,6 +26,28 @@ adcionarEventos: function(){
         itens.addEventListener("click", self.Events.addicionarCarrinho_click.bind(self))
     });
   
+},
+
+apiDOSprodutos: function(){
+
+    fetch('/api/database')
+    .then(response => response.json())    
+    .then(data => {    
+        
+this.produtos = data.map( itens =>{
+
+const produtosapi = {     
+       "nome": itens.nome,
+        "valor":itens.valor,
+        "img":itens.img,
+        "recheio":itens.recheio,
+        "id":itens.id,
+    }
+
+return produtosapi
+})
+    })
+    
 },
 
 Events:{
