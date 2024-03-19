@@ -1,12 +1,14 @@
 
 const Main ={
 
-
+    produtos:[],
 
     init:function(){
+        this.apiDOSprodutos()   
+        this.sincronizandoaApi()  
         this.buscarnoHtml()
         this.adcionarEventos()
-        this.apiDOSprodutos()       
+        console.log(this.produtos)
 
     },
 
@@ -46,9 +48,18 @@ const produtosapi = {
 
 return produtosapi
 })
-    })
-    
+localStorage.setItem("tasks", JSON.stringify(this.produtos))
+
+})},
+
+
+sincronizandoaApi:function(e){
+
+const prod = localStorage.getItem("tasks")
+this.produtos = JSON.parse(prod) 
+
 },
+
 
 Events:{
 abrirfecharCarrinho_click:function(e){
@@ -68,7 +79,7 @@ if(done == false){
 addicionarCarrinho_click:function(e){
 
 const id = e.target.dataset.local
-console.log()
+alert("produto adicionado")
 }
 
 }}
