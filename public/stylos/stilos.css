@@ -52,7 +52,8 @@ li{
     
 }
 .container .lista .list-ind a:hover{
-    color: darkorange;
+    color:  rgba(0, 204, 255, 0.769);
+
 }
 
 #carrinho{
@@ -66,7 +67,8 @@ li{
     
 }
 #carrinho:hover{
-    background-color: darkgoldenrod;
+    background-color:  rgba(0, 204, 255, 0.769);
+
 }
 
 #carrinho{
@@ -74,14 +76,14 @@ cursor: pointer;
 }
 
 .container .menucarrinho{
-    background-color: rgb(255, 255, 255);
-    height:90%;
+    background-color: rgba(0, 0, 0, 0.918);
+    height:95%;
     width: 19vw;
-    top: 90px;
+    top: 70px;
     position:fixed;
     right: -100%;
     transition: 500ms;
-    outline: thick double #fffefe;
+    outline: thick double  rgba(0, 204, 255, 0.769);
 }
 .container .menucarrinho.abrirCarrinho{
     right: 0%;
@@ -89,8 +91,21 @@ cursor: pointer;
     border-radius: 10px;
 }
 
+#imgcartao{
+    width: 250px;
+    height: 150px;
 
+}
 
+#prodnocarrinho{
+    
+    background-color: rgba(12, 182, 197, 0.18);
+    padding: 40px;
+    margin-top: 1px;
+    border-radius: 25px;
+
+    
+}
 
 
     

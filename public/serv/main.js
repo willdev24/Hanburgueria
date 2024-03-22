@@ -8,7 +8,7 @@ const Main ={
         this.sincronizandoaApi()  
         this.buscarnoHtml()
         this.adcionarEventos()
-        console.log(this.produtos)
+        
 
     },
 
@@ -16,7 +16,7 @@ buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
     this.$menucarrinho =document.querySelector('.menucarrinho')    
     this.$produtos=document.querySelectorAll(".produtos")
-
+    
 },
 
 adcionarEventos: function(){
@@ -60,7 +60,6 @@ this.produtos = JSON.parse(prod)
 
 },
 
-
 Events:{
 abrirfecharCarrinho_click:function(e){
 const carrinho = this.$menucarrinho
@@ -79,7 +78,24 @@ if(done == false){
 addicionarCarrinho_click:function(e){
 
 const id = e.target.dataset.local
-alert("produto adicionado")
+
+const positionCartao = this.produtos.find( itens => itens.id == id)
+
+
+const cartaoProdutos = ` <article id="prodnocarrinho">
+                            <img id="imgcartao" src="/imagens/${positionCartao.img}">
+                            <div>
+                                <p>${positionCartao.recheio}</p>
+                                <p>R$${positionCartao.valor}</p>
+                            </div>
+                            <div>
+                                <p id="crementar">+</p>
+                                <p id="incrementar">-</p>
+                            </div>
+                        </article>`
+
+this.$menucarrinho.innerHTML += cartaoProdutos
+
 }
 
 }}
