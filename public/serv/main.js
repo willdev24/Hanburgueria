@@ -2,21 +2,24 @@
 const Main ={
 
     produtos:[],
+    gitstorage:[],
 
     init:function(){
-        this.apiDOSprodutos()   
-        this.sincronizandoaApi()  
+
         this.buscarnoHtml()
         this.adcionarEventos()
-        
+        this.apiDOSprodutos()   
+        this.atualizarcarrinho()
+        this.sincronizandoaApi()  
 
     },
+    
 
 buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
     this.$menucarrinho =document.querySelector('.menucarrinho')    
-    this.$produtos=document.querySelectorAll(".produtos")
-    
+    this.$produtos=document.querySelectorAll("#addi")
+    this.$apagarCar=document.querySelectorAll("#excluir")    
 },
 
 adcionarEventos: function(){
@@ -27,8 +30,21 @@ adcionarEventos: function(){
     this.$produtos.forEach( itens => {
         itens.addEventListener("click", self.Events.addicionarCarrinho_click.bind(self))
     });
-  
+
+    this.$apagarCar.forEach( itens=> {
+        itens.addEventListener("click", this.Events.excluirCartao_click.bind(self))
+
+    })
 },
+
+
+atualizarcarrinho: function(){
+
+    const produtosSalvos = localStorage.getItem("car")
+    this.gitstorage += produtosSalvos
+
+},
+
 
 apiDOSprodutos: function(){
 
@@ -50,6 +66,7 @@ return produtosapi
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
 
+this.sincronizandoaApi
 })},
 
 
@@ -61,6 +78,7 @@ this.produtos = JSON.parse(prod)
 },
 
 Events:{
+
 abrirfecharCarrinho_click:function(e){
 const carrinho = this.$menucarrinho
 const done=carrinho.classList.contains('abrirCarrinho')
@@ -72,29 +90,52 @@ if(done == false){
 }else{
 
     carrinho.classList.remove('abrirCarrinho')
-}},
+}
+},
 
 
 addicionarCarrinho_click:function(e){
 
 const id = e.target.dataset.local
-
 const positionCartao = this.produtos.find( itens => itens.id == id)
+const quantitativo = 0
 
+ if(positionCartao.id == id){
 
 const cartaoProdutos = ` <article id="prodnocarrinho">
+                            <p id="excluir">X</P>
                             <img id="imgcartao" src="/imagens/${positionCartao.img}">
                             <div>
                                 <p>${positionCartao.recheio}</p>
                                 <p>R$${positionCartao.valor}</p>
                             </div>
-                            <div>
+                            <div id="quantidade">
                                 <p id="crementar">+</p>
+                                <p id="crementar">${quantitativo}</p>
                                 <p id="incrementar">-</p>
                             </div>
                         </article>`
 
-this.$menucarrinho.innerHTML += cartaoProdutos
+
+                        this.$menucarrinho.innerHTML += cartaoProdutos
+                    const localstoragProd = this.produtos.filter( itens => itens.id == id )
+
+
+                    const savestryng = localStorage.getItem("car")
+                    const saveobj = JSON.parse(savestryng)
+                    
+                    const obj = [{car:localstoragProd}, ...saveobj]
+                    localStorage.setItem("car", JSON.stringify(obj))
+
+                }
+                    this.buscarnoHtml()
+                    this.adcionarEventos()
+            
+},
+
+excluirCartao_click:function(e){
+
+alert("ok")
 
 }
 

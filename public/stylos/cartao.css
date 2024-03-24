@@ -6,7 +6,6 @@
     padding: 0;}
 
 
-
 .produtos{    
 
 display: inline-flex; 
@@ -85,7 +84,12 @@ margin-left: -30px;
     
 }
 
+#excluir{
+    color: white;
+}
 
-
+#excluir:hover{
+    color:darkorange
+}
 
 
