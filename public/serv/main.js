@@ -107,7 +107,7 @@ const quantitativo = 0
 
     
 const cartaoProdutos = ` <article id="prodnocarrinho">
-                            <p id="excluir">X</P>
+                            <p id="excluir"  data-local="${positionCartao.id}" >X</P>
                             <img id="imgcartao" src="/imagens/${positionCartao.img}">
                             <div>
                                 <p>${positionCartao.recheio}</p>
@@ -129,7 +129,7 @@ const cartaoProdutos = ` <article id="prodnocarrinho">
                     const savestryng = localStorage.getItem("car")
                     const saveobj = JSON.parse(savestryng)
                     
-                    const obj = [{car:localstoragProd}, ...saveobj]
+                    const obj = [localstoragProd, ...saveobj]
                     localStorage.setItem("car", JSON.stringify(obj))
 
                  
@@ -137,7 +137,7 @@ const cartaoProdutos = ` <article id="prodnocarrinho">
                     const itens = this.bugcar=document.querySelectorAll("#prodnocarrinho")
                     
                     itens.forEach(itens =>{
-                        console.log(itens) 
+                        
                     })
 
                    this.apagar()
@@ -147,13 +147,26 @@ const cartaoProdutos = ` <article id="prodnocarrinho">
 },
 
 apagar: function(){
-   const self = this
-   this.$apagarCar=document.querySelectorAll("#excluir")   
+    this.$apagarCar=document.querySelectorAll("#excluir")   
+    const self = this
+   
+    this.$apagarCar.forEach( itens=> {
+        itens.addEventListener("click", function(e){
+         
+            const nocarrinho = localStorage.getItem("car")
+            const objsalvos = JSON.parse(nocarrinho)
+            
+            this.gitstorage = objsalvos
+      
+            
+  const id = e.target.dataset.local 
+  const contID = this.gitstorage.findIndex( itenscar =>   console.log(itenscar[0].id))
+  
+  
 
-   this.$apagarCar.forEach( itens=> {
-        itens.addEventListener("click", function(){
 
-            console.log("deu certo")
+
+       
         })
 
     })
