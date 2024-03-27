@@ -11,6 +11,7 @@ const Main ={
         this.apiDOSprodutos()   
         this.atualizarcarrinho()
         this.sincronizandoaApi()  
+        this.apagar()
 
     },
     
@@ -19,7 +20,8 @@ buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
     this.$menucarrinho =document.querySelector('.menucarrinho')    
     this.$produtos=document.querySelectorAll("#addi")
-    this.$apagarCar=document.querySelectorAll("#excluir")    
+   
+    
 },
 
 adcionarEventos: function(){
@@ -29,12 +31,11 @@ adcionarEventos: function(){
 
     this.$produtos.forEach( itens => {
         itens.addEventListener("click", self.Events.addicionarCarrinho_click.bind(self))
+
+    
     });
 
-    this.$apagarCar.forEach( itens=> {
-        itens.addEventListener("click", this.Events.excluirCartao_click.bind(self))
-
-    })
+   
 },
 
 
@@ -91,6 +92,8 @@ if(done == false){
 
     carrinho.classList.remove('abrirCarrinho')
 }
+
+
 },
 
 
@@ -100,8 +103,9 @@ const id = e.target.dataset.local
 const positionCartao = this.produtos.find( itens => itens.id == id)
 const quantitativo = 0
 
- if(positionCartao.id == id){
+ 
 
+    
 const cartaoProdutos = ` <article id="prodnocarrinho">
                             <p id="excluir">X</P>
                             <img id="imgcartao" src="/imagens/${positionCartao.img}">
@@ -119,7 +123,8 @@ const cartaoProdutos = ` <article id="prodnocarrinho">
 
                         this.$menucarrinho.innerHTML += cartaoProdutos
                     const localstoragProd = this.produtos.filter( itens => itens.id == id )
-
+             
+                 
 
                     const savestryng = localStorage.getItem("car")
                     const saveobj = JSON.parse(savestryng)
@@ -127,19 +132,47 @@ const cartaoProdutos = ` <article id="prodnocarrinho">
                     const obj = [{car:localstoragProd}, ...saveobj]
                     localStorage.setItem("car", JSON.stringify(obj))
 
+                 
+
+                    const itens = this.bugcar=document.querySelectorAll("#prodnocarrinho")
+                    
+                    itens.forEach(itens =>{
+                        console.log(itens) 
+                    })
+
+                   this.apagar()
                 }
-                    this.buscarnoHtml()
-                    this.adcionarEventos()
-            
+                
+                    
 },
 
-excluirCartao_click:function(e){
+apagar: function(){
+   const self = this
+   this.$apagarCar=document.querySelectorAll("#excluir")   
 
-alert("ok")
+   this.$apagarCar.forEach( itens=> {
+        itens.addEventListener("click", function(){
+
+            console.log("deu certo")
+        })
+
+    })
+
+
+
+
+    }
+   
+    
 
 }
 
-}}
+
+
+
+
+
+
 
 
 
