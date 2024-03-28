@@ -10,7 +10,6 @@ const Main ={
         this.adcionarEventos()
         this.apiDOSprodutos()   
         this.atualizarcarrinho()
-        this.sincronizandoaApi()  
         this.apagar()
 
     },
@@ -67,17 +66,17 @@ return produtosapi
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
 
-this.sincronizandoaApi
+
 })},
 
-
+/*
 sincronizandoaApi:function(e){
 
 const prod = localStorage.getItem("tasks")
 this.produtos = JSON.parse(prod) 
 
 },
-
+*/
 Events:{
 
 abrirfecharCarrinho_click:function(e){
@@ -122,17 +121,13 @@ const cartaoProdutos = ` <article id="prodnocarrinho">
 
 
                         this.$menucarrinho.innerHTML += cartaoProdutos
-                    const localstoragProd = this.produtos.filter( itens => itens.id == id )
-             
-                 
+                    const localstoragProd = this.produtos.find( itens => itens.id == id )
 
                     const savestryng = localStorage.getItem("car")
                     const saveobj = JSON.parse(savestryng)
                     
                     const obj = [localstoragProd, ...saveobj]
                     localStorage.setItem("car", JSON.stringify(obj))
-
-                 
 
                     const itens = this.bugcar=document.querySelectorAll("#prodnocarrinho")
                     
@@ -157,14 +152,31 @@ apagar: function(){
             const objsalvos = JSON.parse(nocarrinho)
             
             this.gitstorage = objsalvos
-      
-            
+
+            const newGit = this.gitstorage.map( itens => {
+              const newarray = {
+                       id:itens.id,
+                       nome:itens.nome,
+                       valor:itens.valor,
+                       img:itens.img,
+                       recheio:itens.recheio
+              }
+             return newarray
+
+            })
+              
   const id = e.target.dataset.local 
-  const contID = this.gitstorage.findIndex( itenscar =>   console.log(itenscar[0].id))
-  
+  const contID = newGit.find( itenscar =>  itenscar.id == id)
+  const reslt = contID.id
   
 
 
+
+
+
+
+
+console.log(teste =document.querySelector('.menucarrinho') )
 
        
         })
