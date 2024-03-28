@@ -52,7 +52,7 @@ apiDOSprodutos: function(){
     .then(response => response.json())    
     .then(data => {    
         
-this.produtos = data.map( itens =>{
+this.produtos = data.map( itens  =>{
 
 const produtosapi = {     
        "nome": itens.nome,
@@ -77,6 +77,27 @@ this.produtos = JSON.parse(prod)
 
 },
 */
+
+corpoHTML: function(positionCartao){
+const quantitativo = 0 
+    return ` <article id="prodnocarrinho">
+    <p id="excluir"  data-local="${positionCartao.id}" >X</P>
+    <img id="imgcartao" src="/imagens/${positionCartao.img}">
+    <div>
+        <p>${positionCartao.recheio}</p>
+        <p>R$${positionCartao.valor}</p>
+    </div>
+    <div id="quantidade">
+        <p id="crementar">+</p>
+        <p id="crementar">${quantitativo}</p>
+        <p id="incrementar">-</p>
+    </div>
+</article>`
+
+
+},
+
+
 Events:{
 
 abrirfecharCarrinho_click:function(e){
@@ -103,24 +124,10 @@ const positionCartao = this.produtos.find( itens => itens.id == id)
 const quantitativo = 0
 
  
-
-    
-const cartaoProdutos = ` <article id="prodnocarrinho">
-                            <p id="excluir"  data-local="${positionCartao.id}" >X</P>
-                            <img id="imgcartao" src="/imagens/${positionCartao.img}">
-                            <div>
-                                <p>${positionCartao.recheio}</p>
-                                <p>R$${positionCartao.valor}</p>
-                            </div>
-                            <div id="quantidade">
-                                <p id="crementar">+</p>
-                                <p id="crementar">${quantitativo}</p>
-                                <p id="incrementar">-</p>
-                            </div>
-                        </article>`
+const cartaoProdutos = this.corpoHTML(positionCartao, quantitativo)
 
 
-                        this.$menucarrinho.innerHTML += cartaoProdutos
+                          this.$menucarrinho.innerHTML += cartaoProdutos
                     const localstoragProd = this.produtos.find( itens => itens.id == id )
 
                     const savestryng = localStorage.getItem("car")
@@ -144,6 +151,7 @@ const cartaoProdutos = ` <article id="prodnocarrinho">
 apagar: function(){
     this.$apagarCar=document.querySelectorAll("#excluir")   
     const self = this
+    
    
     this.$apagarCar.forEach( itens=> {
         itens.addEventListener("click", function(e){
@@ -171,28 +179,48 @@ apagar: function(){
   
 
 
+const filtrando = newGit.filter(itens => itens.id != reslt)
+const teste =document.querySelector('.menucarrinho')
 
 
+  filtrando.forEach( positionCartao =>{
+    const quantitativo = 0 
 
 
+           const html =  ` <article id="prodnocarrinho">
+                        <p id="excluir"  data-local="${positionCartao.id}" >X</P>
+                        <img id="imgcartao" src="/imagens/${positionCartao.img}">
+                        <div>
+                            <p>${positionCartao.recheio}</p>
+                            <p>R$${positionCartao.valor}</p>
+                        </div>
+                        <div id="quantidade">
+                            <p id="crementar">+</p>
+                            <p id="crementar">${quantitativo}</p>
+                            <p id="incrementar">-</p>
+                        </div>
+                    </article>`
 
-console.log(teste =document.querySelector('.menucarrinho') )
 
-       
-        })
+                   
+        teste.innerHTML += html
 
+
+     })
+
+alert("ok")
+
+        
     })
 
 
-
-
-    }
-   
     
 
+})
+
+
 }
-
-
+}
 
 
 
