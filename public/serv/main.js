@@ -52,7 +52,7 @@ apiDOSprodutos: function(){
     .then(response => response.json())    
     .then(data => {    
         
-this.produtos = data.map( itens =>{
+this.produtos = data.map( itens  =>{
 
 const produtosapi = {     
        "nome": itens.nome,
@@ -66,13 +66,17 @@ return produtosapi
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
 
+
 this.apagar()
 })},
 
 
 
+
+
 corpoHTML: function(positionCartao){
     const quantitativo = 0 
+
 
     this.apagar()
         return ` <article id="prodnocarrinho">
@@ -136,34 +140,40 @@ this.$menucarrinho.appendChild(elementclass)
                     
 },
 
+
 apagar: function(){
     this.$apagarCar=document.querySelectorAll("#excluir")   
+
     this.bugcar=document.querySelectorAll("#prodnocarrinho")
     const self = this               
-   
+  
     this.$apagarCar.forEach( itens=> {
         itens.addEventListener("click",function(e){
          
             const nocarrinho = localStorage.getItem("car")
             const objsalvos = JSON.parse(nocarrinho)
             
+
             self.gitstorage = objsalvos
                 
               
   const id = e.target.dataset.local 
   const contID = self.gitstorage.filter( itenscar => { 
     return itenscar.id != id
-    
-     })
-     console.log(contID)
 
+     })
+
+
+     localStorage.setItem("car", JSON.stringify(contID))
+    const teste02 = localStorage.getItem("car")
+    const produtosSalvos = JSON.parse(teste02)
 
 
 
  const teste =document.querySelector('.menucarrinho')
 teste.innerHTML = ""
 
-self.gitstorage.forEach( positionCartao =>{
+produtosSalvos.forEach( positionCartao =>{
 
            const html =  ` <article id="prodnocarrinho">
                         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
@@ -179,8 +189,8 @@ self.gitstorage.forEach( positionCartao =>{
                         </div>
                     </article>`
 
-                   teste.innerHTML += html
-                   self.apagar()
+                teste.innerHTML += html
+                self.apagar()
      })
 
 
@@ -192,7 +202,6 @@ self.gitstorage.forEach( positionCartao =>{
 
 
 }
-
 
 
 Main.init()
