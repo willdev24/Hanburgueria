@@ -1,4 +1,3 @@
-
 const Main ={
 
     produtos:[],
@@ -69,6 +68,8 @@ localStorage.setItem("tasks", JSON.stringify(this.produtos))
 
 this.apagar()
 })},
+
+
 
 
 
@@ -186,7 +187,8 @@ produtosSalvos.forEach( positionCartao =>{
                             <p id="incrementar">-</p>
                         </div>
                     </article>`
-
+                    
+                  
                 teste.innerHTML += html
                 self.apagar()
      })
@@ -194,7 +196,7 @@ produtosSalvos.forEach( positionCartao =>{
 
         
     })
-
+ 
 })
 }
 
