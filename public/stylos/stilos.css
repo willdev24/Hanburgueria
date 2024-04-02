@@ -67,7 +67,7 @@ li{
     
 }
 #carrinho:hover{
-    background-color:  rgba(0, 204, 255, 0.769);
+    background-color:  rgb(255, 255, 255);
 
 }
 
@@ -76,19 +76,20 @@ cursor: pointer;
 }
 
 .container .menucarrinho{
-    background-color: rgba(0, 0, 0, 0.918);
-    height:95%;
-    width: 19vw;
-    top: 70px;
+    background-color: rgba(255, 94, 0, 0.986);
+    height:89%;
+    width: 22vw;
+    top: 95px;
     position:fixed;
     right: -100%;
     transition: 500ms;
-    outline: thick double  rgba(0, 204, 255, 0.769);
+    outline: thick double  rgb(255, 255, 255);
 }
 .container .menucarrinho.abrirCarrinho{
     right: 0%;
     transition: 500ms;
     border-radius: 10px;
+
 }
 
 #imgcartao{
@@ -98,14 +99,22 @@ cursor: pointer;
 }
 
 #prodnocarrinho{
-    
-    background-color: rgba(12, 182, 197, 0.18);
-    padding: 40px;
-    margin-top: 1px;
-    border-radius: 25px;
+    margin-left: 20px;
+    margin-top: 25px;
+    width: 89%;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 800;
+    background-color: rgb(255, 200, 106);
+border-radius: 20px;
+outline: thick double  rgb(224, 224, 224);
 
-    
 }
 
 
+
+.menucarrinho{
+
+    overflow-y: scroll;
+}
     
