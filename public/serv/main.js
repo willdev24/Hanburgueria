@@ -190,9 +190,9 @@ produtosSalvos.forEach( positionCartao =>{
                     
                   
                 teste.innerHTML += html
-                self.apagar()
+               
      })
-
+     self.apagar()
 
         
     })

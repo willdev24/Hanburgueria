@@ -29,7 +29,7 @@ row-gap: 5ch;
     background-color: black;
     color: aliceblue;
 transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-
+outline: thick double  rgb(255, 225, 0);
 }
 
 #addi{
@@ -79,15 +79,15 @@ cursor: pointer;
 
 #nome{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-color: rgb(161, 6, 151);
-font-size: 20px;
+color: rgb(255, 255, 255);
+font-size: 25px;
 width: 50%;
 cursor: pointer;
 margin-left: -30px;
 }
 
 #nome:hover{
-    color: rgb(253, 5, 47)
+    color: rgb(211, 231, 220)
     
 }
 
