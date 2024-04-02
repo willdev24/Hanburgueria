@@ -76,14 +76,14 @@ cursor: pointer;
 }
 
 .container .menucarrinho{
-    background-color: rgba(255, 94, 0, 0.986);
+    background-color: rgb(138, 51, 0);
     height:89%;
     width: 22vw;
     top: 95px;
     position:fixed;
     right: -100%;
     transition: 500ms;
-    outline: thick double  rgb(255, 255, 255);
+    outline: thick double  rgb(255, 140, 0);
 }
 .container .menucarrinho.abrirCarrinho{
     right: 0%;
@@ -107,7 +107,7 @@ cursor: pointer;
     font-weight: 800;
     background-color: rgb(255, 200, 106);
 border-radius: 20px;
-outline: thick double  rgb(224, 224, 224);
+outline: thick double  rgb(255, 140, 0);
 
 }
 
