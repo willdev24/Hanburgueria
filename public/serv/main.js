@@ -72,8 +72,6 @@ this.apagar()
 
 
 
-
-
 corpoHTML: function(positionCartao){
     const quantitativo = 0 
 
@@ -196,7 +194,7 @@ produtosSalvos.forEach( positionCartao =>{
 
         
     })
- 
+
 })
 }
 
@@ -205,4 +203,3 @@ produtosSalvos.forEach( positionCartao =>{
 
 
 Main.init()
-
