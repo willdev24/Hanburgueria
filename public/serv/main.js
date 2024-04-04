@@ -130,8 +130,8 @@ this.validarProd = JSON.parse(validar)
 
 const posisao = this.validarProd.find( intensSlavod => intensSlavod.id == id)
 
-console.log(posisao)
-if( posisao == id){
+
+if( posisao ){
     this.Quantidade()
 
                 }else{  
