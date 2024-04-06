@@ -1,8 +1,8 @@
-
 const Main ={
 
     produtos:[],
     gitstorage:[],
+    validarProd:[],
 
     init:function(){
 
@@ -11,6 +11,7 @@ const Main ={
         this.apiDOSprodutos()   
         this.atualizarcarrinho()
         this.apagar()
+        this.Quantidade()
 
     },
     
@@ -75,20 +76,22 @@ this.apagar()
 
 
 corpoHTML: function(positionCartao){
-    const quantitativo = 0 
+    const quantitativo = 1
 
 
     this.apagar()
         return ` <article id="prodnocarrinho">
         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
+      
+     <div  id="recheio">
+        <p>${positionCartao.recheio}</p>
+        <p id="dinheiro">R$${positionCartao.valor}</p>
+    </div>
         <img id="imgcartao" src="/imagens/${positionCartao.img}">
-        <div>
-            <p>${positionCartao.recheio}</p>
-            <p>R$${positionCartao.valor}</p>
-        </div>
+       
         <div id="quantidade">
             <p id="crementar">+</p>
-            <p id="crementar">${quantitativo}</p>
+            <p id="va">${quantitativo}</p>
             <p id="incrementar">-</p>
         </div>
     </article>`
@@ -120,22 +123,37 @@ addicionarCarrinho_click:function(e){
 const id = e.target.dataset.local
 const positionCartao = this.produtos.find( itens => itens.id == id)
 
-const elementclass = document.createElement( "article")
 
-elementclass.innerHTML = this.corpoHTML(positionCartao)
-this.$menucarrinho.appendChild(elementclass)
-           
-        const localstoragProd = this.produtos.find( itens => itens.id == id )
-    
-        const savestryng = localStorage.getItem("car")
-        const saveobj = JSON.parse(savestryng)
-                
-        const obj = [localstoragProd, ...saveobj]
-                    localStorage.setItem("car", JSON.stringify(obj))
+//verificando se ja tem o mesmo produto no carrinho
+const validar = localStorage.getItem("car")
+this.validarProd = JSON.parse(validar)
+
+const posisao = this.validarProd.find( intensSlavod => intensSlavod.id == id)
 
 
-                    this.apagar()
-                }
+if( posisao ){
+    this.Quantidade()
+
+                }else{  
+                    const elementclass = document.createElement( "article")
+                    
+                    elementclass.innerHTML = this.corpoHTML(positionCartao)
+                    this.$menucarrinho.appendChild(elementclass)
+                               
+                            const localstoragProd = this.produtos.find( itens => itens.id == id )
+                        
+                            const savestryng = localStorage.getItem("car")
+                            const saveobj = JSON.parse(savestryng)
+                                    
+                            const obj = [localstoragProd, ...saveobj]
+                                        localStorage.setItem("car", JSON.stringify(obj))
+                    
+                    
+                                        this.apagar() }
+
+
+
+    }
                 
                     
 },
@@ -177,18 +195,21 @@ produtosSalvos.forEach( positionCartao =>{
 
         const html =  ` <article id="prodnocarrinho">
                         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
+                       
+                        <div id="recheio">
+                        <p>${positionCartao.recheio}</p>
+                        <p id="dinheiro">R$${positionCartao.valor}</p>
+                    </div>
                         <img id="imgcartao" src="/imagens/${positionCartao.img}">
-                        <div>
-                            <p>${positionCartao.recheio}</p>
-                            <p>R$${positionCartao.valor}</p>
-                        </div>
+                        
                         <div id="quantidade">
                             <p id="crementar">+</p>
-                            <p id="crementar">$"0"</p>
+                            <p id="va"> 1 </p>
                             <p id="incrementar">-</p>
                         </div>
                     </article>`
-
+                    
+                  
                 teste.innerHTML += html
                
      })
@@ -198,6 +219,18 @@ produtosSalvos.forEach( positionCartao =>{
     })
  
 })
+},
+
+Quantidade: function(){
+    this.$quantidades = document.querySelectorAll("#va")
+    
+    const nocarrinho = localStorage.getItem("car")
+    const objsalvos = JSON.parse(nocarrinho)
+    
+
+console.log("deu certo")
+
+
 }
 
 
@@ -205,4 +238,3 @@ produtosSalvos.forEach( positionCartao =>{
 
 
 Main.init()
-
