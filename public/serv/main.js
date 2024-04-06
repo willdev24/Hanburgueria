@@ -156,26 +156,26 @@ apagar: function(){
 
             self.gitstorage = objsalvos
                 
-              
-  const id = e.target.dataset.local 
-  const contID = self.gitstorage.filter( itenscar => { 
+    
+    const id = e.target.dataset.local 
+    const contID = self.gitstorage.filter( itenscar => { 
     return itenscar.id != id
 
-     })
+    })
 
 
-     localStorage.setItem("car", JSON.stringify(contID))
+    localStorage.setItem("car", JSON.stringify(contID))
     const teste02 = localStorage.getItem("car")
     const produtosSalvos = JSON.parse(teste02)
 
 
 
- const teste =document.querySelector('.menucarrinho')
+    const teste =document.querySelector('.menucarrinho')
 teste.innerHTML = ""
 
 produtosSalvos.forEach( positionCartao =>{
 
-           const html =  ` <article id="prodnocarrinho">
+        const html =  ` <article id="prodnocarrinho">
                         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
                         <img id="imgcartao" src="/imagens/${positionCartao.img}">
                         <div>
