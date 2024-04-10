@@ -118,3 +118,19 @@ outline: thick double  rgb(255, 140, 0);
     overflow-y: scroll;
 }
     
+
+
+#area{
+    background-color: rgb(17, 19, 20);
+
+    height: 100vh;
+    width: 100vw;
+}
+
+#degrader{
+    margin-top: -02px;
+    background-color: black;
+    width: 102%;
+    height: 10vh;
+    margin-left: -20px;
+}
