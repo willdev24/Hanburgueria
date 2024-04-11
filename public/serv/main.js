@@ -61,6 +61,7 @@ const produtosapi = {
         "img":itens.img,
         "recheio":itens.recheio,
         "id":itens.id,
+        "quantidade": 1
     }
 
 return produtosapi
@@ -91,11 +92,10 @@ corpoHTML: function(positionCartao){
        
         <div id="quantidade">
             <p id="crementar">+</p>
-            <p id="va">${quantitativo}</p>
+            <p id="va">${positionCartao.quantidade}</p>
             <p id="incrementar">-</p>
         </div>
     </article>`
-    
     
     },
     
@@ -132,7 +132,7 @@ const posisao = this.validarProd.find( intensSlavod => intensSlavod.id == id)
 
 
 if( posisao ){
-    this.Quantidade()
+    this.Quantidade(id)
 
                 }else{  
                     const elementclass = document.createElement( "article")
@@ -193,6 +193,7 @@ teste.innerHTML = ""
 
 produtosSalvos.forEach( positionCartao =>{
 
+   const quantidade = 1
         const html =  ` <article id="prodnocarrinho">
                         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
                        
@@ -204,7 +205,7 @@ produtosSalvos.forEach( positionCartao =>{
                         
                         <div id="quantidade">
                             <p id="crementar">+</p>
-                            <p id="va"> 1 </p>
+                            <p id="va">${positionCartao.quantidade }</p>
                             <p id="incrementar">-</p>
                         </div>
                     </article>`
@@ -221,14 +222,75 @@ produtosSalvos.forEach( positionCartao =>{
 })
 },
 
-Quantidade: function(){
+Quantidade: function(objss){
+
     this.$quantidades = document.querySelectorAll("#va")
     
+    const podnoCarrinho = document.querySelector
+   
+
     const nocarrinho = localStorage.getItem("car")
     const objsalvos = JSON.parse(nocarrinho)
+
+
+    const teste =document.querySelector('.menucarrinho')
+    teste.innerHTML = ""
+    
+        objsalvos.forEach( positionCartao =>{
     
 
-console.log("deu certo")
+            if(positionCartao.id == objss){
+                const cont = positionCartao.quantidade + 1
+
+                console.log(objsalvos)
+
+ 
+                const html =  ` <article id="prodnocarrinho">
+                <p id="excluir"  data-local="${positionCartao.id}" >X</P>
+            
+                <div id="recheio">
+                <p>${positionCartao.recheio}</p>
+                <p id="dinheiro">R$${positionCartao.valor}</p>
+            </div>
+                <img id="imgcartao" src="/imagens/${positionCartao.img}">
+                
+                <div id="quantidade">
+                    <p id="crementar">+</p>
+                    <p id="va">${cont}</p>
+                    <p id="incrementar">-</p>
+                </div>
+            </article>`
+            teste.innerHTML += html
+
+            
+
+            }else{
+
+            
+                const html =  ` <article id="prodnocarrinho">
+                                <p id="excluir"  data-local="${positionCartao.id}" >X</P>
+                                
+                                <div id="recheio">
+                                <p>${positionCartao.recheio}</p>
+                                <p id="dinheiro">R$${positionCartao.valor}</p>
+                            </div>
+                                <img id="imgcartao" src="/imagens/${positionCartao.img}">
+                                
+                                <div id="quantidade">
+                                    <p id="crementar">+</p>
+                                    <p id="va">${positionCartao.quantidade }</p>
+                                    <p id="incrementar">-</p>
+                                </div>
+                            </article>`
+                            teste.innerHTML += html
+                            }
+    })
+
+
+
+  
+
+
 
 
 }
