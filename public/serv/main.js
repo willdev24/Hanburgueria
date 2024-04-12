@@ -3,6 +3,7 @@ const Main ={
     produtos:[],
     gitstorage:[],
     validarProd:[],
+    objsalvos:[],
 
     init:function(){
 
@@ -223,28 +224,33 @@ produtosSalvos.forEach( positionCartao =>{
 },
 
 Quantidade: function(objss){
-
+const self = this 
     this.$quantidades = document.querySelectorAll("#va")
     
     const podnoCarrinho = document.querySelector
    
 
     const nocarrinho = localStorage.getItem("car")
-    const objsalvos = JSON.parse(nocarrinho)
+    self.objsalvos = JSON.parse(nocarrinho)
 
 
     const teste =document.querySelector('.menucarrinho')
     teste.innerHTML = ""
-    
-        objsalvos.forEach( positionCartao =>{
-    
 
+    const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss )
+    
+        self.objsalvos.forEach( positionCartao =>{
+            const cont = positionCartao.quantidade + 1
             if(positionCartao.id == objss){
-                const cont = positionCartao.quantidade + 1
 
-                console.log(objsalvos)
+             self.objsalvos.splice(contabilizar,1, {    id:positionCartao.id, 
+                                                        img:positionCartao.img, 
+                                                        nome:positionCartao.nome, 
+                                                        quantidade:cont, 
+                                                        recheio:positionCartao.recheio, 
+                                                        valor:positionCartao.valor})
 
- 
+               
                 const html =  ` <article id="prodnocarrinho">
                 <p id="excluir"  data-local="${positionCartao.id}" >X</P>
             
@@ -262,7 +268,7 @@ Quantidade: function(objss){
             </article>`
             teste.innerHTML += html
 
-            
+        
 
             }else{
 
@@ -285,13 +291,8 @@ Quantidade: function(objss){
                             teste.innerHTML += html
                             }
     })
-
-
-
-  
-
-
-
+   localStorage.setItem("car",JSON.stringify(self.objsalvos))
+    self.apagar()
 
 }
 
