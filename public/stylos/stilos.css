@@ -122,7 +122,7 @@ outline: thick double  rgb(255, 140, 0);
 
 
 #area{
-    background-color: rgb(17, 19, 20);
+    background-color: rgb(151, 151, 151);
 
     height: 40vh;
     width: 100vw;
@@ -130,7 +130,7 @@ outline: thick double  rgb(255, 140, 0);
 
 #degrader{
     margin-top: -02px;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     width: 102%;
     height: 10vh;
     margin-left: -20px;
@@ -199,5 +199,65 @@ outline: thick double  rgb(255, 140, 0);
     #infor li p{
         margin-top: 5px;
     }
+
+    #inicio{
+        height: 100vh;
+    }
+
+    #formas{
+        margin-top: 30px;
+        height: 110px;
+        
+    }
+
+    #contatos {
+        display: inline-block;
+      
+     
+    }
+    #contatos p{
+       font-size: x-large;
+    }
+        
+    
+
+    #contatos img{
+        margin-top: 30px;
+        height: 70px;
+        
+    }
+    #contatos img:hover{
+        
+        height: 90px;
+        
+    }
+
+    #local {
+       height: 250px;
+       width: 450px;
+       
+    }
+    
+    #locau{
+        height: 40px;
+          }
+        
+        
+
+    #end p{
+
+        font-size: x-large;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    li{   font-size: x-large;
+    }
+
+    #horas li {
+        width: 50%;
+        font-size: x-large;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
 
    
