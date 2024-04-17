@@ -29,7 +29,7 @@ row-gap: 5ch;
     background-color: black;
     color: aliceblue;
 transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-outline: thick double  rgb(255, 225, 0);
+
 }
 
 #addi{

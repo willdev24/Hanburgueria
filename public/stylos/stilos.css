@@ -76,22 +76,30 @@ li{
 cursor: pointer;
 }
 
-.container .menucarrinho{
+.container .menucarrinho {
     background-color: rgb(138, 51, 0);
-    height:89%;
+    height:80vh;
     width: 22vw;
     top: 95px;
     position:fixed;
     right: -100%;
     transition: 500ms;
-    outline: thick double  rgb(255, 140, 0);
+    
 }
-.container .menucarrinho.abrirCarrinho{
+.container .menucarrinho.abrirCarrinho {
     right: 0%;
     transition: 500ms;
     border-radius: 10px;
 
+
 }
+
+#finalizar{
+    position: absolute;
+   padding: 16px 20px;
+ background-color: rgb(6, 255, 68);
+}
+
 
 #imgcartao{
     width: 250px;
@@ -108,7 +116,7 @@ cursor: pointer;
     font-weight: 800;
     background-color: rgb(255, 200, 106);
 border-radius: 20px;
-outline: thick double  rgb(255, 140, 0);
+outline: thick double  rgb(255, 255, 255);
 
 }
 

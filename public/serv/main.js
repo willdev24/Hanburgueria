@@ -110,10 +110,11 @@ const done=carrinho.classList.contains('abrirCarrinho')
 if(done == false){
 
     carrinho.classList.add('abrirCarrinho')
-
+    carrinho.classList.add('campo')
 }else{
 
     carrinho.classList.remove('abrirCarrinho')
+    carrinho.classList.remove('campo')
 }
 
 },
