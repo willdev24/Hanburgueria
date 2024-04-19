@@ -106,15 +106,16 @@ Events:{
 abrirfecharCarrinho_click:function(e){
 const carrinho = this.$menucarrinho
 const done=carrinho.classList.contains('abrirCarrinho')
+const campo = document.querySelector("#campo")
 
 if(done == false){
 
     carrinho.classList.add('abrirCarrinho')
-    carrinho.classList.add('campo')
+    
 }else{
 
     carrinho.classList.remove('abrirCarrinho')
-    carrinho.classList.remove('campo')
+  
 }
 
 },
