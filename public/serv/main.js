@@ -13,6 +13,7 @@ const Main ={
         this.atualizarcarrinho()
         this.apagar()
         this.Quantidade()
+        this.descrementar()
 
     },
     
@@ -21,7 +22,6 @@ buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
     this.$menucarrinho =document.querySelector('.menucarrinho')    
     this.$produtos=document.querySelectorAll("#addi")
-   
     
 },
 
@@ -78,11 +78,12 @@ this.apagar()
 
 
 corpoHTML: function(positionCartao){
-    const quantitativo = 1
+    
 
 
     this.apagar()
-        return ` <article id="prodnocarrinho">
+      
+    return ` <article id="prodnocarrinho">
         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
       
      <div  id="recheio">
@@ -152,13 +153,11 @@ if( posisao ){
                                         localStorage.setItem("car", JSON.stringify(obj))
                     
                     
-                                        this.apagar() }
+                                        this.apagar()
+                                        this.descrementar() 
+                                    }
 
-
-
-    }
-                
-                    
+    }                                 
 },
 
 
@@ -196,7 +195,7 @@ teste.innerHTML = ""
 
 produtosSalvos.forEach( positionCartao =>{
 
-   const quantidade = 1
+  
         const html =  ` <article id="prodnocarrinho">
                         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
                        
@@ -218,7 +217,7 @@ produtosSalvos.forEach( positionCartao =>{
                
      })
      self.apagar()
-
+     self.descrementar()
         
     })
  
@@ -270,11 +269,8 @@ const self = this
             </article>`
             teste.innerHTML += html
 
-        
-
             }else{
 
-            
                 const html =  ` <article id="prodnocarrinho">
                                 <p id="excluir"  data-local="${positionCartao.id}" >X</P>
                                 
@@ -295,7 +291,27 @@ const self = this
     })
    localStorage.setItem("car",JSON.stringify(self.objsalvos))
     self.apagar()
+self.descrementar()
+},
 
+
+
+descrementar: function(){
+
+const self = this
+
+self.$incrementar = document.querySelectorAll("#incrementar")
+
+self.$incrementar.forEach( prodIncrement=>{
+    
+prodIncrement.addEventListener("click", function(){
+
+   alert("diminuir")
+})
+
+})
+
+    
 }
 
 
