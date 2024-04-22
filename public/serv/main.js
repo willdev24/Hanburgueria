@@ -93,9 +93,9 @@ corpoHTML: function(positionCartao){
         <img id="imgcartao" src="/imagens/${positionCartao.img}">
        
         <div id="quantidade">
-            <p id="crementar">+</p>
+            <p id="crementar" data-local="${positionCartao.id}">+</p>
             <p id="va">${positionCartao.quantidade}</p>
-            <p id="incrementar">-</p>
+            <p id="incrementar" data-local="${positionCartao.id}">-</p>
         </div>
     </article>`
     
@@ -206,9 +206,9 @@ produtosSalvos.forEach( positionCartao =>{
                         <img id="imgcartao" src="/imagens/${positionCartao.img}">
                         
                         <div id="quantidade">
-                            <p id="crementar">+</p>
+                            <p id="crementar" data-local="${positionCartao.id}">+</p>
                             <p id="va">${positionCartao.quantidade }</p>
-                            <p id="incrementar">-</p>
+                            <p id="incrementar" data-local="${positionCartao.id}">-</p>
                         </div>
                     </article>`
                     
@@ -227,23 +227,20 @@ produtosSalvos.forEach( positionCartao =>{
 Quantidade: function(objss){
 const self = this 
     this.$quantidades = document.querySelectorAll("#va")
-    
-    const podnoCarrinho = document.querySelector
-   
 
-    const nocarrinho = localStorage.getItem("car")
+    const nocarrinho = localStorage.getItem("car") //produtos no carrinho
     self.objsalvos = JSON.parse(nocarrinho)
 
 
-    const teste =document.querySelector('.menucarrinho')
+    const teste =document.querySelector('.menucarrinho')//limpo o carrinho 
     teste.innerHTML = ""
-
-    const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss )
+                                                                                     //encontrando a posiçao do produto dentro do array
+    const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss ) //uso em varios lugares: preciso usar como uma funçao pra reduzir o uso desse elemento
     
-        self.objsalvos.forEach( positionCartao =>{
+        self.objsalvos.forEach( positionCartao =>{ // reconstruindo os produtos 
             const cont = positionCartao.quantidade + 1
             if(positionCartao.id == objss){
-
+                                                        //modificando so a quantidade do array original e no localhost
              self.objsalvos.splice(contabilizar,1, {    id:positionCartao.id, 
                                                         img:positionCartao.img, 
                                                         nome:positionCartao.nome, 
@@ -251,8 +248,8 @@ const self = this
                                                         recheio:positionCartao.recheio, 
                                                         valor:positionCartao.valor})
 
-               
-                const html =  ` <article id="prodnocarrinho">
+               // reconstruçao dos produtos ja atualizado 
+                const html =  ` <article id="prodnocarrinho"> 
                 <p id="excluir"  data-local="${positionCartao.id}" >X</P>
             
                 <div id="recheio">
@@ -262,14 +259,14 @@ const self = this
                 <img id="imgcartao" src="/imagens/${positionCartao.img}">
                 
                 <div id="quantidade">
-                    <p id="crementar">+</p>
+                    <p id="crementar" data-local="${positionCartao.id}">+</p>
                     <p id="va">${cont}</p>
-                    <p id="incrementar">-</p>
+                    <p id="incrementar" data-local="${positionCartao.id}">-</p>
                 </div>
             </article>`
             teste.innerHTML += html
 
-            }else{
+            }else{ // esse else reconstroi tudo que ta no local host, mesmo que atualize a pagna 
 
                 const html =  ` <article id="prodnocarrinho">
                                 <p id="excluir"  data-local="${positionCartao.id}" >X</P>
@@ -281,9 +278,9 @@ const self = this
                                 <img id="imgcartao" src="/imagens/${positionCartao.img}">
                                 
                                 <div id="quantidade">
-                                    <p id="crementar">+</p>
+                                    <p id="crementar" data-local="${positionCartao.id}">+</p>
                                     <p id="va">${positionCartao.quantidade }</p>
-                                    <p id="incrementar">-</p>
+                                    <p id="incrementar" data-local="${positionCartao.id}">-</p>
                                 </div>
                             </article>`
                             teste.innerHTML += html
@@ -304,7 +301,15 @@ self.$incrementar = document.querySelectorAll("#incrementar")
 
 self.$incrementar.forEach( prodIncrement=>{
     
-prodIncrement.addEventListener("click", function(){
+prodIncrement.addEventListener("click", function(e){
+
+const idcarrinho = e.target.dataset.local
+self.objsalvos.find
+
+
+
+
+
 
    alert("diminuir")
 })
