@@ -25,9 +25,9 @@ app.get("/endereco",(req, res)=>{
 })
 
 
-app.get("/contatos",(req, res)=>{
+app.get("/pedidos",(req, res)=>{
 
-    res.render("contatos")
+    res.render("pedidos")
 })
 
 

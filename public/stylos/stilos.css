@@ -226,13 +226,14 @@ outline: thick double  rgb(255, 255, 255);
     
 
     #contatos img{
-        margin-top: 30px;
-        height: 70px;
-        
+        margin-top: 20px;
+        height: 50px;
+        transition: 250ms;
     }
+
     #contatos img:hover{
         
-        height: 90px;
+        height: 60px;
         
     }
 
@@ -251,7 +252,7 @@ outline: thick double  rgb(255, 255, 255);
     #end p{
 
         font-size: x-large;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
     
     li{   font-size: x-large;
