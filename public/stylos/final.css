@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+*{box-sizing: border-box;
+    margin: 0;
+    padding: 0;}
+    
+body{
+    color: black    ;
+    background-color: rgb(255, 255, 255)
+}
+
+
+#pai form{
+
+    position: relative;
+    display: flex;
+}
+
+    #primeiraT ,#primeiraT2, #primeiraT3  {
+        position: static;
+        background-color:rgb(216, 216, 216);
+        padding: 50px 100px;
+        margin-left: 40px;
+        margin-top: 100px;
+        height: 80vh;
+        font-size: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 1em rgb(19, 18, 18);
+    }
+
+    #primeiraT input{
+
+        margin-top: 10px;
+        font-size: 25px;
+        padding: 15px 30px;
+
+
+    }

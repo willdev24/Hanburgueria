@@ -2,23 +2,52 @@
 <html lang="pt-br">
 <head>
             <%- include("partials/head.ejs")  %>  
-            <link rel="stylesheet" href="/stylos/cartao.css">
+            <link rel="stylesheet" href="/stylos/final.css">
 </head>
 <body>
 
 
 <main id="inicio">
 
+<section id="pai">
+<form action="/finalizandoCompra" method="post">
 
-</main>
 
-<section>
-    <%- include("partials/roda_pe.ejs") %>
+<article id="primeiraT2">
+  <h2>adicionais</h2>
+</article>
+
+<article id="primeiraT3">
+    <h2>lista de pedidos</h2>
+</article>
+
+<article id="primeiraT">
+
+    <input type="text" placeholder="digite seu nome comleto" ><br>
+ 
+    <input type="text" placeholder="digite seu endereço"><br>
+  
+    <input type="text" placeholder="digite um complemento"><br>
+    
+    <input type="number" placeholder="digite um numero para contato">
+
+    <p id="valor total">total R$:</p>
+    
+</article>
+
+
+
+</form>
 </section>
 
 
-</body>
 
+</main>
+
+
+
+</body>
+<script src="/serv/checkout.js"></script>
 <%- include("partials/foot.ejs")  %>  
 
 </html>
