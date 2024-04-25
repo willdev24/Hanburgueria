@@ -81,7 +81,7 @@ cursor: pointer;
 
 .container .menucarrinho , #campo{
     background-color: rgba(0, 0, 0, 0.938);
-    height:80vh;
+    height:67vh;
     width: 22vw;
     top: 95px;
     position:fixed;
@@ -96,13 +96,36 @@ cursor: pointer;
 
 
 }
+#finalizarPedido{
+margin-top: 160%;
+padding: 10px 30px;
 
+
+}
+
+#finalizar{
+    padding: 16px 100px;
+    border-radius: 20px;
+    background-color: goldenrod;
+    color: rgb(255, 239, 239);
+    font-size: 20px;
+    cursor: pointer;
+   
+    
+}
+#finalizar:hover{
+   
+    background-color: rgb(255, 255, 255);
+    color:goldenrod;
+    
+}
 
 #campo{
     height: 85vh;
-    background-color: rgba(0, 0, 0, 0.938);
+    background-color: rgba(0, 0, 0, 0.966);
     box-shadow: 0 0 1em rgb(255, 187, 0);
 }
+
 
 
 
@@ -121,7 +144,7 @@ cursor: pointer;
     font-weight: 800;
     background-color: rgb(255, 200, 106);
 border-radius: 20px;
-outline: thick double  rgb(255, 255, 255);
+outline: thick double  rgb(255, 196, 0);
 
 }
 

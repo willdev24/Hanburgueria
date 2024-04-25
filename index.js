@@ -30,6 +30,13 @@ app.get("/pedidos",(req, res)=>{
     res.render("pedidos")
 })
 
+app.get("/checkout",(req, res)=>{
+
+    res.render("checkout")
+})
+
+
+
 
 app.get("/menu",(req, res)=>{
 

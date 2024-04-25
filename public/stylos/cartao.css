@@ -121,15 +121,17 @@ margin-left: -30px;
 }
 
 #recheio{
-position: absolute;
+    position: absolute;
     width: 50%;
     margin-top: 10px;
     font-size: smaller;
+    color: rgb(14, 36, 13);
+    padding: 0px 15px;
 }
 
 #imgcartao{
-
     margin-left: 70px;
+    margin-top: 20px;
 }
 
 #dinheiro{
