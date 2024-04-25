@@ -43,10 +43,10 @@ transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     text-align: center;
     width: 40vh;
     margin-left: -20%;
-    height: 5vh;
+    height: 6vh;
     margin-top: 50px;
     border-radius: 20px;
-    
+    transition: 250ms;
 }
 
 #addi:hover{

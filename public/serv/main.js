@@ -32,11 +32,9 @@ adcionarEventos: function(){
 
     this.$produtos.forEach( itens => {
         itens.addEventListener("click", self.Events.addicionarCarrinho_click.bind(self))
-
-    
-    });
-
    
+    });
+ 
 },
 
 
@@ -47,7 +45,7 @@ atualizarcarrinho: function(){
     this.apagar()
 },
 
-
+//conecta na api 
 apiDOSprodutos: function(){
 
     fetch('/api/database')
@@ -68,21 +66,13 @@ const produtosapi = {
 return produtosapi
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
-
-
 this.apagar()
-})},
-
-
-
+})
+},
 
 
 corpoHTML: function(positionCartao){
     
-
-
-    this.apagar()
-      
     return ` <article id="prodnocarrinho">
         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
       
@@ -103,25 +93,37 @@ corpoHTML: function(positionCartao){
     
 
 Events:{
-
 abrirfecharCarrinho_click:function(e){
 const carrinho = this.$menucarrinho
 const done=carrinho.classList.contains('abrirCarrinho')
 const campo = document.querySelector("#campo")
+const doneDuol = campo.classList.contains('abrirCarrinho')
 
-if(done == false){
 
-    carrinho.classList.add('abrirCarrinho')
+
+        if(  done == false){
+        
+            carrinho.classList.add('abrirCarrinho')
+            
+        }else{
+
+            
+            carrinho.classList.remove('abrirCarrinho')
+        }
+
+if(  doneDuol == false){
+   
+    campo.classList.add('abrirCarrinho')
     
 }else{
 
-    carrinho.classList.remove('abrirCarrinho')
-  
+    
+    campo.classList.remove('abrirCarrinho')
 }
 
 },
 
-
+//adiciona os produtos no carrinho 
 addicionarCarrinho_click:function(e){
 
 const id = e.target.dataset.local
@@ -160,11 +162,9 @@ if( posisao ){
     }                                 
 },
 
-
+//apaga os produtos do carrinho
 apagar: function(){
     this.$apagarCar=document.querySelectorAll("#excluir")   
-
-    this.bugcar=document.querySelectorAll("#prodnocarrinho")
     const self = this               
   
     this.$apagarCar.forEach( itens=> {
@@ -172,10 +172,7 @@ apagar: function(){
          
             const nocarrinho = localStorage.getItem("car")
             const objsalvos = JSON.parse(nocarrinho)
-            
-
-            self.gitstorage = objsalvos
-                
+            self.gitstorage = objsalvos        
     
     const id = e.target.dataset.local 
     const contID = self.gitstorage.filter( itenscar => { 
@@ -188,42 +185,24 @@ apagar: function(){
     const teste02 = localStorage.getItem("car")
     const produtosSalvos = JSON.parse(teste02)
 
-
-
     const teste =document.querySelector('.menucarrinho')
-teste.innerHTML = ""
+          teste.innerHTML = ""
 
-produtosSalvos.forEach( positionCartao =>{
-
+     produtosSalvos.forEach( positionCartao =>{
   
-        const html =  ` <article id="prodnocarrinho">
-                        <p id="excluir"  data-local="${positionCartao.id}" >X</P>
-                       
-                        <div id="recheio">
-                        <p>${positionCartao.recheio}</p>
-                        <p id="dinheiro">R$${positionCartao.valor}</p>
-                    </div>
-                        <img id="imgcartao" src="/imagens/${positionCartao.img}">
-                        
-                        <div id="quantidade">
-                            <p id="crementar" data-local="${positionCartao.id}">+</p>
-                            <p id="va">${positionCartao.quantidade }</p>
-                            <p id="incrementar" data-local="${positionCartao.id}">-</p>
-                        </div>
-                    </article>`
-                    
-                  
+                const html = self.corpoHTML(positionCartao)                       
                 teste.innerHTML += html
-               
-     })
+                    
+    })
+
      self.apagar()
      self.descrementar()
         
     })
- 
-})
+ })
 },
 
+// verifica se o mesmo produto ja esta no carrinho e por seguinte almenta so a quantidade 
 Quantidade: function(objss){
 const self = this 
     this.$quantidades = document.querySelectorAll("#va")
@@ -268,22 +247,8 @@ const self = this
 
             }else{ // esse else reconstroi tudo que ta no local host, mesmo que atualize a pagna 
 
-                const html =  ` <article id="prodnocarrinho">
-                                <p id="excluir"  data-local="${positionCartao.id}" >X</P>
-                                
-                                <div id="recheio">
-                                <p>${positionCartao.recheio}</p>
-                                <p id="dinheiro">R$${positionCartao.valor}</p>
-                            </div>
-                                <img id="imgcartao" src="/imagens/${positionCartao.img}">
-                                
-                                <div id="quantidade">
-                                    <p id="crementar" data-local="${positionCartao.id}">+</p>
-                                    <p id="va">${positionCartao.quantidade }</p>
-                                    <p id="incrementar" data-local="${positionCartao.id}">-</p>
-                                </div>
-                            </article>`
-                            teste.innerHTML += html
+                const html = self.corpoHTML(positionCartao)
+            teste.innerHTML += html
                             }
     })
    localStorage.setItem("car",JSON.stringify(self.objsalvos))
@@ -292,13 +257,11 @@ self.descrementar()
 },
 
 
-
+// diminuir quantidades de produtos no carrinho 
 descrementar: function(){
-
 const self = this
 
 self.$incrementar = document.querySelectorAll("#incrementar")
-
 self.$incrementar.forEach( prodIncrement=>{
     
 prodIncrement.addEventListener("click", function(e){
@@ -309,14 +272,9 @@ self.objsalvos.find
 
 
 
-
-
    alert("diminuir")
-})
-
-})
-
-    
+})})
+ 
 }
 
 

@@ -22,6 +22,7 @@ h1{
     position: absolute;
     margin-right: 70%;
     font-size: 50px;
+
 }
 
 .container header{
@@ -49,11 +50,11 @@ li{
     text-decoration: none;
     margin-left:30px;
     font-size: 20px;
-    color: whitesmoke;
+    color: rgb(245, 245, 245);
     
 }
 .container .lista .list-ind a:hover{
-    color:  rgba(0, 204, 255, 0.769);
+    color:  rgba(255, 230, 0, 0.769);
 
 }
 
@@ -76,17 +77,19 @@ li{
 cursor: pointer;
 }
 
-.container .menucarrinho {
-    background-color: rgb(138, 51, 0);
+
+
+.container .menucarrinho , #campo{
+    background-color: rgba(0, 0, 0, 0.938);
     height:80vh;
     width: 22vw;
     top: 95px;
     position:fixed;
     right: -100%;
     transition: 500ms;
-    
+
 }
-.container .menucarrinho.abrirCarrinho {
+.container .menucarrinho.abrirCarrinho, #campo.abrirCarrinho {
     right: 0%;
     transition: 500ms;
     border-radius: 10px;
@@ -94,6 +97,12 @@ cursor: pointer;
 
 }
 
+
+#campo{
+    height: 85vh;
+    background-color: rgba(0, 0, 0, 0.938);
+    box-shadow: 0 0 1em rgb(255, 187, 0);
+}
 
 
 
