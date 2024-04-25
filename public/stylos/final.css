@@ -6,7 +6,7 @@
     
 body{
     color: black    ;
-    background-color: rgb(255, 255, 255)
+    background-color: rgb(219, 170, 8)
 }
 
 
@@ -18,7 +18,7 @@ body{
 
     #primeiraT ,#primeiraT2, #primeiraT3  {
         position: static;
-        background-color:rgb(216, 216, 216);
+        background-color:rgb(240, 236, 236);
         padding: 50px 100px;
         margin-left: 40px;
         margin-top: 100px;
