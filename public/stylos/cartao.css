@@ -135,13 +135,18 @@ margin-left: -30px;
 }
 
 #imgcartao{
+    height: 180px;
     margin-left: 70px;
     margin-top: 20px;
+    
 }
 
 #dinheiro{
-    margin-top: 15px;
+    color: darkgreen;
+    margin-top: 80px;
     font-size: 25px;
+    font-size: 30px;
+    margin-left: -10px;
 }
 
 #dinheiro:hover{

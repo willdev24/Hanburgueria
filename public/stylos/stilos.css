@@ -93,6 +93,7 @@ cursor: pointer;
     position:fixed;
     right: -100%;
     transition: 500ms;
+    overflow-x: hidden;
 
 }
 .container .menucarrinho.abrirCarrinho, #campo.abrirCarrinho {
@@ -131,9 +132,11 @@ cursor: pointer;
 }
 
 
-#imgcartao{
-    width: 190px;
-    height: 120px;
+#imgProncipal{
+    
+    width: 310px;
+    height: 210px;
+    margin-left: 43px;
 }
 
 #prodnocarrinho{
@@ -144,8 +147,8 @@ cursor: pointer;
     font-size: 20px;
     font-weight: 800;
     background-color: rgb(255, 200, 106);
-border-radius: 20px;
-outline: thick double  rgb(255, 196, 0);
+    border-radius: 20px;
+    outline: thick double  rgb(255, 196, 0);
 
 }
 

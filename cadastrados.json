@@ -9,7 +9,7 @@
             },
 
     {
-        "nome":"big_veggie_carne",
+        "nome":"big veggie_carne",
         "valor":"25,50",
         "img":"bigbob_veggiecarne.png",
         "recheio":"4 queijo 2 tomates duploamburgue",
@@ -25,7 +25,7 @@
                 },
 
     {
-        "nome":"burguer_veggie_carne",
+        "nome":"burguer veggie_carne",
         "valor":"21,50",
         "img":"bobsburguerveggiecarne.png",
         "recheio":"4 queijo 2 tomates duploamburgue",
@@ -33,7 +33,7 @@
             },
 
     {
-        "nome":"bobscheedar_veggiecarne",
+        "nome":"bobscheedar veggiecarne",
         "valor":"19,99",
         "img":"bobscheedar_veggiecarne.png",
         "recheio":"4 queijo 2 tomates duploamburgue",
@@ -41,7 +41,7 @@
                 },
  
     {
-        "nome":"bobscostela_dois-queijos-e-bacon",
+        "nome":"bobscostela_dois",
         "valor":"23,50",
         "img":"bobscostela_dois-queijos-e-bacon.png",
         "recheio":"4 queijo 2 tomates duploamburgue",
