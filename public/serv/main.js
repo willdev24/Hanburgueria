@@ -66,6 +66,7 @@ const produtosapi = {
 return produtosapi
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
+
 this.apagar()
 })
 },
@@ -151,7 +152,7 @@ if( posisao ){
                             const savestryng = localStorage.getItem("car")
                             const saveobj = JSON.parse(savestryng)
                                     
-                            const obj = [localstoragProd, ... saveobj]
+                            const obj = [localstoragProd, ...saveobj]
                                         localStorage.setItem("car", JSON.stringify(obj))
                     
                     
