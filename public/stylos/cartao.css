@@ -9,44 +9,49 @@
 .produtos{    
 
 display: inline-flex; 
-margin-top: 08%;
+margin-top: 50px;
 flex-wrap: wrap;
-row-gap: 5ch;
+row-gap: 0ch;
 }
 
 .cartao{
-
+position:static;
     width: 20%;
     margin-left: 60px;
     background-color: rgba(255, 208, 20, 0.961);
     color: rgb(0, 0, 0);
-    padding: 20px 80px;
-    margin-top: 25px;
+    padding: 10px 40px;
+    margin-top: 50px;
     border-radius: 5px;
 }
 
 .cartao:hover{
     background-color: black;
     color: aliceblue;
-transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 }
 
+
+p#addi{
+    margin-top: 15px;
+    font-weight: 800;
+}
+
 #addi{
+
     color: aliceblue;
-    margin-top: -20px;
     background-color: rgb(0, 0, 0);
     cursor: pointer;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: large;
-    font-weight: 800;
-    text-align: center;
     width: 40vh;
-    margin-left: -20%;
-    height: 6vh;
+    margin-left: 20px;
+    height: 5vh;
     margin-top: 50px;
     border-radius: 20px;
     transition: 250ms;
+    text-align: center;
 }
 
 #addi:hover{
@@ -55,9 +60,9 @@ transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #status {
-margin-top: -50px;
-margin-left: -50px;
-width: 50%;
+margin-top: -100px;
+margin-left: -30px;
+width: 40%;
 }
 
 #status {
@@ -94,9 +99,9 @@ margin-left: -30px;
 #excluir{
     color: rgb(5, 51, 255);
     cursor: pointer;
-    margin-left:  300px;
+    margin-left: 230px;
     position: absolute;
-    margin-top: 30px;
+    margin-top: 20px;
 
    
 }
@@ -130,13 +135,18 @@ margin-left: -30px;
 }
 
 #imgcartao{
+    height: 180px;
     margin-left: 70px;
     margin-top: 20px;
+    
 }
 
 #dinheiro{
-    margin-top: 15px;
+    color: darkgreen;
+    margin-top: 80px;
     font-size: 25px;
+    font-size: 30px;
+    margin-left: -10px;
 }
 
 #dinheiro:hover{

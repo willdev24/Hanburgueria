@@ -19,21 +19,26 @@ app.get("/api/database", (req, res) => {
 })
 
 
-app.get("/endereco",(req, res)=>{
+       app.get("/endereco",(req, res)=>{
 
-    res.render("endereco")
-})
+            res.render("endereco")
+        })
 
 
-app.get("/pedidos",(req, res)=>{
+            app.get("/pedidos",(req, res)=>{
 
-    res.render("pedidos")
-})
+                res.render("pedidos")
+            })
 
-app.get("/checkout",(req, res)=>{
+                app.get("/checkout",(req, res)=>{
 
-    res.render("checkout")
-})
+                    res.render("checkout")
+                })
+
+                    app.post("/finalizandoCompra", (req, res)=>{
+
+                        
+                    })
 
 
 
