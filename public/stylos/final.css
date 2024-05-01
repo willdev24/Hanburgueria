@@ -6,7 +6,9 @@
     
 body{
     color: black    ;
-    background-color: rgb(219, 170, 8)
+    background-image: url(/imagens/fundo_chec.png);
+    
+    background-size: 650px 650px;
 }
 
 

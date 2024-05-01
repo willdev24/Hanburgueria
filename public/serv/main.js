@@ -14,6 +14,7 @@ const Main ={
         this.apagar()
         this.Quantidade()
         this.descrementar()
+        this.crementar()
 
     },
     
@@ -158,6 +159,7 @@ if( posisao ){
                     
                                         this.apagar()
                                         this.descrementar() 
+                                        this.crementar()
                                     }
 
     }                                 
@@ -198,13 +200,16 @@ apagar: function(){
 
      self.apagar()
      self.descrementar()
+     self.crementar()
+     
         
     })
  })
 },
 
 // verifica se o mesmo produto ja esta no carrinho e por seguinte almenta so a quantidade 
-Quantidade: function(objss){
+Quantidade: function(objss,valor){
+
 const self = this 
     this.$quantidades = document.querySelectorAll("#va")
 
@@ -218,13 +223,19 @@ const self = this
     const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss ) //uso em varios lugares: preciso usar como uma funçao pra reduzir o uso desse elemento
     
         self.objsalvos.forEach( positionCartao =>{ // reconstruindo os produtos 
-            const cont = positionCartao.quantidade + 1
+
+if(valor == -1){
+
+    self.cont = positionCartao.quantidade - 1
+
+}else{ self.cont = positionCartao.quantidade + 1}
+
             if(positionCartao.id == objss){
                                                         //modificando so a quantidade do array original e no localhost
              self.objsalvos.splice(contabilizar,1, {    id:positionCartao.id, 
                                                         img:positionCartao.img, 
                                                         nome:positionCartao.nome, 
-                                                        quantidade:cont, 
+                                                        quantidade:self.cont, 
                                                         recheio:positionCartao.recheio, 
                                                         valor:positionCartao.valor})
 
@@ -240,7 +251,7 @@ const self = this
                 
                 <div id="quantidade">
                     <p id="crementar" data-local="${positionCartao.id}">+</p>
-                    <p id="va">${cont}</p>
+                    <p id="va">${this.cont}</p>
                     <p id="incrementar" data-local="${positionCartao.id}">-</p>
                 </div>
             </article>`
@@ -254,29 +265,52 @@ const self = this
     })
    localStorage.setItem("car",JSON.stringify(self.objsalvos))
     self.apagar()
-self.descrementar()
+    self.descrementar()
+    self.crementar()
 },
 
 
 // diminuir quantidades de produtos no carrinho 
 descrementar: function(){
 const self = this
-
+const valor = -1
 self.$incrementar = document.querySelectorAll("#incrementar")
 self.$incrementar.forEach( prodIncrement=>{
     
 prodIncrement.addEventListener("click", function(e){
 
 const idcarrinho = e.target.dataset.local
-self.objsalvos.find
+
+
+self.Quantidade(idcarrinho,valor)
 
 
 
-
-   alert("diminuir")
+  
 })})
  
-}
+},
+
+crementar: function(){
+    const self = this
+    const valor = 1
+    self.$crementar = document.querySelectorAll("#crementar")
+    self.$crementar.forEach( prodIncrement=>{
+        
+    prodIncrement.addEventListener("click", function(e){
+    
+    const idcarrinho = e.target.dataset.local
+    
+    
+    self.Quantidade(idcarrinho,valor)
+    
+    
+    
+      
+    })})
+     
+    }
+    
 
 
 }
