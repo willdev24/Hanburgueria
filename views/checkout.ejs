@@ -10,28 +10,32 @@
 <main id="inicio">
 
 <section id="pai">
-<form action="/finalizandoCompra" method="post">
-
+<form action="/finalizando/Compra" method="post">
 
 <article id="primeiraT2">
-  <h2>adicionais</h2>
+  <h2>ADICIONAIS</h2>
+  <div>
+
+  </div>
 </article>
 
 <article id="primeiraT3">
-    <h2>lista de pedidos</h2>
+    <h2>LISTA DE PEDIDOS</h2>
 </article>
 
 <article id="primeiraT">
 
-    <input type="text" placeholder="digite seu nome comleto" ><br>
+    <input type="text" placeholder="digite seu nome comleto" name="nome" ><br>
  
-    <input type="text" placeholder="digite seu endereço"><br>
+    <input type="text" placeholder="digite seu endereço"  name="endereco" ><br>
   
-    <input type="text" placeholder="digite um complemento"><br>
+    <input type="text" placeholder="digite um complemento"  name="complemento" ><br>
     
-    <input type="number" placeholder="digite um numero para contato">
+    <input type="number" placeholder="digite um numero para contato"  name="contato" >
 
-    <p id="valor-total">total R$:</p>
+    <p id="valor-total" value="valor" >55</p>
+
+    <button id="butaocompra" type="submit">finalizar compra </button>
     
 </article>
 

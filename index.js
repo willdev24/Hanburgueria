@@ -4,6 +4,8 @@ const fs = require("fs")
 const uuid = require("uuid")
 
 const app = express()
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 app.set("view engine","ejs")
 
@@ -41,9 +43,13 @@ app.get("/add/date", (req, res) =>{
                     res.render("checkout")
                 })
 
-                    app.post("/finalizandoCompra", (req, res)=>{
+                    app.post("/finalizando/Compra", (req, res)=>{
 
-                        
+                        const {nome,endereco,complemento,contato} = req.body
+
+                        const array = [nome,endereco,complemento,contato]
+                       console.log(array)
+                        res.redirect("/menu")
                     })
 
 
