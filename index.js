@@ -16,6 +16,12 @@ app.get("/",(req, res)=>{
 
 app.get("/api/database", (req, res) => {
     res.sendFile(__dirname + '/cadastrados.json')
+    
+})
+
+app.get("/add/date", (req, res) =>{
+
+    res.sendFile(__dirname + '/adicionais.json')
 })
 
 
