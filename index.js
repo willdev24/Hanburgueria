@@ -45,11 +45,22 @@ app.get("/add/date", (req, res) =>{
 
                     app.post("/finalizando/Compra", (req, res)=>{
 
+                        const pedidos = fs.readFileSync("./pedidos.json")
+                        const pedidosJson = JSON.parse(pedidos)
+
                         const {nome,endereco,complemento,contato} = req.body
 
-                        const array = [nome,endereco,complemento,contato]
-                       console.log(array)
-                        res.redirect("/menu")
+                       pedidosJson.push({
+                        nome,
+                        contato,
+                        complemento,
+                        endereco
+                       }) 
+
+                      const pedidosStin = JSON.stringify(pedidosJson)           
+                      fs.writeFileSync("./pedidos.json", pedidosStin )
+                       
+                       res.redirect("/menu")
                     })
 
 

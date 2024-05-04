@@ -5,6 +5,7 @@ const main2={
 
    produtos:[],
    produtosAdcionado:[],
+   listaDEprodutos:[],
 
    init: function(){
     this.buscarHTML()
@@ -16,6 +17,12 @@ const main2={
    }, 
 
    buscarHTML: function(){
+
+    
+   },
+
+
+   buscandoAPI:function(){
 
       fetch('/add/date')
       .then(response => response.json())
@@ -30,14 +37,11 @@ const main2={
         "quantidade":itens.quantidade
       } 
         return newprodutos })
-        console.log(this.produtos)
-
+       localStorage.setItem("adcionl",JSON.stringify(this.produtos))
+      const objt = localStorage.getItem("car")
+       this.listaDEprodutos = JSON.parse(objt)
+      
       })
-
-   },
-
-
-   buscandoAPI:function(){
 
 
 
@@ -46,6 +50,7 @@ const main2={
 
    adcionarProdutos: function(){
 
+      
 
    },
 
