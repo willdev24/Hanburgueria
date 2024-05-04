@@ -10,5 +10,11 @@
         "contato": "88888888888",
         "complemento": "Casa",
         "endereco": "Rua Domingos Leite"
+    },
+    {
+        "nome": "",
+        "contato": "",
+        "complemento": "",
+        "endereco": ""
     }
 ]
