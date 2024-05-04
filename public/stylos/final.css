@@ -6,46 +6,42 @@
     
 body{
     color: rgb(255, 255, 255)    ;
-    background-image: url(/imagens/fundo_chec.png);
     
 
 }
 
 
 #pai form{
-
     position: relative;
     display: flex;
 }
 
-    #primeiraT ,#primeiraT2, #primeiraT3  {
-        position: static;
-        background-color:rgba(255, 255, 255, 0.192) ;
-        padding: 50px 100px;
-        margin-left: 40px;
-        margin-top: 100px;
-        height: 80vh;
+    #primeiraT {
+    
+        padding: 200px 100px;
+        background-image: url(/imagens/fundo_chec.png);
+        background-size: cover;
+        height: 100vh;
         font-size: 20px;
-        border-radius: 15px;
-        box-shadow: 0 0 1em rgb(0, 0, 0);
+        width: 38.2vw;   
+        box-shadow: 0 0 2em rgb(255, 111, 0);
+        border-radius: 10px;
     }
-
-    #primeiraT input{
-        border-radius: 8px;
-        margin-top: 10px;
-        font-size: 20px;
-        padding: 15px 30px;
-        
-    }
-
-#primeiraT{
-    background-color:rgba(255, 255, 255, 0.192) ;
-}
-
-    #primeiraT2, #primeiraT3{
+    #primeiraT2{
+        background-color: rgb(255, 204, 0);
         width: 30vw;
+        height: 100vh;     
+        box-shadow: 0 0 1em rgb(0, 0, 0);
+   
     }
-
+    #primeiraT3{
+       margin-left:-50px;
+        background-color: rgb(0, 0, 0);
+        width: 35vw;
+        height: 100vh;     
+        box-shadow: 0 0 10em rgb(0, 0, 0);
+           
+    }
 
     #valor-total{
          font-size: 30PX;
@@ -66,6 +62,18 @@ body{
         overflow-y: hidden;
     }
 
-    h2{
-        text-align: center;
+    #dois{
+        width: 150%;
+        color: black;
+    }
+     
+    #um{
+        color: yellow;    
+        
+    }
+    
+    #primeiraT input{
+     font-size: 20px;
+        padding: 10px 40px ;
+        margin-top: 10px;
     }

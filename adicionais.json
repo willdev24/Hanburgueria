@@ -3,7 +3,7 @@
         "nome":"batata ftita ",
         "img":"batata.png",
         "tamanho":"G",
-        "preço":"12,50",
+        "preco":"12,50",
         "quantidade":"1"
     },
     
@@ -11,7 +11,7 @@
         "nome":"batata ftita ",
         "img":"batata.png",
         "tamanho":"m",
-        "preço":"10,50",
+        "preco":"10,50",
         "quantidade":"1"
     },
     
@@ -19,7 +19,7 @@
         "nome":"batata ftita ",
         "img":"batata.png",
         "tamanho":"p",
-        "preço":"8,50",
+        "preco":"8,50",
         "quantidade":"1"
     },
 
@@ -28,7 +28,7 @@
         "nome":"peps lata ",
         "img":"peps.png",
         "tamanho":"350ml",
-        "preço":"8,50",
+        "preco":"8,50",
         "quantidade":"1"
     },
     
@@ -36,7 +36,7 @@
         "nome":"sprait lata ",
         "img":"sprit.png",
         "tamanho":"350ml",
-        "preço":"8,50",
+        "preco":"8,50",
         "quantidade":"1"
     },
     
@@ -44,7 +44,7 @@
         "nome":"coca-cola lata ",
         "img":"coca-cola.png",
         "tamanho":"350ml",
-        "preço":"8.50",
+        "preco":"8.50",
         "quantidade":"1"
     },
     
@@ -52,7 +52,7 @@
         "nome":"milkshake morango",
         "img":"morango.png",
         "tamanho":"450ml",
-        "preço":"12,50",
+        "preco":"12,50",
         "quantidade":"1"
     },
     
@@ -60,7 +60,7 @@
         "nome":"milkshake chocolate",
         "img":"mil-chocolatte.png",
         "tamanho":"450ml",
-        "preço":"12,50",
+        "preco":"12,50",
         "quantidade":"1"
     },
 
@@ -69,7 +69,7 @@
         "nome":"milkshake ovomaltine",
         "img":"ovomaltine.png",
         "tamanho":"450ml",
-        "preço":"12,50",
+        "preco":"12,50",
         "quantidade":"1"
     },
 
@@ -77,7 +77,7 @@
         "nome":"barbiekil",
         "img":"barbiekil.png",
         "tamanho":"", 
-        "preço":"2,oo",
+        "preco":"2,oo",
         "quantidade":"1"
     },
 
@@ -85,7 +85,7 @@
         "nome":"maionese",
         "img":"maionese.png",
         "tamanho":"",
-        "preço":"2,oo",
+        "preco":"2,oo",
         "quantidade":"1"
     },
 
@@ -93,7 +93,7 @@
         "nome":"ketchup ",
         "img":"ketchup.png",
         "tamanho":"",
-        "preço":"2,00",
+        "preco":"2,00",
         "quantidade":"1"
     }
 ]

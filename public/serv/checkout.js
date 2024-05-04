@@ -17,8 +17,7 @@ const main2={
    }, 
 
    buscarHTML: function(){
-
-    
+    this.$listaDois=document.querySelector(".lista2")
    },
 
 
@@ -48,8 +47,34 @@ const main2={
 
    },
 
-   adcionarProdutos: function(){
+   corpoHTML: function(positionCartao){
+      
+      return  ` <article id="prodAdcional"> 
+      
+      <img id="imgadd" src="/imagens/${positionCartao.img}">
+      
+      <p id="tamanho">R$${positionCartao.nome}</p>
+      <p id="tamanho">R$${positionCartao.tamanho}</p>
+      <p id="grana">R$${positionCartao.valor}</p>
 
+      <div id="quantidade">
+          <p id="crementar" data-local="${positionCartao.id}">+</p>
+          <p id="va">${positionCartao.quantidade}</p>
+          <p id="incrementar" data-local="${positionCartao.id}">-</p>
+      </div>
+   
+  </article>`
+
+   },
+
+   adcionarProdutos: function(){
+      this.$listaUm= document.querySelector(".lista1")
+      const elementclass = document.createElement( "article")
+                    
+      this.produtos.forEach( produtos => {
+ console.log(this.produtos)               
+   
+      })
       
 
    },

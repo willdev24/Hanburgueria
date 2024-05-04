@@ -13,8 +13,6 @@ const Main ={
         this.atualizarcarrinho()
         this.apagar()
         this.Quantidade()
-        this.descrementar()
-        this.crementar()
 
     },
     
@@ -98,28 +96,21 @@ Events:{
 abrirfecharCarrinho_click:function(e){
 const carrinho = this.$menucarrinho
 const done=carrinho.classList.contains('abrirCarrinho')
+
 const campo = document.querySelector("#campo")
 const doneDuol = campo.classList.contains('abrirCarrinho')
 
-
-
         if(  done == false){
-        
             carrinho.classList.add('abrirCarrinho')
             
         }else{
-
-            
             carrinho.classList.remove('abrirCarrinho')
         }
 
 if(  doneDuol == false){
-   
     campo.classList.add('abrirCarrinho')
     
-}else{
-
-    
+}else{    
     campo.classList.remove('abrirCarrinho')
 }
 
@@ -267,6 +258,7 @@ if(valor == -1){
     self.apagar()
     self.descrementar()
     self.crementar()
+    
 },
 
 
