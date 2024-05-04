@@ -59,3 +59,13 @@ body{
        cursor: pointer;
        border-radius: 20px;
     }
+
+    .lista1{
+        background-color: rgba(0, 0, 0, 0.007);
+        height: 450px;
+        overflow-y: hidden;
+    }
+
+    h2{
+        text-align: center;
+    }
