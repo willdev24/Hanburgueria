@@ -66,7 +66,8 @@ return produtosapi
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
 
-this.apagar()
+/*localStorage.setItem("car", JSON.stringify(this.produtos))
+this.apagar()*/
 })
 },
 
