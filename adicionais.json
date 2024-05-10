@@ -3,7 +3,7 @@
         "nome":"batata ftita ",
         "img":"batata.png",
         "tamanho":"G",
-        "preco":"12,50",
+        "preco":"12.50",
         "quantidade":"1"
     },
     
@@ -11,7 +11,7 @@
         "nome":"batata ftita ",
         "img":"batata.png",
         "tamanho":"m",
-        "preco":"10,50",
+        "preco":"10.50",
         "quantidade":"1"
     },
     
@@ -19,7 +19,7 @@
         "nome":"batata ftita ",
         "img":"batata.png",
         "tamanho":"p",
-        "preco":"8,50",
+        "preco":"8.50",
         "quantidade":"1"
     },
 
@@ -28,7 +28,7 @@
         "nome":"peps lata ",
         "img":"peps.png",
         "tamanho":"350ml",
-        "preco":"8,50",
+        "preco":"8.50",
         "quantidade":"1"
     },
     
@@ -36,7 +36,7 @@
         "nome":"sprait lata ",
         "img":"sprit.png",
         "tamanho":"350ml",
-        "preco":"8,50",
+        "preco":"8.50",
         "quantidade":"1"
     },
     
@@ -52,7 +52,7 @@
         "nome":"milkshake morango",
         "img":"morango.png",
         "tamanho":"450ml",
-        "preco":"12,50",
+        "preco":"12.50",
         "quantidade":"1"
     },
     
@@ -60,7 +60,7 @@
         "nome":"milkshake chocolate",
         "img":"mil-chocolatte.png",
         "tamanho":"450ml",
-        "preco":"12,50",
+        "preco":"12.50",
         "quantidade":"1"
     },
 

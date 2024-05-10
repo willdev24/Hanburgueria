@@ -32,7 +32,7 @@ const main2={
         "nome":itens.nome,
         "img":itens.img,
         "tamanho":itens.tamanho,
-        "preço":itens.preço,
+        "preço":itens.preco,
         "quantidade":itens.quantidade
       } 
         return newprodutos })
@@ -54,14 +54,18 @@ const main2={
       
       <img id="imgadd" src="/imagens/dicionais/${positionCartao.img}">
       
-      <p id="tamanho">R$${positionCartao.nome}</p>
-      <p id="tamanho">R$${positionCartao.tamanho}</p>
-      <p id="grana">R$${positionCartao.valor}</p>
-
       <div id="quantidade">
-          <p id="crementar" data-local="${positionCartao.id}">+</p>
-          <p id="va">${positionCartao.quantidade}</p>
-          <p id="incrementar" data-local="${positionCartao.id}">-</p>
+   
+          <p id="nome">${positionCartao.nome}</p>
+          <p id="tamanho"> tamanho: ${positionCartao.tamanho}</p>
+          <p id="grana">R$ ${positionCartao.preço}</p>
+         
+         <div id="crementasao">
+         <p id="incrementar" data-local="${positionCartao.id}">-</p>
+         <p id="va">${positionCartao.quantidade}</p>   
+         <p id="crementar" data-local="${positionCartao.id}">+</p>
+          
+         <div/>
       </div>
    
   </article>`

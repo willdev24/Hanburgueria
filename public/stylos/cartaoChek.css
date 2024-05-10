@@ -9,8 +9,55 @@
 
 #prodAdcional{
     display: flex;
-    
-    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.082);
+    margin-top: 50px;
     width:80%;
-       
+    padding:20px 30px ;
+    border-radius: 10px;    
+}
+
+#prodAdcional:hover{
+    background-color: bisque;
+    transition-duration: 150ms;
+
+}
+
+#crementasao{
+
+    display: flex;
+    margin-top: 20px;
+    
+}
+
+#quantidade{
+    
+    width: 80%;
+    padding: 15PX 20PX;
+ 
+    
+
+}
+#nome{
+   font-size: 25PX;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+width: 150%;
+}
+
+#crementasao{
+   font-size: 20px;
+   cursor: pointer;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#grana{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    color: rgb(48, 75, 3);
+}
+
+#va{
+margin-left: 10px;
+margin-right: 10px;
+
+
 }
