@@ -9,17 +9,20 @@
 
 #prodAdcional{
     display: flex;
-    background-color: rgba(0, 0, 0, 0.082);
+  
     margin-top: 50px;
     width:80%;
     padding:20px 30px ;
     border-radius: 10px;    
+    
 }
 
 #prodAdcional:hover{
-    background-color: bisque;
+    background-color: rgb(255, 255, 255);
     transition-duration: 150ms;
-
+   
+    
+    box-shadow: 0 0 1em rgb(255, 124, 1);
 }
 
 #crementasao{

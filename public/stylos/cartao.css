@@ -18,7 +18,7 @@ row-gap: 0ch;
 position:static;
     width: 20%;
     margin-left: 60px;
-    background-color: rgba(255, 208, 20, 0.961);
+    background-color: rgb(255, 166, 0);
     color: rgb(0, 0, 0);
     padding: 10px 40px;
     margin-top: 50px;
@@ -154,4 +154,3 @@ margin-left: -30px;
     color:red ;
 }
 
-#OLA{}
