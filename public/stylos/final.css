@@ -7,7 +7,6 @@
 body{
     color: rgb(255, 255, 255)    ;
     
-
 }
 
 
@@ -17,11 +16,11 @@ body{
 }
 
     #primeiraT {
-    
+        position: relative;
         padding: 200px 100px;
         background-image: url(/imagens/fundo_chec.png);
         background-size: cover;
-        height: 100vh;
+        height: 98vh;
         font-size: 20px;
         width: 38.2vw;   
         box-shadow: 0 0 2em rgb(255, 111, 0);
@@ -30,15 +29,15 @@ body{
     #primeiraT2{
         background-color: rgb(255, 204, 0);
         width: 30vw;
-        height: 100vh;     
+        height: 99.5vh;     
         box-shadow: 0 0 1em rgb(0, 0, 0);
-   
+        
     }
     #primeiraT3{
        margin-left:-50px;
         background-color: rgb(0, 0, 0);
         width: 35vw;
-        height: 100vh;     
+        height: 99.5vh;     
         box-shadow: 0 0 10em rgb(0, 0, 0);
            
     }
@@ -56,10 +55,11 @@ body{
        border-radius: 20px;
     }
 
-    .lista1{
-        background-color: rgba(0, 0, 0, 0.007);
-        height: 450px;
-        overflow-y: hidden;
+    .lista1{       
+        height: 650px;
+        overflow-x: hidden;    
+        padding: 20px 20px;
+
     }
 
     #dois{
@@ -76,4 +76,10 @@ body{
      font-size: 20px;
         padding: 10px 40px ;
         margin-top: 10px;
+    }
+
+    #imgadd{
+        height: 150px;
+        width: 100px;
+    
     }

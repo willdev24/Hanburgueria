@@ -3,7 +3,7 @@
 
 const main2={
 
-   produtos:[],
+   produ:[],
    produtosAdcionado:[],
    listaDEprodutos:[],
 
@@ -22,12 +22,12 @@ const main2={
 
 
    buscandoAPI:function(){
-
+      
       fetch('/add/date')
       .then(response => response.json())
       .then(data =>{
 
-      this.produtos = data.map( itens =>{
+      this.produ = data.map( itens =>{
              const newprodutos = {  
         "nome":itens.nome,
         "img":itens.img,
@@ -36,8 +36,9 @@ const main2={
         "quantidade":itens.quantidade
       } 
         return newprodutos })
-       localStorage.setItem("adcionl",JSON.stringify(this.produtos))
-      const objt = localStorage.getItem("car")
+       localStorage.setItem("adcionl",JSON.stringify(this.produ))
+      
+       const objt = localStorage.getItem("car")
        this.listaDEprodutos = JSON.parse(objt)
       
       })
@@ -51,7 +52,7 @@ const main2={
       
       return  ` <article id="prodAdcional"> 
       
-      <img id="imgadd" src="/imagens/${positionCartao.img}">
+      <img id="imgadd" src="/imagens/dicionais/${positionCartao.img}">
       
       <p id="tamanho">R$${positionCartao.nome}</p>
       <p id="tamanho">R$${positionCartao.tamanho}</p>
@@ -68,13 +69,19 @@ const main2={
    },
 
    adcionarProdutos: function(){
+      const self = this
       this.$listaUm= document.querySelector(".lista1")
-      const elementclass = document.createElement( "article")
-                    
-      this.produtos.forEach( produtos => {
- console.log(this.produtos)               
    
-      })
+      const objt = localStorage.getItem("adcionl")
+      this.produtosAdcionado= JSON.parse(objt)
+   
+      
+   
+         this.produtosAdcionado.forEach( itens =>{
+
+         self.$listaUm.innerHTML += self.corpoHTML(itens)
+          
+        })      
       
 
    },
