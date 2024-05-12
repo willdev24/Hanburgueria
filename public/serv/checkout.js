@@ -12,12 +12,13 @@ const main2={
     this.buscandoAPI()
     this.adcionarProdutos()
     this.excluirProdutos()
-    
+    this.eventoIncluir()    
 
    }, 
 
    buscarHTML: function(){
     this.$listaDois=document.querySelector(".lista2")
+    this.$incluirProd=document.querySelectorAll("#crementar")
    },
 
 
@@ -43,9 +44,6 @@ const main2={
        this.listaDEprodutos = JSON.parse(objt)
       
       })
-
-
-
 
    },
 
@@ -80,14 +78,28 @@ const main2={
       const objt = localStorage.getItem("adcionl")
       this.produtosAdcionado= JSON.parse(objt)
    
-      
-   
          this.produtosAdcionado.forEach( itens =>{
-
          self.$listaUm.innerHTML += self.corpoHTML(itens)
           
         })      
       
+this.buscarHTML()
+   },
+
+eventoIncluir: function(){
+   const self = this 
+   
+   this.$incluirProd.forEach( produtos => {
+
+      produtos.addEventListener("click", function(e){
+         console.log(e)
+         alert("ok")
+      })
+   })
+
+
+
+
 
    },
 
