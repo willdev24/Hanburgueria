@@ -33,7 +33,8 @@ const main2={
         "img":itens.img,
         "tamanho":itens.tamanho,
         "preço":itens.preco,
-        "quantidade":itens.quantidade
+        "quantidade":itens.quantidade,
+        "id":itens.id
       } 
         return newprodutos })
        localStorage.setItem("adcionl",JSON.stringify(this.produ))

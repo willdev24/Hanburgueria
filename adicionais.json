@@ -4,7 +4,8 @@
         "img":"batata.png",
         "tamanho":"G",
         "preco":"12.50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":1
     },
     
     {
@@ -12,7 +13,8 @@
         "img":"batata.png",
         "tamanho":"m",
         "preco":"10.50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":2
     },
     
     {
@@ -20,7 +22,8 @@
         "img":"batata.png",
         "tamanho":"p",
         "preco":"8.50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":3
     },
 
 
@@ -29,7 +32,8 @@
         "img":"peps.png",
         "tamanho":"350ml",
         "preco":"8.50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":4
     },
     
     {
@@ -37,7 +41,8 @@
         "img":"sprit.png",
         "tamanho":"350ml",
         "preco":"8.50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":5
     },
     
     {
@@ -45,7 +50,8 @@
         "img":"coca-cola.png",
         "tamanho":"350ml",
         "preco":"8.50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":6
     },
     
     {
@@ -53,7 +59,8 @@
         "img":"morango.png",
         "tamanho":"450ml",
         "preco":"12.50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":7
     },
     
     {
@@ -61,7 +68,8 @@
         "img":"mil-chocolatte.png",
         "tamanho":"450ml",
         "preco":"12.50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":8
     },
 
     
@@ -70,7 +78,8 @@
         "img":"ovomaltine.png",
         "tamanho":"450ml",
         "preco":"12,50",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":9
     },
 
     {
@@ -78,7 +87,8 @@
         "img":"barbiekil.png",
         "tamanho":"", 
         "preco":"2,oo",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":10
     },
 
     {
@@ -86,7 +96,8 @@
         "img":"maionese.png",
         "tamanho":"",
         "preco":"2,oo",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":11
     },
 
     {
@@ -94,6 +105,8 @@
         "img":"ketchup.png",
         "tamanho":"",
         "preco":"2,00",
-        "quantidade":"1"
+        "quantidade":"1",
+        "id":12
+    
     }
 ]
