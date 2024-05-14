@@ -45,9 +45,9 @@ atualizarcarrinho: function(){
 },
 
 //conecta na api 
-apiDOSprodutos: function(){
+apiDOSprodutos: async function(){
 
-    fetch('/api/database')
+   await fetch('/api/database')
     .then(response => response.json())    
     .then(data => {    
         
