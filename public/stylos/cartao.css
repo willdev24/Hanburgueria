@@ -7,7 +7,6 @@
 
 
 .produtos{    
-
 display: inline-flex; 
 margin-top: 50px;
 flex-wrap: wrap;
@@ -15,7 +14,7 @@ row-gap: 0ch;
 }
 
 .cartao{
-position:static;
+    
     width: 20%;
     margin-left: 60px;
     background-color: rgb(255, 166, 0);
