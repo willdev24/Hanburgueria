@@ -5,8 +5,7 @@ const Main ={
     validarProd:[],
     objsalvos:[],
 
-    init:function(){
-
+    init:function(){  //aq executo todas as minhas funçoes 
         this.buscarnoHtml()
         this.adcionarEventos()
         this.apiDOSprodutos()   
@@ -20,59 +19,61 @@ const Main ={
 buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
     this.$menucarrinho =document.querySelector('.menucarrinho')    
-    this.$produtos=document.querySelectorAll("#addi")
+    this.$produtos=document.querySelectorAll("#addi") //uso os queryselectoALL para pegar todos os produtos com botao id #addi
     
 },
 
 adcionarEventos: function(){
     self = this
-
+     
+    //abrir e fechar crrinho
     this.$carrinhoDecompras.addEventListener('click', self.Events.abrirfecharCarrinho_click.bind(self))
 
+    //adicionar os produtos no carrihno
+    //dou um forEach no objeto com todos os produtos para que seja adicionado o evento em todos eles  
     this.$produtos.forEach( itens => {
-        itens.addEventListener("click", self.Events.addicionarCarrinho_click.bind(self))
-   
-    });
+        itens.addEventListener("click", 
+        self.Events.addicionarCarrinho_click.bind(self))  //aq é chamado o objeto onde irá ser executado a funçao de adicionar os produtos no carrinho  
+    });                                                   // bnd(self) serve para passar o this global para a funçao chamada
  
 },
 
 
 atualizarcarrinho: function(){
-
     const produtosSalvos = localStorage.getItem("car")
     this.gitstorage += produtosSalvos
     this.apagar()
 },
 
-//conecta na api 
-apiDOSprodutos: async function(){
+//buscando os produtos disponibilizados pela api do back-end   
+apiDOSprodutos: async function(){  //async: serve para que javascript so avance depois de ter executao toda a funçao na qual esta trabalhando 
 
-   await fetch('/api/database')
-    .then(response => response.json())    
+   await fetch('/api/database')            //aq é importao as informaçoes de cada produto e em seguida é executado um map no obj com os produtos
+    .then(response => response.json())    //para que seja criado um novo array a partir dele e seja salvo no localstorage
     .then(data => {    
         
 this.produtos = data.map( itens  =>{
 
-const produtosapi = {     
-       "nome": itens.nome,
-        "valor":itens.valor,
-        "img":itens.img,
-        "recheio":itens.recheio,
-        "id":itens.id,
-        "quantidade": 1
-    }
+    const produtosapi = {     
+        "nome": itens.nome,
+            "valor":itens.valor,
+            "img":itens.img,
+            "recheio":itens.recheio,
+            "id":itens.id,
+            "quantidade": 1
+        }
 
-return produtosapi
+    return produtosapi
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
 
-/*localStorage.setItem("car", JSON.stringify(this.produtos))
-this.apagar()*/
+//localStorage.setItem("car", JSON.stringify(this.produtos)) // caso deja erro ao executar o sistema pela primeira vez é so liberar esse comando 
+//this.apagar()//
 })
 },
 
-
-corpoHTML: function(positionCartao){
+//funçao responsavel pela criaçao de produtos
+corpoHTML: function(positionCartao, quantidade){
     
     return ` <article id="prodnocarrinho">
         <p id="excluir"  data-local="${positionCartao.id}" >X</P>
@@ -85,18 +86,21 @@ corpoHTML: function(positionCartao){
        
         <div id="quantidade">
             <p id="crementar" data-local="${positionCartao.id}">+</p>
-            <p id="va">${positionCartao.quantidade}</p>
+            <p id="va"> ${quantidade || positionCartao.quantidade }</p>
             <p id="incrementar" data-local="${positionCartao.id}">-</p>
         </div>
     </article>`
     
     },
+
     
 
 Events:{
+
+//abrir e fechar o carrinho 
 abrirfecharCarrinho_click:function(e){
-const carrinho = this.$menucarrinho
-const done=carrinho.classList.contains('abrirCarrinho')
+const carrinho = this.$menucarrinho  
+const done=carrinho.classList.contains('abrirCarrinho') // contains: serve para saber se a variavel, seja la qual for, possui ou nao a alguma class especifica
 
 const campo = document.querySelector("#campo")
 const doneDuol = campo.classList.contains('abrirCarrinho')
@@ -120,70 +124,65 @@ if(  doneDuol == false){
 //adiciona os produtos no carrinho 
 addicionarCarrinho_click:function(e){
 
-const id = e.target.dataset.local
-const positionCartao = this.produtos.find( itens => itens.id == id)
-
+const id = e.target.dataset.local  //pega o id do produto que voçe adiciona
+const positionCartao = this.produtos.find( itens => itens.id == id) //passa por todo os array,de produtos, ate encontrar o produto que tem o mesmo id 
+                                                                    // usando o find para poder pegar a informaçao completa do produto
 
 //verificando se ja tem o mesmo produto no carrinho
 const validar = localStorage.getItem("car")
-this.validarProd = JSON.parse(validar)
-
-const posisao = this.validarProd.find( intensSlavod => intensSlavod.id == id)
-
+      this.validarProd = JSON.parse(validar)
+const posisao = this.validarProd.find( intensSlavod => intensSlavod.id == id)//se tiver esse produto no carrinhoe ele vai chamar a funçao incrementar 
 
 if( posisao ){
-    this.Quantidade(id)
+    this.Quantidade(id) //aq eu hamo a funçao qunatidade para nao ser adicionado o mesmo produto no carrinho e sim so a quantidade/valor
 
-                }else{  
-                    const elementclass = document.createElement( "article")
+ }else{  //caso contrario o produto irá seguir essa linha de codgo e adcionara o produto no carrinho
+
+    const elementclass = document.createElement( "article")
                     
-                    elementclass.innerHTML = this.corpoHTML(positionCartao)
-                    this.$menucarrinho.appendChild(elementclass)
-                               
-                            const localstoragProd = this.produtos.find( itens => itens.id == id )
-                        
-                            const savestryng = localStorage.getItem("car")
-                            const saveobj = JSON.parse(savestryng)
+    elementclass.innerHTML = this.corpoHTML(positionCartao) //aq é chamado a funçao para criar meu produto, passsando o "positionCartao" que contem todas as informaçoes do cartao.
+    this.$menucarrinho.appendChild(elementclass)
+                             
+    const localstoragProd = this.produtos.find( itens => itens.id == id )                    
+    const savestryng = localStorage.getItem("car") //pega os produtos salvos no carrinho
+    const saveobj = JSON.parse(savestryng)
                                     
-                            const obj = [localstoragProd, ...saveobj]
-                                        localStorage.setItem("car", JSON.stringify(obj))
+    const obj = [localstoragProd, ...saveobj] //junto o produto que ta salvo + o produto que vou adicionar, jogo tudo dentro uma const e atualizo o localstorage
+    localStorage.setItem("car", JSON.stringify(obj))
                     
-                    
-                                        this.apagar()
-                                        this.descrementar() 
-                                        this.crementar()
-                                    }
-
-    }                                 
+    //sempre que excuto uma funçao preciso chamar as demais funçoes novamente para que nao haja erros                 
+    this.apagar() 
+    this.descrementar() 
+    this.crementar()
+    }}                                 
 },
 
 //apaga os produtos do carrinho
 apagar: function(){
-    this.$apagarCar=document.querySelectorAll("#excluir")   
+    this.$apagarCar=document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this               
   
-    this.$apagarCar.forEach( itens=> {
-        itens.addEventListener("click",function(e){
+    this.$apagarCar.forEach( itens=> {              //adiciono um eventos em todos eles
+        itens.addEventListener("click",function(e){ //executo a funçao aq mesmo para evitar erros
          
-            const nocarrinho = localStorage.getItem("car")
+            const nocarrinho = localStorage.getItem("car") //antes de tudo pego todos os produtos, salvos no carrinho, e coloco dentro de uma variavel global  
             const objsalvos = JSON.parse(nocarrinho)
             self.gitstorage = objsalvos        
     
-    const id = e.target.dataset.local 
-    const contID = self.gitstorage.filter( itenscar => { 
+    const id = e.target.dataset.local //id do produto a ser excluido
+
+    const contID = self.gitstorage.filter( itenscar => {  //filtro o a minha variavel global retirando apenas o routo a ser exluido
     return itenscar.id != id
 
     })
 
-
-    localStorage.setItem("car", JSON.stringify(contID))
-    const teste02 = localStorage.getItem("car")
-    const produtosSalvos = JSON.parse(teste02)
-
-    const teste =document.querySelector('.menucarrinho')
+// por fim TUALIZO o localStorage com os produtos ja filtrados
+    localStorage.setItem("car", JSON.stringify(contID)) 
+    
+    const teste =document.querySelector('.menucarrinho') //a sim eu apago todos os produtos e logo a baixo crio todos eles ja filtrados 
           teste.innerHTML = ""
 
-     produtosSalvos.forEach( positionCartao =>{
+     contID.forEach( positionCartao =>{
   
                 const html = self.corpoHTML(positionCartao)                       
                 teste.innerHTML += html
@@ -199,8 +198,8 @@ apagar: function(){
  })
 },
 
-// verifica se o mesmo produto ja esta no carrinho e por seguinte almenta so a quantidade 
-Quantidade: function(objss,valor){
+// depois de ser verificado se o mesmo produto ja esta no carrinho essa funçao é chamada se ja houver o produto ja no carrino  
+Quantidade: function(objss,valor){  //objss = id do produto //valor = quantidade negativa ou positiva 
 
 const self = this 
     this.$quantidades = document.querySelectorAll("#va")
@@ -208,53 +207,38 @@ const self = this
     const nocarrinho = localStorage.getItem("car") //produtos no carrinho
     self.objsalvos = JSON.parse(nocarrinho)
 
-
-    const teste =document.querySelector('.menucarrinho')//limpo o carrinho 
+    const teste =document.querySelector('.menucarrinho') //primeiro eu apago todos os produtos e logo a baixo crio todos eles ja com a quantiade certa 
     teste.innerHTML = ""
-                                                                                     //encontrando a posiçao do produto dentro do array
+
+                                                                                   //encontrando a posiçao do produto dentro do array
     const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss ) //uso em varios lugares: preciso usar como uma funçao pra reduzir o uso desse elemento
-    
-        self.objsalvos.forEach( positionCartao =>{ // reconstruindo os produtos 
+        
+ self.objsalvos.forEach( positionCartao =>{ // reconstruindo os produtos 
 
-if(valor == -1){
+    if(valor == -1){ //se o valor vier negativo ele iradecrementar 
 
-    self.cont = positionCartao.quantidade - 1
+        self.cont = positionCartao.quantidade - 1
 
-}else{ self.cont = positionCartao.quantidade + 1}
+    }else{ self.cont = positionCartao.quantidade + 1} // caso venha positivo ele ir crementar
 
-            if(positionCartao.id == objss){
-                                                        //modificando so a quantidade do array original e no localhost
-             self.objsalvos.splice(contabilizar,1, {    id:positionCartao.id, 
-                                                        img:positionCartao.img, 
-                                                        nome:positionCartao.nome, 
-                                                        quantidade:self.cont, 
-                                                        recheio:positionCartao.recheio, 
-                                                        valor:positionCartao.valor})
+                if(positionCartao.id == objss){
+                                                            //modificando so a quantidade do array original e no localhost
+                self.objsalvos.splice(contabilizar,1, {    id:positionCartao.id, 
+                                                            img:positionCartao.img, 
+                                                            nome:positionCartao.nome, 
+                                                            quantidade:self.cont, 
+                                                            recheio:positionCartao.recheio, 
+                                                            valor:positionCartao.valor})
 
-               // reconstruçao dos produtos ja atualizado 
-                const html =  ` <article id="prodnocarrinho"> 
-                <p id="excluir"  data-local="${positionCartao.id}" >X</P>
-            
-                <div id="recheio">
-                <p>${positionCartao.recheio}</p>
-                <p id="dinheiro">R$${positionCartao.valor}</p>
-            </div>
-                <img id="imgcartao" src="/imagens/${positionCartao.img}">
-                
-                <div id="quantidade">
-                    <p id="crementar" data-local="${positionCartao.id}">+</p>
-                    <p id="va">${this.cont}</p>
-                    <p id="incrementar" data-local="${positionCartao.id}">-</p>
-                </div>
-            </article>`
-            teste.innerHTML += html
+                       const valor = self.cont
+                       teste.innerHTML += self.corpoHTML(positionCartao,valor)
 
-            }else{ // esse else reconstroi tudo que ta no local host, mesmo que atualize a pagna 
+           }else{ // esse else reconstroi tudo que ta no localhost, mesmo que atualize a pagna 
 
                 const html = self.corpoHTML(positionCartao)
             teste.innerHTML += html
-                            }
-    })
+}})
+
    localStorage.setItem("car",JSON.stringify(self.objsalvos))
     self.apagar()
     self.descrementar()
@@ -268,18 +252,13 @@ descrementar: function(){
 const self = this
 const valor = -1
 self.$incrementar = document.querySelectorAll("#incrementar")
+
 self.$incrementar.forEach( prodIncrement=>{
-    
-prodIncrement.addEventListener("click", function(e){
+    prodIncrement.addEventListener("click", function(e){
 
-const idcarrinho = e.target.dataset.local
+    const idcarrinho = e.target.dataset.local
+    self.Quantidade(idcarrinho, valor)
 
-
-self.Quantidade(idcarrinho,valor)
-
-
-
-  
 })})
  
 },
@@ -294,19 +273,38 @@ crementar: function(){
     
     const idcarrinho = e.target.dataset.local
     
-    
     self.Quantidade(idcarrinho,valor)
-    
-    
-    
-      
+          
     })})
      
     }
     
-
-
-}
+}//fim do objeto main
 
 
 Main.init()
+
+
+
+
+
+
+
+//caso precise usar //function quantidade //
+
+           // reconstruçao dos produtos ja atualizado 
+               /* const html =  ` <article id="prodnocarrinho"> 
+                <p id="excluir"  data-local="${positionCartao.id}" >X</P>
+            
+                <div id="recheio">
+                <p>${positionCartao.recheio}</p>
+                <p id="dinheiro">R$${positionCartao.valor}</p>
+            </div>
+                <img id="imgcartao" src="/imagens/${positionCartao.img}">
+                
+                <div id="quantidade">
+                    <p id="crementar" data-local="${positionCartao.id}">+</p>
+                    <p id="va">${this.cont}</p>
+                    <p id="incrementar" data-local="${positionCartao.id}">-</p>
+                </div>
+            </article>`*/ 
