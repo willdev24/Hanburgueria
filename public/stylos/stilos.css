@@ -33,7 +33,7 @@ h1{
     height: 100px;
     justify-content: center;
     align-items: center;
-    width: 101%;
+    width: 100vw;
     background-color: black;
 }
 
