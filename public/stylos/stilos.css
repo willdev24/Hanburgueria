@@ -9,7 +9,7 @@ body{
     background-color: black;
     color: aliceblue;
     display: inline-block;
-   
+    overflow-x: hidden;   
 }
 
 .container{
@@ -164,16 +164,16 @@ cursor: pointer;
     background-color:darkgoldenrod;
     background-size: 850px 300px;
     height: 30vh;
-    width: 101.5vw;
+    width: 98.8vw;
     
 }
 
 #degrader{
     margin-top: -1.5px;
     background-color: rgb(0, 0, 0);
-    width: 100vw;
+    width: 98.9vw;
     height: 10vh;
-    margin-left: 10px;
+    margin-left: -1.5px;
 }
 
 #listaRoda{
@@ -222,8 +222,8 @@ cursor: pointer;
         margin-top: 25px;
         height: 70vh;
         display: flex;
-        width: 101.5vw;
-        justify-content: center;
+        width: 98.8vw;
+        justify-content: start;
         align-items: start;
         gap:20px ;
     }
@@ -232,13 +232,14 @@ cursor: pointer;
         display: flex;
         justify-content:left;
         flex-direction: column;
+        align-items: center;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
     }
 
     #infor li p{
     width: 60%;
-        
+    font-size: 20px;        
     }
 
     #inicio{
@@ -252,7 +253,10 @@ cursor: pointer;
     }
 
     #contatos {
-        display: inline-block;
+    align-items: center;
+    width: 20vw;
+        
+
       
      
     }
@@ -263,9 +267,10 @@ cursor: pointer;
     
 
     #contatos img{
-        margin-top: 20px;
-        height: 50px;
+        margin-top: 40px;
+        height: 30px;
         transition: 250ms;
+       
     }
 
     #contatos img:hover{
@@ -282,6 +287,7 @@ cursor: pointer;
     
     #locau{
         height: 40px;
+        width: 40px;
           }
         
         
@@ -294,6 +300,12 @@ cursor: pointer;
     
     li{   font-size: x-large;
     }
+
+ #funcionamento{
+
+    margin-top: 20px;
+    font-size: 15px;
+ }
 
     #horas li {
         width: 50%;
