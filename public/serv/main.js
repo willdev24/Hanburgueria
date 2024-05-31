@@ -12,7 +12,7 @@ const Main ={
         this.atualizarcarrinho()
         this.apagar()
         this.Quantidade()
-
+        this.finaizarPedido()
     },
     
 
@@ -20,7 +20,7 @@ buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
     this.$menucarrinho =document.querySelector('.menucarrinho')    
     this.$produtos=document.querySelectorAll("#addi") //uso os queryselectoALL para pegar todos os produtos com botao id #addi
-    
+
 },
 
 adcionarEventos: function(){
@@ -48,7 +48,7 @@ atualizarcarrinho: function(){
 //buscando os produtos disponibilizados pela api do back-end   
 apiDOSprodutos: async function(){  //async: serve para que javascript so avance depois de ter executao toda a funçao na qual esta trabalhando 
 
-   await fetch('/api/database')            //aq é importao as informaçoes de cada produto e em seguida é executado um map no obj com os produtos
+   await fetch('/api/database')            //aq é importado as informaçoes de cada produto e em seguida é executado um map no obj com os produtos
     .then(response => response.json())    //para que seja criado um novo array a partir dele e seja salvo no localstorage
     .then(data => {    
         
@@ -154,7 +154,9 @@ if( posisao ){
     this.apagar() 
     this.descrementar() 
     this.crementar()
-    }}                                 
+         
+}}                      
+               
 },
 
 //apaga os produtos do carrinho
@@ -193,7 +195,6 @@ apagar: function(){
      self.descrementar()
      self.crementar()
      
-        
     })
  })
 },
@@ -243,7 +244,7 @@ const self = this
     self.apagar()
     self.descrementar()
     self.crementar()
-    
+     
 },
 
 
@@ -277,7 +278,31 @@ crementar: function(){
           
     })})
      
-    }
+    },
+
+
+finaizarPedido: function(){
+
+const $butaoCheckut = document.querySelector("#finalizar")
+
+
+        $butaoCheckut.addEventListener("click", function(e){
+        const obj = localStorage.getItem("car")
+        const validar = obj.length
+
+        if(validar <= 2){
+            alert("carrinho vazil")
+        }else(
+            window.location.href = window.location.origin + "/checkout"
+        )
+            
+        
+     }) 
+
+
+
+
+}   
     
 }//fim do objeto main
 
