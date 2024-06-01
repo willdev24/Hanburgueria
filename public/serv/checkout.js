@@ -92,10 +92,27 @@ eventoIncluir: function(){
    this.$incluirProd.forEach( produtos => {
 
       produtos.addEventListener("click", function(e){
-         console.log(e)
-         alert("ok")
-      })
+         const id = e.target.dataset.local
+         const adicionarIten = self.produtosAdcionado.find(itens => itens.id == id)
+        
+         self.listaDEprodutos.push({
+            adicionarIten
+         })
+
+         const position = self.listaDEprodutos.findIndex(itens => itens.id == id)
+         console.log(position)
+         self.listaDEprodutos.splice(position, 1,
+                                                   {id:adicionarIten.id,
+                                                   img:adicionarIten.img,
+                                                   nome:adicionarIten.nome,
+                                                   preço:adicionarIten.preço,
+                                                   quantidade:adicionarIten.quantidade,
+                                                   tamanho:adicionarIten.tamanho })
+     
+    console.log(self.listaDEprodutos) 
+     
    })
+})
 
 
 
