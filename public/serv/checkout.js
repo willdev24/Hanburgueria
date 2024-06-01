@@ -106,11 +106,15 @@ this.buscarHTML()
 
 eventoIncluir: function(){
    const self = this 
+   const $lista2 =document.querySelector(".lista2")
    
    this.$incluirProd.forEach( produtos => {
 
       produtos.addEventListener("click", function(e){
          const id = e.target.dataset.local
+
+         $lista2.innerHTML=""
+         
          const adicionarIten = self.produtosAdcionado.find(itens => itens.id == id)
         
          self.listaDEprodutos.push({
@@ -128,7 +132,10 @@ eventoIncluir: function(){
                                                    tamanho:adicionarIten.tamanho })
      
    
+          self.listaDEprodutos.forEach(prod=>{
 
+            return  $lista2.innerHTML += self.corpoFinal(prod)
+          })
      
    })
 })
