@@ -71,6 +71,24 @@ const main2={
 
    },
 
+corpoFinal: function(positionCartao2){
+
+   return `<article id="prodAdcional"> 
+            
+            <img id="imgadd" src="/imagens/dicionais/${positionCartao2.img}">
+         
+            <div id="quantidade">
+               <p id="nome">${positionCartao2.nome}</p>
+               <p id="tamanho"> tamanho: ${positionCartao2.tamanho}</p>
+               <p id="grana">R$ ${positionCartao2.preço}</p>
+               <p id="va">${positionCartao2.quantidade}</p>   
+             <div/>
+          </article>`
+
+
+
+   },
+
    adcionarProdutos: function(){
       const self = this
       this.$listaUm= document.querySelector(".lista1")
@@ -100,7 +118,7 @@ eventoIncluir: function(){
          })
 
          const position = self.listaDEprodutos.findIndex(itens => itens.id == id)
-         console.log(position)
+
          self.listaDEprodutos.splice(position, 1,
                                                    {id:adicionarIten.id,
                                                    img:adicionarIten.img,
@@ -109,7 +127,8 @@ eventoIncluir: function(){
                                                    quantidade:adicionarIten.quantidade,
                                                    tamanho:adicionarIten.tamanho })
      
-    console.log(self.listaDEprodutos) 
+   
+
      
    })
 })
