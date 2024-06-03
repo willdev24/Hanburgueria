@@ -9,9 +9,8 @@
 
 #prodAdcional{
     display: flex;
-  
     margin-top: 50px;
-    width:80%;
+    width:90%;
     padding:20px 30px ;
     border-radius: 10px;    
     
@@ -20,20 +19,16 @@
 #prodAdcional:hover{
     background-color: rgb(255, 255, 255);
     transition-duration: 150ms;
-   
-    
     box-shadow: 0 0 1em rgb(255, 124, 1);
 }
 
 #crementasao{
-
     display: flex;
     margin-top: 20px;
     
 }
 
 #quantidade{
-    
     width: 80%;
     padding: 15PX 20PX;
  
@@ -42,14 +37,19 @@
 }
 #nome{
    font-size: 25PX;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-width: 150%;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   width: 150%;
 }
 
 #crementasao{
-   font-size: 20px;
+   font-size: 25px;
    cursor: pointer;
    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#crementasao:hover{
+    color: red;
+    font-size: 30px;
 }
 
 #grana{

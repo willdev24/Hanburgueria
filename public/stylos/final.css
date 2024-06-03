@@ -55,7 +55,7 @@ body{
        border-radius: 20px;
     }
 
-    .lista1{       
+    .lista1, .lista2{       
         height: 650px;
         overflow-x: hidden;    
         padding: 20px 20px;
@@ -85,4 +85,9 @@ body{
     
     }
     
-
+.lista2{
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+    
+}

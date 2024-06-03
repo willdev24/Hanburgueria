@@ -9,12 +9,12 @@ body{
     background-color: black;
     color: aliceblue;
     display: inline-block;
-   
+    overflow-x: hidden;   
 }
 
 .container{
     width: 100%;
-    max-width: 1080px;
+    max-width: 650px;
 
 }
 
@@ -33,7 +33,7 @@ h1{
     height: 100px;
     justify-content: center;
     align-items: center;
-    width: 101%;
+    width: 100vw;
     background-color: black;
 }
 
@@ -126,7 +126,6 @@ cursor: pointer;
 
 #campo{
     height: 82vh;
-    
     box-shadow: 0 0 1em rgb(255, 187, 0);
 
 }
@@ -162,18 +161,19 @@ cursor: pointer;
 
 
 #area{
-    background-image: url(/imagens/fundo2.png);
+    background-color:darkgoldenrod;
     background-size: 850px 300px;
-    height: 40vh;
-    width: 99vw;
+    height: 30vh;
+    width: 98.8vw;
+    
 }
 
 #degrader{
-    margin-top: -02px;
+    margin-top: -1.5px;
     background-color: rgb(0, 0, 0);
-    width: 100vw;
+    width: 98.9vw;
     height: 10vh;
-    margin-left: -10px;
+    margin-left: -1.5px;
 }
 
 #listaRoda{
@@ -191,7 +191,7 @@ cursor: pointer;
 
 #listaRoda li a{
     font-size: 20px;
-    color: rgb(255, 208, 0);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     margin-top: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
@@ -207,32 +207,39 @@ cursor: pointer;
     }
 
     #rodaLIsta {
-
         display: flex;
     }
 
 
     #rodaLIsta li{
+        margin-top: -20px;
         margin-left: 50px;
+
     }
 
     #infor{
-        height: 70vh;
+
+        margin-top: 25px;
+        height: 60vh;
         display: flex;
-        width: 95vw;
+        width: 98.8vw;
+        justify-content: start;
+        align-items: start;
+        gap:20px ;
     }
 
     #infor li{
-        margin-left: 60px;
-        font-size: 20px;
-        padding: 26px 40px;
-        margin-top: 30px;
+        display: flex;
+        justify-content:left;
+        flex-direction: column;
+        align-items: center;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        width: 30%;
+
     }
 
     #infor li p{
-        margin-top: 5px;
+    width: 60%;
+    font-size: 20px;        
     }
 
     #inicio{
@@ -241,12 +248,15 @@ cursor: pointer;
 
     #formas{
         margin-top: 30px;
-        height: 110px;
+        height: 70px;
         
     }
 
     #contatos {
-        display: inline-block;
+    align-items: center;
+    width: 20vw;
+        
+
       
      
     }
@@ -257,9 +267,10 @@ cursor: pointer;
     
 
     #contatos img{
-        margin-top: 20px;
-        height: 50px;
+        margin-top: 40px;
+        height: 30px;
         transition: 250ms;
+       
     }
 
     #contatos img:hover{
@@ -276,6 +287,7 @@ cursor: pointer;
     
     #locau{
         height: 40px;
+        width: 40px;
           }
         
         
@@ -288,6 +300,12 @@ cursor: pointer;
     
     li{   font-size: x-large;
     }
+
+ #funcionamento{
+
+    margin-top: 20px;
+    font-size: 15px;
+ }
 
     #horas li {
         width: 50%;
