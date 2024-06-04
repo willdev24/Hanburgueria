@@ -54,7 +54,6 @@ const main2={
       return  ` <article id="prodAdcional"> 
       
       <img id="imgadd" src="/imagens/${positionCartao.img}">
-      <p id="excluir"  data-local="${positionCartao.id}" >X</P>
       <div id="quantidade">
    
           <p id="nome">${positionCartao.nome}</p>
@@ -110,9 +109,7 @@ this.buscarHTML()
 ventIncluir: function(){
 
    const self = this 
-   const $lista2 =document.querySelector(".lista2")
-   
-   
+   const $lista2 =document.querySelector(".lista2")   
    const obj2 = localStorage.getItem("car")
     self.objtoarrinho = JSON.parse(obj2)
    
@@ -120,7 +117,9 @@ ventIncluir: function(){
 
       return  $lista2.innerHTML += this.corpoFinal(prodCar)
     })
- 
+
+localStorage.setItem("prodFinais", JSON.stringify(self.objtoarrinho ))
+
    self.$incluirProd.forEach( produtos => {
 
       produtos.addEventListener("click", function(e){
@@ -128,10 +127,21 @@ ventIncluir: function(){
      
          const adicionarIten = self.produ.find(itens => itens.id == id)
 
-            return  $lista2.innerHTML += self.corpoFinal(adicionarIten)
+              $lista2.innerHTML += self.corpoFinal(adicionarIten)
+              const obj = localStorage.getItem("prodFinais")
+              const produtosSlavos = JSON.parse(obj)
+    
+              const todos = [adicionarIten, ... produtosSlavos]
+              localStorage.setItem("prodFinais", JSON.stringify(todos))
+    return    
+
           })
-     
+
+       
    })
+
+
+
 
 
    },
