@@ -6,13 +6,15 @@ const main2={
    produ:[],
    produtosAdcionado:[],
    listaDEprodutos:[],
+   objtoarrinho:[],
+
 
    init: function(){
     this.buscarHTML()
     this.buscandoAPI()
     this.adcionarProdutos()
     this.excluirProdutos()
-    this.eventoIncluir()    
+    this.ventIncluir()    
 
    }, 
 
@@ -51,17 +53,14 @@ const main2={
       
       return  ` <article id="prodAdcional"> 
       
-      <img id="imgadd" src="/imagens/dicionais/${positionCartao.img}">
-      
+      <img id="imgadd" src="/imagens/${positionCartao.img}">
       <div id="quantidade">
    
           <p id="nome">${positionCartao.nome}</p>
           <p id="tamanho"> tamanho: ${positionCartao.tamanho}</p>
           <p id="grana">R$ ${positionCartao.preço}</p>
          
-         <div id="crementasao">
-         <p id="incrementar" data-local="${positionCartao.id}">-</p>
-         <p id="va">${positionCartao.quantidade}</p>   
+         <div id="crementasao2">
          <p id="crementar" data-local="${positionCartao.id}">+</p>
           
          <div/>
@@ -75,8 +74,9 @@ corpoFinal: function(positionCartao2){
 
    return `<article id="prodAdcional"> 
             
-            <img id="imgadd" src="/imagens/dicionais/${positionCartao2.img}">
-         
+            <img id="imgadd" src="/imagens/${positionCartao2.img}">
+            <p id="excluir"  data-local="${positionCartao2.id}" >X</P>
+            
             <div id="quantidade">
                <p id="nome">${positionCartao2.nome}</p>
                <p id="tamanho"> tamanho: ${positionCartao2.tamanho}</p>
@@ -94,9 +94,9 @@ corpoFinal: function(positionCartao2){
       this.$listaUm= document.querySelector(".lista1")
    
       const objt = localStorage.getItem("adcionl")
-      this.produtosAdcionado= JSON.parse(objt)
+      this.produtosAdciona= JSON.parse(objt)
    
-         this.produtosAdcionado.forEach( itens =>{
+         this.produtosAdciona.forEach( itens =>{
          self.$listaUm.innerHTML += self.corpoHTML(itens)
           
         })      
@@ -104,41 +104,39 @@ corpoFinal: function(positionCartao2){
 this.buscarHTML()
    },
 
-eventoIncluir: function(){
+ventIncluir: function(){
+
    const self = this 
-   const $lista2 =document.querySelector(".lista2")
+   const $lista2 =document.querySelector(".lista2")   
+   const obj2 = localStorage.getItem("car")
+    self.objtoarrinho = JSON.parse(obj2)
    
-   this.$incluirProd.forEach( produtos => {
+   self.objtoarrinho.forEach(prodCar=>{
+
+      return  $lista2.innerHTML += this.corpoFinal(prodCar)
+    })
+
+localStorage.setItem("prodFinais", JSON.stringify(self.objtoarrinho ))
+
+   self.$incluirProd.forEach( produtos => {
 
       produtos.addEventListener("click", function(e){
          const id = e.target.dataset.local
-
-         $lista2.innerHTML=""
-         
-         const adicionarIten = self.produtosAdcionado.find(itens => itens.id == id)
-        
-         self.listaDEprodutos.push({
-            adicionarIten
-         })
-
-         const position = self.listaDEprodutos.findIndex(itens => itens.id == id)
-
-         self.listaDEprodutos.splice(position, 1,
-                                                   {id:adicionarIten.id,
-                                                   img:adicionarIten.img,
-                                                   nome:adicionarIten.nome,
-                                                   preço:adicionarIten.preço,
-                                                   quantidade:adicionarIten.quantidade,
-                                                   tamanho:adicionarIten.tamanho })
      
-   
-          self.listaDEprodutos.forEach(prod=>{
+         const adicionarIten = self.produ.find(itens => itens.id == id)
 
-            return  $lista2.innerHTML += self.corpoFinal(prod)
+              $lista2.innerHTML += self.corpoFinal(adicionarIten)
+              const obj = localStorage.getItem("prodFinais")
+              const produtosSlavos = JSON.parse(obj)
+    
+              const todos = [adicionarIten, ... produtosSlavos]
+              localStorage.setItem("prodFinais", JSON.stringify(todos))
+    return    
+
           })
-     
+
+       
    })
-})
 
 
 
