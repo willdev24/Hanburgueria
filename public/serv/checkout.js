@@ -60,9 +60,7 @@ const main2={
           <p id="tamanho"> tamanho: ${positionCartao.tamanho}</p>
           <p id="grana">R$ ${positionCartao.preço}</p>
          
-         <div id="crementasao">
-         <p id="incrementar" data-local="${positionCartao.id}">-</p>
-         <p id="va">${positionCartao.quantidade}</p>   
+         <div id="crementasao2">
          <p id="crementar" data-local="${positionCartao.id}">+</p>
           
          <div/>
