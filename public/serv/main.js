@@ -55,7 +55,7 @@ apiDOSprodutos: async function(){  //async: serve para que javascript so avance 
 this.produtos = data.map( itens  =>{
 
     const produtosapi = {     
-        "nome": itens.nome,
+            "nome": itens.nome,
             "valor":itens.valor,
             "img":itens.img,
             "recheio":itens.recheio,
@@ -101,6 +101,7 @@ Events:{
 abrirfecharCarrinho_click:function(e){
 const carrinho = this.$menucarrinho  
 const done=carrinho.classList.contains('abrirCarrinho') // contains: serve para saber se a variavel, seja la qual for, possui ou nao a alguma class especifica
+
 
 const campo = document.querySelector("#campo")
 const doneDuol = campo.classList.contains('abrirCarrinho')

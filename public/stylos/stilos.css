@@ -86,9 +86,9 @@ cursor: pointer;
 
 .container .menucarrinho , #campo{
 
-    background-color: rgba(0, 0, 0, 0.938);
-    height:67vh;
-    width: 20vw;
+    background-color: rgb(0, 0, 0);
+    height:73vh;
+    width: 27vw;
     top: 90px;
     position:fixed;
     right: -100%;
@@ -109,11 +109,11 @@ cursor: pointer;
     position: fixed;
     padding: 10px 50px;
     border-radius: 20px;
-    background-color: goldenrod;
+    background-color: rgb(255, 166, 0);
     color: rgb(255, 239, 239);
     font-size: 20px;
     cursor: pointer;   
-    margin-top: 33%;
+    margin-top: 36%;
     border-style: none;
     margin-left: 30px;
 }
@@ -125,7 +125,7 @@ cursor: pointer;
 }
 
 #campo{
-    height: 82vh;
+    height: 88vh;
     box-shadow: 0 0 1em rgb(255, 187, 0);
 
 }
@@ -140,18 +140,15 @@ cursor: pointer;
 
 #prodnocarrinho{
     margin-left: 20px;
-    margin-top: 25px;
-    width: 89%;
+    margin-top: 10px;
+    width: 20vw;
     color: rgb(0, 95, 13);
     font-size: 20px;
     font-weight: 800;
-    background-color: rgb(255, 200, 106);
-    border-radius: 20px;
-    outline: thick double  rgb(255, 196, 0);
-
+    background-color:  rgb(235, 235, 235);
+    border-radius: 10px;
+height: 35vh;
 }
-
-
 
 .menucarrinho{
 
@@ -255,7 +252,7 @@ cursor: pointer;
     #contatos {
     align-items: center;
     width: 20vw;
-        
+         
 
       
      
