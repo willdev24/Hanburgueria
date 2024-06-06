@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+*{box-sizing: border-box;
+    margin: 0;
+    padding: 0;}
+    
+
+
+#inicio{
+   
+    height: 320vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: start;
+    margin-left: 100px;
+    margin-top: 180px;
+
+}
+#baner{
+display: flex;
+flex-direction: column;
+justify-content: start;
+margin-top: -30px;
+
+}
+
+
+    #baner img{
+        opacity: 0;
+        position:absolute;
+        height: 70%;
+        width: 40%;
+        object-fit: covers;
+
+
+    }
+
+    #baner img.selected{
+        opacity: 1;
+        
+    }
+
+    #menuInicio{
+margin-top: -180px;
+        position: absolute;
+        margin-left: -50px;
+    }
+
+    #play{
+        
+        margin-left: 700px;
+    }
+
+    #play video{
+        height: 80%;
+        width: 100%;
+    }

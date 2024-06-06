@@ -3,34 +3,42 @@
 <head>
             <%- include("partials/head.ejs")  %>  
             <link rel="stylesheet" href="/stylos/cartao.css">
+            <link rel="stylesheet" href="/stylos/inicio.css">
 </head>
 <body>
 
-<section>
-    <%- include("partials/menu_carrinho.ejs")  %>  
-</section>
+
 <main id="inicio">
 
-    <article id="sec1">
-    <img src="/inicio/lus3.jpg" alt="">
-    </article >
  
-    <article id="sec2">
-    <video src="/public/imagens/inicio/video3.mp4"></video>
+    <article id="baner">
+          <img src="/imagens/inicio/ilus1.jpg" alt="" class="selected">
+          <img  src="/imagens/inicio/ilus2.jpg" alt="">
+          <img  src="/imagens/inicio/lus3.jpg" alt="">
+          <img  src="/imagens/inicio/ilus4.jpg" alt="">
     </article>
- 
-    <article id="se3">
     
+    <article id="play">
+        <video   autoplay="autoplay" muted>
+            <source src="/imagens/inicio/ideo4.mp4" type="video/mp4">
+        </video>
     </article>
-            
+       
+    <section id="menuInicio">
+        <%- include("partials/menu_carrinho.ejs")  %>  
+    </section>
 
 
 </main>
+
+
 <section>
     <%- include("partials/roda_pe.ejs") %>
 </section>
 </body>
+<script src="/serv/inicio.js">
 
+</script>
 <%- include("partials/foot.ejs")  %>  
 
 </html>
