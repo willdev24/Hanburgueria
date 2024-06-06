@@ -72,16 +72,17 @@ const main2={
 
 corpoFinal: function(positionCartao2){
 
-   return `<article id="prodAdcional"> 
+   return `<article id="prodAdcional2"> 
             
             <img id="imgadd" src="/imagens/${positionCartao2.img}">
             <p id="excluir"  data-local="${positionCartao2.id}" >X</P>
             
             <div id="quantidade">
                <p id="nome">${positionCartao2.nome}</p>
-               <p id="tamanho"> tamanho: ${positionCartao2.tamanho}</p>
-               <p id="grana">R$ ${positionCartao2.preço}</p>
+               <p id="tamanho"> tamanho: ${positionCartao2.tamanho || positionCartao2.recheio}</p>
                <p id="va">${positionCartao2.quantidade}</p>   
+               <p id="grana">R$ ${positionCartao2.preço|| positionCartao2.valor}</p>
+               
              <div/>
           </article>`
 
