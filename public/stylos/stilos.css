@@ -4,9 +4,37 @@
     margin: 0;
     padding: 0;}
     
+    
+@font-face {
+    font-family:'hum';
+    src: url(/the_bold_font/THE\ BOLD\ FONT\ -\ FREE\ VERSION\ -\ 2023.otf);
+}
+
+@font-face {
+    font-family:'kopiru';
+    src: url(/kopiku/Kopiku.ttf);
+}
+@font-face {
+    font-family: 'acessos';
+    src: url(/astonpoliz/Astonpoliz.ttf);
+}
+@font-face {
+    font-family: 'aberto';
+    src: url(/ponymaker/PonyMaker.ttf);
+}
+@font-face {
+    font-family: 'ultil';
+    src: url(/solari/Solari.ttf);
+}
+@font-face {
+    font-family: 'op';
+    src: url(/good_dog/GOODDC__.TTF);
+}
+
+
 
 body{
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     color: aliceblue;
     display: inline-block;
     overflow-x: hidden;   
@@ -19,11 +47,11 @@ body{
 }
 
 h1{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-family:'aberto';    
     position: absolute;
     margin-right: 70%;
     font-size: 50px;
-
+    color: rgb(255, 137, 202);
 }
 
 .container header{
@@ -34,7 +62,8 @@ h1{
     justify-content: center;
     align-items: center;
     width: 100vw;
-    background-color: black;
+    background-color: rgb(219, 251, 255);
+    
 }
 
 .container .lista .list-ind{
@@ -45,17 +74,18 @@ margin-left: 200px;
 
 li{
     list-style: none;
+
 }
 
 .container .lista .list-ind a{
     text-decoration: none;
     margin-left:30px;
     font-size: 20px;
-    color: rgb(245, 245, 245);
-    
+    color: rgb(0, 0, 0);
+    font-family: 'kopiru';
 }
 .container .lista .list-ind a:hover{
-    color:  rgba(255, 230, 0, 0.769);
+    color:  rgb(43, 42, 42);
 
 }
 
@@ -287,8 +317,7 @@ height: 35vh;
         width: 40px;
           }
         
-        
-
+    
     #end p{
 
         font-size: x-large;
@@ -311,4 +340,22 @@ height: 35vh;
     }
 
 
-   
+   #opcoes{
+    position: fixed;
+    display: flex;
+    width: 99vw;
+    background-color: white;
+    color: black;
+    font-family: inherit;;
+    justify-content: space-around;
+    margin-top: 12vh;
+    padding: 15px 20px;
+   }
+
+   #opcoes li {
+      margin-top: 1%;
+      font-size: 23px;
+      font-family:'op' ;
+      color: rgb(0, 0, 0);
+      
+   }
