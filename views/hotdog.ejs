@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Danfo&display=swap" rel="stylesheet">
+    <%- include("partials/head.ejs")  %>  
+    <link rel="stylesheet" href="/stylos/cartao.css">
+</head>
+<body>
+    <%- include("partials/produtos.ejs")%>
+    <%- include("partials/menu_carrinho.ejs")  %>  
+    
+<main>
+<div class="produtos">
+
+   
+    <%cadastrados.forEach( prodcadastrados => { %>
+        
+        <article class="cartao" >
+            <p id="nome"><%= prodcadastrados.nome %></p>
+            <img id="imgProncipal" src="/imagens/<%=prodcadastrados.img %>" alt="mac">
+            <div id="status">
+                <p><%= prodcadastrados.recheio %></p>
+                <p id="valor">R$ <%= prodcadastrados.valor%></p>
+            </div>
+            <p id="addi"  data-local="<%= prodcadastrados.id %>">adicionar</p>
+        </article>
+  
+        
+    <% }); %> 
+    </div>
+    
+
+
+</main>
+
+<%- include("partials/roda_pe.ejs")%>
+</body>
+<%- include("partials/foot.ejs")  %>  
+
+</html>

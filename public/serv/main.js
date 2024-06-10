@@ -67,7 +67,7 @@ this.produtos = data.map( itens  =>{
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
 
-//localStorage.setItem("car", JSON.stringify(this.produtos)) // caso deja erro ao executar o sistema pela primeira vez é so liberar esse comando 
+ // caso deja erro ao executar o sistema pela primeira vez é so liberar esse comando 
 //this.apagar()//
 })
 },
@@ -101,23 +101,26 @@ Events:{
 abrirfecharCarrinho_click:function(e){
 const carrinho = this.$menucarrinho  
 const done=carrinho.classList.contains('abrirCarrinho') // contains: serve para saber se a variavel, seja la qual for, possui ou nao a alguma class especifica
+const favicon = document.querySelector('#favicon')
 
+
+favicon.addEventListener('click', function(){ 
+        carrinho.classList.remove('abrirCarrinho')
+        campo.classList.remove('abrirCarrinho')
+
+})
 
 const campo = document.querySelector("#campo")
 const doneDuol = campo.classList.contains('abrirCarrinho')
 
         if(  done == false){
-            carrinho.classList.add('abrirCarrinho')
-            
-        }else{
-            carrinho.classList.remove('abrirCarrinho')
-        }
+            carrinho.classList.add('abrirCarrinho')    
+          }
 
-if(  doneDuol == false){
+        if(  doneDuol == false){
     campo.classList.add('abrirCarrinho')
+       
     
-}else{    
-    campo.classList.remove('abrirCarrinho')
 }
 
 },

@@ -84,7 +84,7 @@ li{
     margin-left:30px;
     font-size: 20px;
     color: rgb(0, 0, 0);
-    font-family: 'kopiru';
+    font-family: 'acessos';
 }
 .container .lista .list-ind a:hover{
     color:  rgb(218, 157, 4);
@@ -110,18 +110,33 @@ li{
 cursor: pointer;
 }
 
+#favicon{
+    height: 25px;
+    margin-left: 23vw;
+    margin-top: 13px;
+    cursor: pointer;
+    
+}
+
+
+#nocarrinho{
+    position:absolute;
+    padding: 16px 20px;
+    font-family: 'kopiru';
+    font-size: 15px;
+    color: lightslategray;
+    
+}
+
 #campo{
     position: relative;
 }
 
 
-
 .container .menucarrinho , #campo{
-
     background-color: rgb(0, 0, 0);
-    height:73vh;
+    height:79vh;
     width: 27vw;
-    top: 90px;
     position:fixed;
     right: -100%;
     transition: 500ms;
@@ -131,40 +146,57 @@ cursor: pointer;
 .container .menucarrinho.abrirCarrinho, #campo.abrirCarrinho {
     right: 0px;
     transition: 500ms;
-    border-radius: 10px;
-
+    border-radius: 5px;
 
 }
 
+p#total{
 
-#finalizar{
     position: fixed;
-    padding: 10px 50px;
-    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 20PX; 
+    margin-top: 36.5%;
+    background-color: darkgrey;
+   margin-left: 12px;
+    padding: 10px 100px;
+    border-radius: 12px;
+    
+}
+
+p#total:hover{
+background-color: whitesmoke;
+   color: black;
+    
+}
+
+
+#finalizar {
+    position: fixed;
+    padding: 10px 130px;
+    border-radius: 12px;
     background-color: rgb(255, 166, 0);
     color: rgb(255, 239, 239);
     font-size: 20px;
     cursor: pointer;   
-    margin-top: 36%;
+    margin-top: 39.8%;
     border-style: none;
-    margin-left: 30px;
+    margin-left: 1vw;
 }
 
 #finalizar:hover{
    
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(219, 251, 255);
     color:goldenrod   
 }
 
 #campo{
-    height: 88vh;
-    box-shadow: 0 0 1em rgb(255, 187, 0);
+    height: 100vh;
+    box-shadow: 0 0 1em rgb(0, 0, 0);
 
 }
 
-
 #imgProncipal{
-    
+ 
     width: 310px;
     height: 210px;
     margin-left: 43px;

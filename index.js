@@ -78,6 +78,66 @@ app.get("/menu",(req, res)=>{
 })
 
 
+app.get("/menu",(req, res)=>{
+
+    const produtos = fs.readFileSync("./cadastrados.json")
+    const produtosOBJ = JSON.parse(produtos)
+
+
+     res.render("menu",{
+        cadastrados:produtosOBJ
+    })
+})
+
+//produtos
+            app.get("/bebidas",(req, res)=>{
+
+                const produtos = fs.readFileSync("./cadastrados.json")
+                const produtosOBJ = JSON.parse(produtos)
+
+
+                res.render("bebidas",{
+                    cadastrados:produtosOBJ
+                })
+            })
+
+                app.get("/combos",(req, res)=>{
+
+                    const produtos = fs.readFileSync("./cadastrados.json")
+                    const produtosOBJ = JSON.parse(produtos)
+                
+                
+                    res.render("combos",{
+                        cadastrados:produtosOBJ
+                    })
+                })
+                
+                    app.get("/pizza",(req, res)=>{
+
+                        const produtos = fs.readFileSync("./cadastrados.json")
+                        const produtosOBJ = JSON.parse(produtos)
+                    
+                    
+                        res.render("pizza",{
+                            cadastrados:produtosOBJ
+                        })
+                    })
+                    app.get("/hotdogs",(req, res)=>{
+
+                        const produtos = fs.readFileSync("./cadastrados.json")
+                        const produtosOBJ = JSON.parse(produtos)
+                    
+                    
+                        res.render("hotdog",{
+                            cadastrados:produtosOBJ
+                        })
+                    })
+   //                 
+                
+
+
+
+
 
 const port = process.env.PORT || 8080
 
