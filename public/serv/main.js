@@ -61,7 +61,8 @@ this.produtos = data.map( itens  =>{
             "img":itens.img,
             "recheio":itens.recheio,
             "id":itens.id,
-            "quantidade": 1
+            "quantidade": 1,
+            "money":itens.valor
         }
 
     return produtosapi
@@ -96,8 +97,8 @@ corpoHTML: function(positionCartao, quantidade){
 
 dinheiro: function(valor){
            const valores = Number(valor)
-  return  this.$dinheiro.innerHTML = valores
-    },
+  return  this.$dinheiro.innerHTML += valores || ""
+},
 
     
 
@@ -161,7 +162,7 @@ if( posisao ){
 
     const localstoragProd = this.produtos.find( itens => itens.id == id )     
     
-    this.dinheiro(localstoragProd.valor)//adicionar valor
+    this.dinheiro(localstoragProd.money)//adicionar valor
     
     
     const savestryng = localStorage.getItem("car") //pega os produtos salvos no carrinho
@@ -181,6 +182,9 @@ if( posisao ){
 
 //apaga os produtos do carrinho
 apagar: function(){
+
+
+
     this.$apagarCar=document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this               
   
@@ -258,7 +262,7 @@ const self = this
 
                 const html = self.corpoHTML(positionCartao)
             teste.innerHTML += html
-            this.dinheiro(positionCartao.valor)
+            this.dinheiro(positionCartao.money)
 }})
 
    localStorage.setItem("car",JSON.stringify(self.objsalvos))
