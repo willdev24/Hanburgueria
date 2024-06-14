@@ -20,6 +20,7 @@ buscarnoHtml: function(){
     this.$carrinhoDecompras = document.querySelector('#carrinho')
     this.$menucarrinho =document.querySelector('.menucarrinho')    
     this.$produtos=document.querySelectorAll("#addi") //uso os queryselectoALL para pegar todos os produtos com botao id #addi
+    this.$dinheiro=document.querySelector("#total")
 
 },
 
@@ -56,7 +57,7 @@ this.produtos = data.map( itens  =>{
 
     const produtosapi = {     
             "nome": itens.nome,
-            "valor":itens.valor,
+            "valor":itens.valorCartao,
             "img":itens.img,
             "recheio":itens.recheio,
             "id":itens.id,
@@ -91,6 +92,11 @@ corpoHTML: function(positionCartao, quantidade){
         </div>
     </article>`
     
+    },
+
+dinheiro: function(valor){
+           const valores = Number(valor)
+  return  this.$dinheiro.innerHTML = valores
     },
 
     
@@ -132,6 +138,9 @@ const id = e.target.dataset.local  //pega o id do produto que voçe adiciona
 const positionCartao = this.produtos.find( itens => itens.id == id) //passa por todo os array,de produtos, ate encontrar o produto que tem o mesmo id 
                                                                     // usando o find para poder pegar a informaçao completa do produto
 
+
+
+
 //verificando se ja tem o mesmo produto no carrinho
 const validar = localStorage.getItem("car")
       this.validarProd = JSON.parse(validar)
@@ -146,8 +155,15 @@ if( posisao ){
                     
     elementclass.innerHTML = this.corpoHTML(positionCartao) //aq é chamado a funçao para criar meu produto, passsando o "positionCartao" que contem todas as informaçoes do cartao.
     this.$menucarrinho.appendChild(elementclass)
-                             
-    const localstoragProd = this.produtos.find( itens => itens.id == id )                    
+    
+   
+
+
+    const localstoragProd = this.produtos.find( itens => itens.id == id )     
+    
+    this.dinheiro(localstoragProd.valor)//adicionar valor
+    
+    
     const savestryng = localStorage.getItem("car") //pega os produtos salvos no carrinho
     const saveobj = JSON.parse(savestryng)
                                     
@@ -242,6 +258,7 @@ const self = this
 
                 const html = self.corpoHTML(positionCartao)
             teste.innerHTML += html
+            this.dinheiro(positionCartao.valor)
 }})
 
    localStorage.setItem("car",JSON.stringify(self.objsalvos))
