@@ -95,9 +95,15 @@ corpoHTML: function(positionCartao, quantidade){
     
     },
 
-dinheiro: function(valor){
-           const valores = Number(valor)
-  return  this.$dinheiro.innerHTML += valores || ""
+dinheiro:  function(valor){
+    const valorNOcar = document.querySelector("#total")
+            const num3 = Number(valor)
+ const salvat = localStorage.setItem("valor", num3)
+
+
+            const conador =0
+         
+  return this.$dinheiro.innerHTML = conador  || ""
 },
 
     
@@ -138,7 +144,6 @@ addicionarCarrinho_click:function(e){
 const id = e.target.dataset.local  //pega o id do produto que voçe adiciona
 const positionCartao = this.produtos.find( itens => itens.id == id) //passa por todo os array,de produtos, ate encontrar o produto que tem o mesmo id 
                                                                     // usando o find para poder pegar a informaçao completa do produto
-
 
 
 
