@@ -96,14 +96,27 @@ corpoHTML: function(positionCartao, quantidade){
     },
 
 dinheiro:  function(valor){
-    const valorNOcar = document.querySelector("#total")
-            const num3 = Number(valor)
- const salvat = localStorage.setItem("valor", num3)
+   let money = this.$dinheiro
+
+    money.innerHTML = ""
+    money.innerHTML = valor
+   let valorTotal = money.textContent
+
+    localStorage.setItem("valor", valorTotal)
+    const salvat =localStorage.getItem("valor")
+    const objval = JSON.parse(salvat)
+    
+    document.querySelector('#total').textContent
+    console.log(valorTotal)
+    
+
+   
+   
 
 
-            const conador =0
+  
          
-  return this.$dinheiro.innerHTML = conador  || ""
+  return 
 },
 
     
@@ -153,7 +166,7 @@ const validar = localStorage.getItem("car")
 const posisao = this.validarProd.find( intensSlavod => intensSlavod.id == id)//se tiver esse produto no carrinhoe ele vai chamar a funçao incrementar 
 
 if( posisao ){
-    this.Quantidade(id) //aq eu hamo a funçao qunatidade para nao ser adicionado o mesmo produto no carrinho e sim so a quantidade/valor
+    this.Quantidade(id) //aq eu chamo a funçao qunatidade para nao ser adicionado o mesmo produto no carrinho e sim so a quantidade/valor
 
  }else{  //caso contrario o produto irá seguir essa linha de codgo e adcionara o produto no carrinho
 
@@ -161,11 +174,8 @@ if( posisao ){
                     
     elementclass.innerHTML = this.corpoHTML(positionCartao) //aq é chamado a funçao para criar meu produto, passsando o "positionCartao" que contem todas as informaçoes do cartao.
     this.$menucarrinho.appendChild(elementclass)
-    
-   
-
-
     const localstoragProd = this.produtos.find( itens => itens.id == id )     
+
     
     this.dinheiro(localstoragProd.money)//adicionar valor
     
@@ -267,7 +277,7 @@ const self = this
 
                 const html = self.corpoHTML(positionCartao)
             teste.innerHTML += html
-            this.dinheiro(positionCartao.money)
+           
 }})
 
    localStorage.setItem("car",JSON.stringify(self.objsalvos))
