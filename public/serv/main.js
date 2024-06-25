@@ -13,6 +13,7 @@ const Main ={
         this.apagar()
         this.Quantidade()
         this.finaizarPedido()
+        this.dinheiro()
     },
     
 
@@ -96,28 +97,25 @@ corpoHTML: function(positionCartao, quantidade){
     },
 
 dinheiro:  function(valor){
+   const corpo = this.$menucarrinho
    let money = this.$dinheiro
+console.log(corpo.value)
 
-    money.innerHTML = ""
+   if(valor){
     money.innerHTML = valor
    let valorTotal = money.textContent
+   localStorage.setItem("valor", valorTotal)
 
-    localStorage.setItem("valor", valorTotal)
+   }else if(corpo.textContent){
+
     const salvat =localStorage.getItem("valor")
     const objval = JSON.parse(salvat)
-    
-    document.querySelector('#total').textContent
-    console.log(valorTotal)
-    
-
    
-   
+    return  money.innerHTML = objval
+   }else{
 
-
-  
-         
-  return 
-},
+   money.innerHTML = "00,00"
+}},
 
     
 
@@ -198,7 +196,7 @@ if( posisao ){
 //apaga os produtos do carrinho
 apagar: function(){
 
-
+this.dinheiro()
 
     this.$apagarCar=document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this               
