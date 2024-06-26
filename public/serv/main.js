@@ -97,12 +97,15 @@ corpoHTML: function(positionCartao, quantidade){
     },
 
 dinheiro:  function(valor){
+
+  
+
    const corpo = this.$menucarrinho
    let money = this.$dinheiro
-console.log(corpo.value)
+
 
    if(valor){
-    money.innerHTML = valor
+    money.innerHTML = valor 
    let valorTotal = money.textContent
    localStorage.setItem("valor", valorTotal)
 
@@ -115,7 +118,11 @@ console.log(corpo.value)
    }else{
 
    money.innerHTML = "00,00"
-}},
+}
+
+
+
+},
 
     
 
@@ -197,6 +204,7 @@ if( posisao ){
 apagar: function(){
 
 this.dinheiro()
+
 
     this.$apagarCar=document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this               
