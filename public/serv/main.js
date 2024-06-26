@@ -104,22 +104,38 @@ dinheiro:  function(valor, subtrair){  //ajeitar os valores que estao dando nega
 const salvat =localStorage.getItem("valor")
 const objval = JSON.parse(salvat)
 
-  const newvalor = ( objval - subtrair) 
+
+        if(subtrair > objval){
+          this.newvalor = subtrair - objval
+
+        }else{
+            this.newvalor = objval - subtrair
+        }
+
 
    if(valor > 0){
-    money.innerHTML = valor + objval
+    money.innerHTML =""
+    money.innerHTML =  objval + valor 
    let valorTotal = money.textContent
+
    localStorage.setItem("valor", valorTotal)
+   
 
    }else if(corpo.textContent){
 
-    return  money.innerHTML = objval
-   }else if(subtrair){
-    localStorage.setItem('valor', newvalor)
-  return money.innerHTML =   newvalor
+    return  money.innerHTML = objval.toFixed(2)
+   
+  }/*else if(corpo.textContent ){
+      
+    money.innerHTML =   
+
+}*/ else if(subtrair){
+    localStorage.setItem('valor', this.newvalor)
+  return money.innerHTML =   this.newvalor.toFixed(2)
 
 }else{
     money.innerHTML = "00,00"
+    localStorage.setItem("valor", 0)
 }
 
 
@@ -235,6 +251,7 @@ apagar: function(){
           
         
           self.dinheiro(0,valorDoproduto.money) 
+          console.log(valorDoproduto.money)
           
      contID.forEach( positionCartao =>{
   
