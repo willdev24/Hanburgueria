@@ -69,8 +69,8 @@ this.produtos = data.map( itens  =>{
     return produtosapi
 })
 localStorage.setItem("tasks", JSON.stringify(this.produtos))
-
- // caso deja erro ao executar o sistema pela primeira vez é so liberar esse comando 
+//localStorage.setItem("car",JSON.stringify(this.produtos))
+// caso deja erro ao executar o sistema pela primeira vez é so liberar esse comando 
 //this.apagar()//
 })
 },
@@ -96,36 +96,36 @@ corpoHTML: function(positionCartao, quantidade){
     
     },
 
-dinheiro:  function(valor){
-
-  
-
+dinheiro:  function(valor, subtrair){  //ajeitar os valores que estao dando negativos 
    const corpo = this.$menucarrinho
    let money = this.$dinheiro
 
 
-   if(valor){
-    money.innerHTML = valor 
+const salvat =localStorage.getItem("valor")
+const objval = JSON.parse(salvat)
+
+  const newvalor = ( objval - subtrair) 
+
+   if(valor > 0){
+    money.innerHTML = valor + objval
    let valorTotal = money.textContent
    localStorage.setItem("valor", valorTotal)
 
    }else if(corpo.textContent){
 
-    const salvat =localStorage.getItem("valor")
-    const objval = JSON.parse(salvat)
-   
     return  money.innerHTML = objval
-   }else{
+   }else if(subtrair){
+    localStorage.setItem('valor', newvalor)
+  return money.innerHTML =   newvalor
 
-   money.innerHTML = "00,00"
+}else{
+    money.innerHTML = "00,00"
 }
-
 
 
 },
 
     
-
 Events:{
 
 //abrir e fechar o carrinho 
@@ -203,18 +203,18 @@ if( posisao ){
 //apaga os produtos do carrinho
 apagar: function(){
 
-this.dinheiro()
-
+  
 
     this.$apagarCar=document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this               
   
     this.$apagarCar.forEach( itens=> {              //adiciono um eventos em todos eles
         itens.addEventListener("click",function(e){ //executo a funçao aq mesmo para evitar erros
-         
+            
             const nocarrinho = localStorage.getItem("car") //antes de tudo pego todos os produtos, salvos no carrinho, e coloco dentro de uma variavel global  
             const objsalvos = JSON.parse(nocarrinho)
-            self.gitstorage = objsalvos        
+            self.gitstorage = objsalvos
+            
     
     const id = e.target.dataset.local //id do produto a ser excluido
 
@@ -229,6 +229,13 @@ this.dinheiro()
     const teste =document.querySelector('.menucarrinho') //a sim eu apago todos os produtos e logo a baixo crio todos eles ja filtrados 
           teste.innerHTML = ""
 
+          const valorDoproduto = self.produtos.find( itens => itens.id == id)
+            
+
+          
+        
+          self.dinheiro(0,valorDoproduto.money) 
+          
      contID.forEach( positionCartao =>{
   
                 const html = self.corpoHTML(positionCartao)                       
@@ -236,10 +243,12 @@ this.dinheiro()
                     
     })
 
+        
+
      self.apagar()
      self.descrementar()
      self.crementar()
-     
+    
     })
  })
 },
