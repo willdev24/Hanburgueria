@@ -114,8 +114,8 @@ const objval = JSON.parse(salvat)
 
 
    if(valor > 0){
-    money.innerHTML =""
-    money.innerHTML =  objval + valor 
+    
+    money.innerHTML =  (objval + valor).toFixed(2)
    let valorTotal = money.textContent
 
    localStorage.setItem("valor", valorTotal)
