@@ -1,3 +1,4 @@
+
 const Main ={
 
     produtos:[],
@@ -100,9 +101,8 @@ dinheiro:  function(valor, subtrair){  //ajeitar os valores que estao dando nega
    const corpo = this.$menucarrinho
    let money = this.$dinheiro
 
-
-const salvat =localStorage.getItem("valor")
-const objval = JSON.parse(salvat)
+const objvanum1l = localStorage.getItem("valor")
+const  objval =  JSON.parse(objvanum1l)
 
 
         if(subtrair > objval){
@@ -112,30 +112,25 @@ const objval = JSON.parse(salvat)
             this.newvalor = objval - subtrair
         }
 
+        if(subtrair){
+            localStorage.setItem("valor", this.newvalor.toFixed(2))
+          
+            return money.innerHTML =   this.newvalor.toFixed(2)        
+        }
 
    if(valor > 0){
-    
-    money.innerHTML =  (objval + valor).toFixed(2)
-   let valorTotal = money.textContent
-
-   localStorage.setItem("valor", valorTotal)
+    const num = objval + valor
+    money.innerHTML = num.toFixed(2)
+   localStorage.setItem("valor", num.toFixed(2))
    
-
-   }else if(corpo.textContent){
+}else if(corpo.textContent){
 
     return  money.innerHTML = objval.toFixed(2)
    
-  }/*else if(corpo.textContent ){
-      
-    money.innerHTML =   
-
-}*/ else if(subtrair){
-    localStorage.setItem('valor', this.newvalor)
-  return money.innerHTML =   this.newvalor.toFixed(2)
-
-}else{
+  }else{
+    const num = 0
     money.innerHTML = "00,00"
-    localStorage.setItem("valor", 0)
+    localStorage.setItem("valor", num.toFixed(2))
 }
 
 
@@ -143,7 +138,7 @@ const objval = JSON.parse(salvat)
 
     
 Events:{
-
+ 
 //abrir e fechar o carrinho 
 abrirfecharCarrinho_click:function(e){
 const carrinho = this.$menucarrinho  
@@ -211,63 +206,63 @@ if( posisao ){
     this.apagar() 
     this.descrementar() 
     this.crementar()
-         
+                                 //tenho que fazer o apagar hamar a funçao inheiro uma ves so 
 }}                      
                
 },
 
 //apaga os produtos do carrinho
 apagar: function(){
-
-  
-
-    this.$apagarCar=document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
-    const self = this               
-  
-    this.$apagarCar.forEach( itens=> {              //adiciono um eventos em todos eles
+    
+    
+    this.$apagarCar = document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
+    const self = this
+    
+    
+        this.$apagarCar.forEach( (itens, indce)=> {              //adiciono um eventos em todos eles        
         itens.addEventListener("click",function(e){ //executo a funçao aq mesmo para evitar erros
-            
+        const id = e.target.dataset.local//id do produto a ser excluido
+        
             const nocarrinho = localStorage.getItem("car") //antes de tudo pego todos os produtos, salvos no carrinho, e coloco dentro de uma variavel global  
             const objsalvos = JSON.parse(nocarrinho)
             self.gitstorage = objsalvos
-            
-    
-    const id = e.target.dataset.local //id do produto a ser excluido
+                    
+            const contID = self.gitstorage.filter( itenscar => {  //filtro o a minha variavel global retirando apenas o routo a ser exluido
+            return itenscar.id != id
+            })
 
-    const contID = self.gitstorage.filter( itenscar => {  //filtro o a minha variavel global retirando apenas o routo a ser exluido
-    return itenscar.id != id
+    if(self.gitstorage.length != contID.length){ //preciso fazer isso para corrigir bug na hora de subtrair valores no carrinho!
+                                                 // na primeira vez que o forEach for chamado ele sempre vai ter o indice diferente entre  (self.gitstorage.length != contID.length)
+                                                 //fazendo com que a funçao dinheiro seja chamaada apenas uma vez                                    
 
-    })
+       const valor = self.gitstorage.find(index=> index.id == id)
+       const newvalor = valor.money
+       self.dinheiro(0,newvalor)
+    }
 
 // por fim TUALIZO o localStorage com os produtos ja filtrados
     localStorage.setItem("car", JSON.stringify(contID)) 
     
-    const teste =document.querySelector('.menucarrinho') //a sim eu apago todos os produtos e logo a baixo crio todos eles ja filtrados 
+  const teste =document.querySelector('.menucarrinho') //a sim eu apago todos os produtos e logo a baixo crio todos eles ja filtrados 
           teste.innerHTML = ""
-
-          const valorDoproduto = self.produtos.find( itens => itens.id == id)
-            
-
-          
-        
-          self.dinheiro(0,valorDoproduto.money) 
-          console.log(valorDoproduto.money)
           
      contID.forEach( positionCartao =>{
   
                 const html = self.corpoHTML(positionCartao)                       
                 teste.innerHTML += html
-                    
+return  
+    
+           
     })
 
-        
 
-     self.apagar()
+    
      self.descrementar()
      self.crementar()
-    
+     self.apagar()    
     })
  })
+
 },
 
 // depois de ser verificado se o mesmo produto ja esta no carrinho essa funçao é chamada se ja houver o produto ja no carrino  
