@@ -132,8 +132,6 @@ const  objval =  JSON.parse(objvanum1l)
     money.innerHTML = "00,00"
     localStorage.setItem("valor", num.toFixed(2))
 }
-
-
 },
 
     
