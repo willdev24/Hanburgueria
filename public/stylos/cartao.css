@@ -28,8 +28,9 @@ row-gap: 0ch;
 .cartao:hover{
     background-color: rgb(219, 251, 255);
     color: rgb(0, 0, 0);
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-
+   
+    transition-delay: 1s, 250ms;
+    transition-property: margin-right, color;
 }
 
 

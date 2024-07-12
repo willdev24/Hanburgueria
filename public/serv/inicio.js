@@ -14,14 +14,10 @@ if(currentImagenIndex >= max){
     currentImagenIndex = 0
     for(let i = 0; i < 4; i++) 
     imagens[i].classList.remove("selected")
-
 }
 
-
 imagens[currentImagenIndex].classList.add("selected")
-
-
-    }
+}
 
 setInterval(()=>{
 

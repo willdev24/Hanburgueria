@@ -86,8 +86,6 @@ corpoFinal: function(positionCartao2){
              <div/>
           </article>`
 
-
-
    },
 
    adcionarProdutos: function(){

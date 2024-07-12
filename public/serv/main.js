@@ -97,20 +97,23 @@ corpoHTML: function(positionCartao, quantidade){
     
     },
 
-dinheiro:  function(valor, subtrair){  //ajeitar os valores que estao dando negativos 
-   const corpo = this.$menucarrinho
-   let money = this.$dinheiro
+dinheiro:  function(valor, sub, quantidade){  
+
+const corpo = this.$menucarrinho
+let money = this.$dinheiro
 
 const objvanum1l = localStorage.getItem("valor")
 const  objval =  JSON.parse(objvanum1l)
+
+const subtrair = sub / quantidade
 
 
         if(subtrair > objval){
           this.newvalor = subtrair - objval
 
-        }else{
-            this.newvalor = objval - subtrair
-        }
+            }else{
+                this.newvalor = objval - subtrair
+            }
 
         if(subtrair){
             localStorage.setItem("valor", this.newvalor.toFixed(2))
@@ -119,19 +122,19 @@ const  objval =  JSON.parse(objvanum1l)
         }
 
    if(valor > 0){
-    const num = objval + valor
-    money.innerHTML = num.toFixed(2)
-   localStorage.setItem("valor", num.toFixed(2))
+     const num = objval + valor
+     money.innerHTML = num.toFixed(2)
+     localStorage.setItem("valor", num.toFixed(2))
    
-}else if(corpo.textContent){
+     }else if(corpo.textContent){
 
-    return  money.innerHTML = objval.toFixed(2)
+       return  money.innerHTML = objval.toFixed(2)
    
-  }else{
-    const num = 0
-    money.innerHTML = "00,00"
-    localStorage.setItem("valor", num.toFixed(2))
-}
+        }else{
+            const num = 0
+            money.innerHTML = "00,00"
+            localStorage.setItem("valor", num.toFixed(2))
+        }
 },
 
     
@@ -173,7 +176,6 @@ const positionCartao = this.produtos.find( itens => itens.id == id) //passa por 
                                                                     // usando o find para poder pegar a informaçao completa do produto
 
 
-
 //verificando se ja tem o mesmo produto no carrinho
 const validar = localStorage.getItem("car")
       this.validarProd = JSON.parse(validar)
@@ -199,6 +201,8 @@ if( posisao ){
                                     
     const obj = [localstoragProd, ...saveobj] //junto o produto que ta salvo + o produto que vou adicionar, jogo tudo dentro uma const e atualizo o localstorage
     localStorage.setItem("car", JSON.stringify(obj))
+
+    
                     
     //sempre que excuto uma funçao preciso chamar as demais funçoes novamente para que nao haja erros                 
     this.apagar() 
@@ -235,7 +239,8 @@ apagar: function(){
 
        const valor = self.gitstorage.find(index=> index.id == id)
        const newvalor = valor.money
-       self.dinheiro(0,newvalor)
+       const quant = valor.money
+       self.dinheiro(0,newvalor, quant)
     }
 
 // por fim TUALIZO o localStorage com os produtos ja filtrados
@@ -275,9 +280,19 @@ const self = this
     const teste =document.querySelector('.menucarrinho') //primeiro eu apago todos os produtos e logo a baixo crio todos eles ja com a quantiade certa 
     teste.innerHTML = ""
 
-                                                                                   //encontrando a posiçao do produto dentro do array
-    const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss ) //uso em varios lugares: preciso usar como uma funçao pra reduzir o uso desse elemento
-        
+   //dinheiro
+   if(objss){
+const produtoASERsomado = self.objsalvos.find(itens => itens.id == objss )
+const val = produtoASERsomado.money
+const quant = produtoASERsomado.quantidade
+this.dinheiro(val)
+   }
+
+   
+   
+    //encontrando a posiçao do produto dentro do array
+ const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss ) //uso em varios lugares: preciso usar como uma funçao pra reduzir o uso desse elemento
+       
  self.objsalvos.forEach( positionCartao =>{ // reconstruindo os produtos 
 
     if(valor == -1){ //se o valor vier negativo ele iradecrementar 
@@ -293,7 +308,8 @@ const self = this
                                                             nome:positionCartao.nome, 
                                                             quantidade:self.cont, 
                                                             recheio:positionCartao.recheio, 
-                                                            valor:positionCartao.valor})
+                                                            valor:positionCartao.valor,
+                                                            money:positionCartao.money})
 
                        const valor = self.cont
                        teste.innerHTML += self.corpoHTML(positionCartao,valor)
