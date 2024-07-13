@@ -97,7 +97,7 @@ corpoHTML: function(positionCartao, quantidade){
     
     },
 
-dinheiro:  function(valor, sub, quantidade){  
+dinheiro:  function(valor, produto){  
 
 const corpo = this.$menucarrinho
 let money = this.$dinheiro
@@ -105,8 +105,11 @@ let money = this.$dinheiro
 const objvanum1l = localStorage.getItem("valor")
 const  objval =  JSON.parse(objvanum1l)
 
-const subtrair = sub / quantidade
+const newObj = {...produto} // tive que criar um novo obj pra poder usar as propiedaeds do obj produto
+const value = newObj.money
+const quant = newObj.quantidade
 
+let subtrair = (value * quant)
 
         if(subtrair > objval){
           this.newvalor = subtrair - objval
@@ -121,7 +124,11 @@ const subtrair = sub / quantidade
             return money.innerHTML =   this.newvalor.toFixed(2)        
         }
 
-   if(valor > 0){
+
+
+
+//---//--------//        
+   if(valor > 0 || valor < 0){  //dependendo do valor que vier (negativo ou postivo) esse condicional irar subtrair ou adcionar
      const num = objval + valor
      money.innerHTML = num.toFixed(2)
      localStorage.setItem("valor", num.toFixed(2))
@@ -182,7 +189,7 @@ const validar = localStorage.getItem("car")
 const posisao = this.validarProd.find( intensSlavod => intensSlavod.id == id)//se tiver esse produto no carrinhoe ele vai chamar a funçao incrementar 
 
 if( posisao ){
-    this.Quantidade(id) //aq eu chamo a funçao qunatidade para nao ser adicionado o mesmo produto no carrinho e sim so a quantidade/valor
+    this.Quantidade(id, 0) //aq eu chamo a funçao qunatidade para nao ser adicionado o mesmo produto no carrinho e sim so a quantidade/valor
 
  }else{  //caso contrario o produto irá seguir essa linha de codgo e adcionara o produto no carrinho
 
@@ -221,7 +228,7 @@ apagar: function(){
     const self = this
     
     
-        this.$apagarCar.forEach( (itens, indce)=> {              //adiciono um eventos em todos eles        
+        this.$apagarCar.forEach( (itens)=> {              //adiciono um eventos em todos eles        
         itens.addEventListener("click",function(e){ //executo a funçao aq mesmo para evitar erros
         const id = e.target.dataset.local//id do produto a ser excluido
         
@@ -238,9 +245,8 @@ apagar: function(){
                                                  //fazendo com que a funçao dinheiro seja chamaada apenas uma vez                                    
 
        const valor = self.gitstorage.find(index=> index.id == id)
-       const newvalor = valor.money
-       const quant = valor.money
-       self.dinheiro(0,newvalor, quant)
+      
+       self.dinheiro(0,valor) //aq eu passo o obj valor completo pra function dineiro()
     }
 
 // por fim TUALIZO o localStorage com os produtos ja filtrados
@@ -280,14 +286,25 @@ const self = this
     const teste =document.querySelector('.menucarrinho') //primeiro eu apago todos os produtos e logo a baixo crio todos eles ja com a quantiade certa 
     teste.innerHTML = ""
 
-   //dinheiro
-   if(objss){
-const produtoASERsomado = self.objsalvos.find(itens => itens.id == objss )
-const val = produtoASERsomado.money
-const quant = produtoASERsomado.quantidade
-this.dinheiro(val)
-   }
+// inicio function dinheiro
 
+
+   if(valor >= 0){
+   
+    const produtoASERsomado = self.objsalvos.find(itens => itens.id == objss )
+    const val = produtoASERsomado.money
+    this.dinheiro(val)
+    console.log(val)
+        }
+        
+        if(valor < 0){       
+                const produtoASERsomado = self.objsalvos.find(itens => itens.id == objss )
+                const val = produtoASERsomado.money
+                
+                this.dinheiro(-val)
+                console.log(-val)
+            }
+//fim function inheiro
    
    
     //encontrando a posiçao do produto dentro do array
