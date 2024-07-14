@@ -10,6 +10,32 @@ body{
     
 }
 
+@font-face {
+    font-family:'hum';
+    src: url(/the_bold_font/THE\ BOLD\ FONT\ -\ FREE\ VERSION\ -\ 2023.otf);
+}
+
+@font-face {
+    font-family:'kopiru';
+    src: url(/kopiku/Kopiku.ttf);
+}
+@font-face {
+    font-family: 'acessos';
+    src: url(/astonpoliz/Astonpoliz.ttf);
+}
+@font-face {
+    font-family: 'aberto';
+    src: url(/ponymaker/PonyMaker.ttf);
+}
+@font-face {
+    font-family: 'ultil';
+    src: url(/solari/Solari.ttf);
+}
+@font-face {
+    font-family: 'op';
+    src: url(/good_dog/GOODDC__.TTF);
+}
+
 
 #pai form{
     position: relative;
@@ -32,7 +58,7 @@ body{
         width: 30vw;
         height: 100vh;     
         box-shadow: 0 0 1em rgb(0, 0, 0);
-        
+        font-family: "ultil";
     }
     #primeiraT3{
        margin-left:-50px;
@@ -54,7 +80,7 @@ body{
        font-size: 25px;
        cursor: pointer;
        border-radius: 20px;
-    }
+           }
 
     .lista1, .lista2{       
         height: 80vh;
@@ -66,6 +92,29 @@ body{
     .lista1{
         height: 89%;
     }
+
+    .lista1 #prodAdcional #quantidade #grana{
+        font-family: "ultil";
+    }
+    .lista1 #prodAdcional #quantidade #nome{ 
+                 font-family: "aberto";        
+    }
+
+    .lista2 #prodAdcional2 #quantidade #valores {
+
+        display: flex;
+    }
+
+    .lista2 #prodAdcional2 #quantidade #grana, #va{
+        font-family: "ultil";
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .lista2 #prodAdcional2 #quantidade #nome{ 
+                 font-family: "aberto";    
+
+    }
+
 
     #dois{
         width: 150%;
@@ -79,6 +128,7 @@ body{
         background-color: rgb(235, 235, 235);       
         height: 10vh; 
         padding: 16px 20px;
+        font-family: "ultil";
     }
     
     #primeiraT input{

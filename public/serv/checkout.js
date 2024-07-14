@@ -80,9 +80,11 @@ corpoFinal: function(positionCartao2){
             <div id="quantidade">
                <p id="nome">${positionCartao2.nome}</p>
                <p id="tamanho"> tamanho: ${positionCartao2.tamanho || positionCartao2.recheio}</p>
-               <p id="va">${positionCartao2.quantidade}</p>   
-               <p id="grana">R$ ${positionCartao2.preço|| positionCartao2.valor}</p>
-               
+                  <diV id="valores">
+                     <p id="va">${positionCartao2.quantidade}</p> 
+                     <p>x</p>  
+                     <p id="grana">R$ ${positionCartao2.preço|| positionCartao2.valor}</p>
+                  <diV/>   
              <div/>
           </article>`
 

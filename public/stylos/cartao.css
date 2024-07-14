@@ -6,6 +6,32 @@
     padding: 0;
     user-select: none}
 
+    @font-face {
+        font-family:'hum';
+        src: url(/the_bold_font/THE\ BOLD\ FONT\ -\ FREE\ VERSION\ -\ 2023.otf);
+    }
+    
+    @font-face {
+        font-family:'kopiru';
+        src: url(/kopiku/Kopiku.ttf);
+    }
+    @font-face {
+        font-family: 'acessos';
+        src: url(/astonpoliz/Astonpoliz.ttf);
+    }
+    @font-face {
+        font-family: 'aberto';
+        src: url(/ponymaker/PonyMaker.ttf);
+    }
+    @font-face {
+        font-family: 'ultil';
+        src: url(/solari/Solari.ttf);
+    }
+    @font-face {
+        font-family: 'op';
+        src: url(/good_dog/GOODDC__.TTF);
+    }
+    
 
 .produtos{    
 display: inline-flex; 
@@ -50,7 +76,7 @@ p#addi{
     margin-left: 20px;
     height: 5vh;
     margin-top: 50px;
-    border-radius: 20px;
+    border-radius: 22px;
     transition: 250ms;
     text-align: center;
 }
@@ -60,8 +86,12 @@ p#addi{
     background-color: rgb(255, 255, 255);
 }
 
+.produtos .cartao #nome{
+    font-family: "acessos";
+}
+
 #status {
-margin-top: -100px;
+margin-top: -90px;
 margin-left: -30px;
 width: 40%;
 }
@@ -74,7 +104,7 @@ width: 40%;
 #valor{
     width: 170%;
     font-size: 35px;
-    
+font-family: "ultil";    
 color: rgb(21, 103, 16);
 cursor: pointer;
 }

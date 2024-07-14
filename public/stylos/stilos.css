@@ -154,12 +154,13 @@ p#total{
 
     position: fixed;
     color: rgb(255, 255, 255);
-    font-size: 20PX; 
+    font-size: 25PX; 
     margin-top: 36.5%;
     background-color: darkgrey;
    margin-left: 12px;
-    padding: 10px 100px;
+    padding: 7px 100px;
     border-radius: 12px;
+    font-family: "hum";
     
 }
 
@@ -200,6 +201,15 @@ background-color: whitesmoke;
     width: 310px;
     height: 210px;
     margin-left: 43px;
+}
+#prodnocarrinho #recheio #dinheiro{
+    font-family: "ultil";
+    color: black;
+}
+
+#prodnocarrinho #recheio #name{
+    font-family: "op";
+    color: black;
 }
 
 #prodnocarrinho{
