@@ -44,7 +44,7 @@ body{
 
     #primeiraT {
         position: relative;
-        padding: 200px 100px;
+        padding: 20px 10px;
         background-image: url(/imagens/fundo_chec.png);
         background-size: cover;
         height: 100vh;
@@ -76,7 +76,7 @@ body{
 
     #butaocompra{
        padding: 10px 20px ;    
-       margin-top: 30px;
+       margin-top: 3px;
        font-size: 25px;
        cursor: pointer;
        border-radius: 20px;
