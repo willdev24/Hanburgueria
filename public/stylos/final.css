@@ -188,4 +188,19 @@ flex-direction: column;    }
 
 #crementar:hover{
     font-size: 40px;
+
+}
+
+
+/*  validaçao de formulario*/
+
+.vazil{
+    border-color: red;
+    border-style:outset;
+}
+
+.spans{
+font-family: Arial, Helvetica, sans-serif;
+   color: red; 
+   margin-left: 30PX;
 }

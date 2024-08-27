@@ -145,31 +145,72 @@ localStorage.setItem("prodFinais", JSON.stringify(self.objtoarrinho ))
   const  self = this
       document.querySelector("#formulario").addEventListener('submit', validar)
 
-      const nome = document.forms['formulario']['nome']
-      const telefone = document.forms['formulario']['telefone']
-      const cep = document.forms['formulario']['cep']
-      const endereco = document.forms['formulario']['endereco']
-      const complemento = document.forms['formulario']['complemento']
-      const numero = document.forms['formulario']['numero']
-     
+      let nome = document.forms['formulario']['nome']
+      let telefone = document.forms['formulario']['telefone']
+      let cep = document.forms['formulario']['cep']
+      let endereco = document.forms['formulario']['endereco']
+      let complemento = document.forms['formulario']['complemento']
+      let numero = document.forms['formulario']['numero']
+      let bairro = document.forms['formulario']['bairro']
 
-const nomeUser = document.querySelector("#nome")
+const nomeUser = document.querySelector("#nomeF")
 const telefoneUser = document.querySelector("#telefone")
 const cepUser = document.querySelector("#cep")
 const enderecoUser = document.querySelector("#endereco")
 const complementoUser = document.querySelector("#complemento")
 const numeroUser = document.querySelector("#numero")
+const bairroUser = document.querySelector("#bairro")
+
+
+
+const spannomeFO = document.querySelector("#spannomeFO")
+const spancep = document.querySelector("#spancep")
+const spanend = document.querySelector("#spanend")
+const spanbairro = document.querySelector("#spanbairro")
+const spanumero = document.querySelector("#spanumero")
+const spancomp = document.querySelector("#spancomp")
+const spantel= document.querySelector("#spantel")
+
 
       function validar(e){
-      e.preventDefault() 
+      e.preventDefault()
 
+   this.spans=[spanumero,spantel,spannomeFO,spancomp,spancep,spanend,spanbairro]
+   this.campos = [nomeUser,telefoneUser,cepUser,enderecoUser,complementoUser,numeroUser,bairroUser]
+
+if(nome.value =="" && telefone.value =="" && 
+   cep.value =="" && endereco.value =="" &&
+   complemento.value =="" && numero.value =="" 
+   && bairro.value == ""){
+
+   this.campos.forEach((itens)=>{
+
+      const done = itens.classList.contains("vazil")
+
+      if(done == false){
+
+      itens.classList.add("vazil")
+       }
+   })
+
+   this.spans.forEach((erros)=>{
+
+      const done = erros.classList.contains("spans")
+
+      if(done == false){
+         
+         erros.classList.add("spans")
+         erros.innerHTML =" O campo vazil deve ser preenchido "
+      }
+
+   })
+
+
+   
+}
 
 
       }
-
-
-
-
 
    }
 
