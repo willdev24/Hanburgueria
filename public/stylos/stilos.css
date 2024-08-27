@@ -25,7 +25,7 @@ h1{
     position: absolute;
     margin-right: 70%;
     font-size: 50px;
-    color: rgb(255, 137, 202);
+    color: rgb(255, 0, 140);
 }
 
 .container header{
@@ -37,6 +37,7 @@ h1{
     align-items: center;
     width: 100vw;
     background-color: rgb(219, 251, 255);
+    
     
 }
 
@@ -364,8 +365,24 @@ height: 35vh;
     color: black;
     font-family: inherit;;
     justify-content: space-around;
+    padding: 0px 20px;
     margin-top: 12vh;
-    padding: 15px 20px;
+   
+   }
+
+   #opcoes li a{
+    width: 20vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   }
+
+   #opcoes li a:hover {
+  
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 3, 163);
    }
 
    #opcoes li a{
@@ -374,12 +391,18 @@ height: 35vh;
       font-size: 23px;
       font-family:'op' ;
       color: rgb(0, 0, 0);
+
       
    }
    #opcoes li {
+    display: flex;
+    justify-content: center;
     margin-top: 10px;
+    
+
    }
 
-   #opcoes li a:hover {
-    
-color: rgb(255, 187, 0);}
+ #umH {
+
+margin-left: -20px;
+}
