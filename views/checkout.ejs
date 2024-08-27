@@ -11,7 +11,6 @@
 <main id="inicio">
 
 <section id="pai">
-<form action="/finalizando/Compra" method="post">
 
 <article id="primeiraT2">
   <h2 id="dois">ADICIONAIS</h2>
@@ -28,30 +27,32 @@
 </article>
 
 <article id="primeiraT">
+<form id="formulario" action="/finalizando/Compra" method="post">
 
-          
-    <input type="number" placeholder="digite seu cep" name="cep" ><br> 
-    <input type="text" placeholder="digite seu endereço"  name="endereco" ><br>
-    
-     <div id="localidade">
-         <input type="text" id="in3" placeholder="UF"  name="estado" ><br>
-         <input type="text" id="in4" placeholder="Cidade"  name="cidade" >
+    <div>
+      <input type="number" placeholder="digite seu cep" name="cep" ><br> 
+      <input type="text" placeholder="digite seu endereço"  name="endereco" >
     </div>
+      
+      <div id="for1">        
+        <input type="text" placeholder="digite se bairro" name="bairro">
+     </div>
 
-    <input type="text" placeholder="digite se bairro" name="bairro"><br>
-
-    <div id="lol" >
-       <input type="number" id="in1" placeholder="numero do seu endereço"  name="numero" >
+    <div >
+       <input type="number" id="in1" placeholder="numero do seu endereço"  name="numero" ><br>
        <input type="text" id="in2" placeholder="complemento"  name="complemento" >
     </div>
-    
-    <input type="text" placeholder="digite seu nome completo" name="nome"><br>
-    <input type="tel" placeholder=" digite seu numero para contato">
-        <button id="butaocompra" type="submit">finalizar compra </button>
+  
+    <div>
+      <input type="text" placeholder="digite seu nome completo" name="nome"><br>
+      <input type="tel" placeholder=" digite seu numero para contato" name="telefone">
+    </div>
+  
+    <button id="butaocompra" >finalizar compra </button>
         
-</article>
-
 </form>
+
+</article>
 </section>
 
 </main>

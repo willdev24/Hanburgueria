@@ -37,13 +37,16 @@ body{
 }
 
 
-#pai form{
-    position: relative;
-    display: flex;
+#pai {
+display: flex;
+
 }
 
     #primeiraT {
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         background-image: url(/imagens/fundo_chec.png);
         height: 100vh;
         width: 38.2vw;   
@@ -51,58 +54,31 @@ body{
         
     }
 
-       
-    #primeiraT input{
-        
-           padding: 10px 60px ;
-           margin-top: 5px
-       }
-   
-    #primeiraT input{
-        font-size: 17px;
-        border-radius: 10px;
-        cursor: pointer;
-        border-color: rgba(255, 217, 0, 0);
-        background-color: aliceblue;
+    #formulario{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 70vh;
+
     }
+
+#formulario div input{
+
+    height: 45px;
+    width: 25vw;
+    margin-top: 7px;
+    border-radius: 5px;
+    
+}
+
+
 
     #primeiraT input:hover{
         background-color: whitesmoke;
         border-color:black
     }
-
-
-
-    #primeiraT {
-
-        display: flex;
-        justify-content:center;
-        flex-direction: column;
-        align-items: center;
-    }
-    #primeiraT  #lol #in2 ,#localidade #in4{
-        width: 35%;
-       padding: 8px 20px;
-    }
-    #in1 , #in3{
-        margin-right: 5px;
-        width: 22%;
-        height: 42.4px;
-    }
-
-    #primeiraT  #lol , #localidade{
-     
-       position: static;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        
-    }
-
-
-
-
-
+    
 
     #primeiraT2{
         background-color: rgb(255, 166, 0);
@@ -126,11 +102,11 @@ body{
     }
 
     #butaocompra{
-       padding: 10px 20px ;    
-       margin-top: 3px;
-       font-size: 25px;
+       padding: 10px 135px ;    
+       margin-top: 10px;
+       font-size: 15px;
        cursor: pointer;
-       border-radius: 20px;
+       border-radius: 5px;
            }
 
     .lista1, .lista2{       

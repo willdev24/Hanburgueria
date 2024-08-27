@@ -13,14 +13,15 @@ const main2={
     this.buscarHTML()
     this.buscandoAPI()
     this.adcionarProdutos()
-    this.excluirProdutos()
     this.ventIncluir()    
+    this.validarForm()
 
    }, 
 
    buscarHTML: function(){
     this.$listaDois=document.querySelector(".lista2")
     this.$incluirProd=document.querySelectorAll("#crementar")
+    this.$formulario = document.querySelector("#formulario")
    },
 
 
@@ -136,16 +137,38 @@ localStorage.setItem("prodFinais", JSON.stringify(self.objtoarrinho ))
 
           })
 
-       
    })
-
-
-
-
 
    },
 
-   excluirProdutos:function(){
+   validarForm:function(){
+  const  self = this
+      document.querySelector("#formulario").addEventListener('submit', validar)
+
+      const nome = document.forms['formulario']['nome']
+      const telefone = document.forms['formulario']['telefone']
+      const cep = document.forms['formulario']['cep']
+      const endereco = document.forms['formulario']['endereco']
+      const complemento = document.forms['formulario']['complemento']
+      const numero = document.forms['formulario']['numero']
+     
+
+const nomeUser = document.querySelector("#nome")
+const telefoneUser = document.querySelector("#telefone")
+const cepUser = document.querySelector("#cep")
+const enderecoUser = document.querySelector("#endereco")
+const complementoUser = document.querySelector("#complemento")
+const numeroUser = document.querySelector("#numero")
+
+      function validar(e){
+      e.preventDefault() 
+
+
+
+      }
+
+
+
 
 
    }

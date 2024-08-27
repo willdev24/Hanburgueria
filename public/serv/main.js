@@ -199,17 +199,14 @@ if( posisao ){
     this.$menucarrinho.appendChild(elementclass)
     const localstoragProd = this.produtos.find( itens => itens.id == id )     
 
-    
     this.dinheiro(localstoragProd.money)//adicionar valor
-    
-    
+        
     const savestryng = localStorage.getItem("car") //pega os produtos salvos no carrinho
     const saveobj = JSON.parse(savestryng)
                                     
     const obj = [localstoragProd, ...saveobj] //junto o produto que ta salvo + o produto que vou adicionar, jogo tudo dentro uma const e atualizo o localstorage
     localStorage.setItem("car", JSON.stringify(obj))
 
-    
                     
     //sempre que excuto uma funçao preciso chamar as demais funçoes novamente para que nao haja erros                 
     this.apagar() 
@@ -222,7 +219,6 @@ if( posisao ){
 
 //apaga os produtos do carrinho
 apagar: function(){
-    
     
     this.$apagarCar = document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this
