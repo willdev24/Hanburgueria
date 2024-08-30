@@ -107,27 +107,27 @@ this.buscarHTML()
    },
 
 ventIncluir: function(){
-
-   const self = this 
-   const $lista2 =document.querySelector(".lista2")   
-   const obj2 = localStorage.getItem("car")
-    self.objtoarrinho = JSON.parse(obj2)
+const self = this 
+const $lista2 =document.querySelector(".lista2")   
+const obj2 = localStorage.getItem("car")
+ self.objtoarrinho = JSON.parse(obj2)
    
-   self.objtoarrinho.forEach(prodCar=>{
+self.objtoarrinho.forEach(prodCar=>{
 
       return  $lista2.innerHTML += this.corpoFinal(prodCar)
-    })
+})
+localStorage.setItem("prodFinais", JSON.stringify(this.objtoarrinho))
 
-localStorage.setItem("prodFinais", JSON.stringify(self.objtoarrinho ))
+      self.$incluirProd.forEach( produtos => {
 
-   self.$incluirProd.forEach( produtos => {
+         produtos.addEventListener("click", function(e){
+         self.valid = e.target.dataset.local
+            const id = self.valid
+            const adicionarIten = self.produ.find(itens => itens.id == id)
 
-      produtos.addEventListener("click", function(e){
-         const id = e.target.dataset.local
-     
-         const adicionarIten = self.produ.find(itens => itens.id == id)
-
+         
               $lista2.innerHTML += self.corpoFinal(adicionarIten)
+
               const obj = localStorage.getItem("prodFinais")
               const produtosSlavos = JSON.parse(obj)
     
@@ -138,6 +138,8 @@ localStorage.setItem("prodFinais", JSON.stringify(self.objtoarrinho ))
           })
 
    })
+
+   
 
    },
 
