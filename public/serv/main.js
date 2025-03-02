@@ -220,6 +220,7 @@ if( posisao ){
 //apaga os produtos do carrinho
 apagar: function(){
     
+    
     this.$apagarCar = document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this
     
@@ -260,8 +261,6 @@ return
            
     })
 
-
-    
      self.descrementar()
      self.crementar()
      self.apagar()    
@@ -281,7 +280,6 @@ const self = this
 
     const teste =document.querySelector('.menucarrinho') //primeiro eu apago todos os produtos e logo a baixo crio todos eles ja com a quantiade certa 
     teste.innerHTML = ""
-
 // inicio function dinheiro
 
 
@@ -291,29 +289,27 @@ const self = this
     const val = produtoASERsomado.money
     this.dinheiro(val)
     console.log(val)
-        }
         
+}      
         if(valor < 0){       
                 const produtoASERsomado = self.objsalvos.find(itens => itens.id == objss )
-                const val = produtoASERsomado.money
-                
+                const val = produtoASERsomado.money                
                 this.dinheiro(-val)
                 console.log(-val)
             }
 //fim function inheiro
-   
-   
+      
     //encontrando a posiçao do produto dentro do array
  const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss ) //uso em varios lugares: preciso usar como uma funçao pra reduzir o uso desse elemento
        
  self.objsalvos.forEach( positionCartao =>{ // reconstruindo os produtos 
 
-    if(valor == -1){ //se o valor vier negativo ele iradecrementar 
+    if(valor == -1){ //se o valor vier negativo ele irá decrementar 
 
         self.cont = positionCartao.quantidade - 1
 
     }else{ self.cont = positionCartao.quantidade + 1} // caso venha positivo ele ir crementar
-
+0
                 if(positionCartao.id == objss){
                                                             //modificando so a quantidade do array original e no localhost
                 self.objsalvos.splice(contabilizar,1, {    id:positionCartao.id, 
