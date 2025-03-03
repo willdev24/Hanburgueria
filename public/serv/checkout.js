@@ -1,3 +1,4 @@
+const { json } = require("express")
 
 
 const main2={
@@ -180,18 +181,26 @@ const spantel= document.querySelector("#spantel")
       self.campos = [nomeUser,telefoneUser,cepUser,enderecoUser,complementoUser,numeroUser,bairroUser]
 
 
-   function campos(id){
+   function campos(id , excluir){
+      console.log(id ,excluir)
 
          const campoAcionado  = self.campos.find( nome =>  nome.id == id )
                const done = campoAcionado.classList.contains("vazil")
 
                if(done == false){
                   campoAcionado.classList.add("vazil")
-               }}
+                  
+               }
+               
+               if(excluir == 0){
+                  campoAcionado.classList.remove("vazil")
+               }
+            }
 
    
-         function spans(_id){
-            
+         function spans(_id, excluir){
+            //console.log(_id ,excluir)
+
             self.spans.forEach( itens => {
                const validar = itens.attributes.name.value 
 
@@ -201,7 +210,14 @@ const spantel= document.querySelector("#spantel")
                   if(done == false){         
                      itens.classList.add("spans")
                      itens.innerHTML =" O campo vazil deve ser preenchido "
-                       }}
+                       }
+                       
+                       if(excluir == 0){
+                        itens.classList.remove("spans")
+                        itens.innerHTML = ""
+                       }
+                     
+                     }
 
                    })}
       
@@ -212,9 +228,28 @@ self.dados.forEach( itens => {
          if(itens.value == "" ){ 
             campos(itens.id)
             spans(itens.id)
+         
+            }else if(itens.value != ""){
+              campos(itens.id , 0)
+              spans(itens.id, 0)
          }
       });
    
+
+if(nome.value && telefone.value && endereco.value && complemento.value 
+   && numero.value && bairro.value && cep.value  != "" ){
+
+      const obj = localStorage.getItem('car')
+      const produtos = JSON.parse(obj)
+
+      console.log(produtos)
+
+      window.location.href = "http://localhost:8080/menu"
+
+   }
+
+
+
       
       }
 
