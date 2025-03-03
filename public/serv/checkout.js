@@ -164,7 +164,7 @@ const bairroUser = document.querySelector("#bairro")
 
 //console.log(nome.value)
 
-const spannomeFO = document.querySelector("#spannomeFO")
+const spannomeFO = document.getElementById("spannomeFO")
 const spancep = document.querySelector("#spancep")
 const spanend = document.querySelector("#spanend")
 const spanbairro = document.querySelector("#spanbairro")
@@ -173,61 +173,58 @@ const spancomp = document.querySelector("#spancomp")
 const spantel= document.querySelector("#spantel")
 
 
-      function validar(e){
-      e.preventDefault()
-   self.dados = [nome, telefone, endereco, complemento, numero ,bairro, cep]
-   self.spans=[spanumero,spantel,spannomeFO,spancomp,spancep,spanend,spanbairro]
-   self.campos = [nomeUser,telefoneUser,cepUser,enderecoUser,complementoUser,numeroUser,bairroUser]
+         function validar(e){
+         e.preventDefault()
+      self.dados = [nome, telefone, endereco, complemento, numero ,bairro, cep]
+      self.spans=[spanumero,spantel,spannomeFO,spancomp,spancep,spanend,spanbairro]
+      self.campos = [nomeUser,telefoneUser,cepUser,enderecoUser,complementoUser,numeroUser,bairroUser]
 
 
-function campos(id){
+   function campos(id){
 
-const campoAcionado  = self.campos.find( nome =>  nome.id == id )
+         const campoAcionado  = self.campos.find( nome =>  nome.id == id )
+               const done = campoAcionado.classList.contains("vazil")
 
-console.log(campoAcionado)
-      const done = campoAcionado.classList.contains("vazil")
-
-      if(done == false){
-          campoAcionado.classList.add("vazil")
-       }
-   }
-
-function spans(){
-
-   this.spans.forEach((erros)=>{
-
-      const done = erros.classList.contains("spans")
-
-      if(done == false){
-         
-         erros.classList.add("spans")
-         erros.innerHTML =" O campo vazil deve ser preenchido "
-      }
-   })}
+               if(done == false){
+                  campoAcionado.classList.add("vazil")
+               }}
 
    
-   self.dados.forEach( itens => {
+         function spans(_id){
+            
+            self.spans.forEach( itens => {
+               const validar = itens.attributes.name.value 
 
-      if(itens.value == "" ) campos(itens.id)
+               if(validar == _id){
+                  const done = itens.classList.contains("spans")
+
+                  if(done == false){         
+                     itens.classList.add("spans")
+                     itens.innerHTML =" O campo vazil deve ser preenchido "
+                       }}
+
+                   })}
       
-   });
+      
+      
+self.dados.forEach( itens => {
 
-
-}
-
-
-
-}
-
-/*else {
-         erros.classList.remove("spans")
-         erros.innerHTML =""
-      }*/
-//else itens.classList.remove("vazil")
-
-
+         if(itens.value == "" ){ 
+            campos(itens.id)
+            spans(itens.id)
+         }
+      });
+   
+      
       }
 
+   
+
+}
+
+
+
+}
 
 
 main2.init()
