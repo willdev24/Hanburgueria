@@ -175,22 +175,22 @@ const spantel= document.querySelector("#spantel")
 
       function validar(e){
       e.preventDefault()
-   self.dados = [nome.value ,telefone.value ,endereco.value ,complemento.value ,numero.value ,bairro.value]
+   self.dados = [nome, telefone, endereco, complemento, numero ,bairro, cep]
    self.spans=[spanumero,spantel,spannomeFO,spancomp,spancep,spanend,spanbairro]
    self.campos = [nomeUser,telefoneUser,cepUser,enderecoUser,complementoUser,numeroUser,bairroUser]
 
 
-function campos(){
+function campos(id){
 
-   self.campos.forEach((itens)=>{
+const campoAcionado  = self.campos.find( nome =>  nome.id == id )
 
-      const done = itens.classList.contains("vazil")
+console.log(campoAcionado)
+      const done = campoAcionado.classList.contains("vazil")
 
       if(done == false){
-
-      itens.classList.add("vazil")
-       }else itens.classList.remove("vazil")
-   })}
+          campoAcionado.classList.add("vazil")
+       }
+   }
 
 function spans(){
 
@@ -202,16 +202,13 @@ function spans(){
          
          erros.classList.add("spans")
          erros.innerHTML =" O campo vazil deve ser preenchido "
-      }else {
-         erros.classList.remove("spans")
-         erros.innerHTML =""
       }
    })}
 
    
-   this.dados.forEach( itens => {
+   self.dados.forEach( itens => {
 
-      if(itens == "" ) campos()
+      if(itens.value == "" ) campos(itens.id)
       
    });
 
@@ -222,7 +219,11 @@ function spans(){
 
 }
 
-
+/*else {
+         erros.classList.remove("spans")
+         erros.innerHTML =""
+      }*/
+//else itens.classList.remove("vazil")
 
 
       }
