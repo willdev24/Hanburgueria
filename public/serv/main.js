@@ -170,7 +170,6 @@ const doneDuol = campo.classList.contains('abrirCarrinho')
         if(  doneDuol == false){
     campo.classList.add('abrirCarrinho')
        
-    
 }
 
 },
@@ -181,7 +180,6 @@ addicionarCarrinho_click:function(e){
 const id = e.target.dataset.local  //pega o id do produto que voçe adiciona
 const positionCartao = this.produtos.find( itens => itens.id == id) //passa por todo os array,de produtos, ate encontrar o produto que tem o mesmo id 
                                                                     // usando o find para poder pegar a informaçao completa do produto
-
 
 //verificando se ja tem o mesmo produto no carrinho
 const validar = localStorage.getItem("car")
@@ -206,7 +204,6 @@ if( posisao ){
                                     
     const obj = [localstoragProd, ...saveobj] //junto o produto que ta salvo + o produto que vou adicionar, jogo tudo dentro uma const e atualizo o localstorage
     localStorage.setItem("car", JSON.stringify(obj))
-
                     
     //sempre que excuto uma funçao preciso chamar as demais funçoes novamente para que nao haja erros                 
     this.apagar() 
@@ -223,8 +220,7 @@ apagar: function(){
     
     this.$apagarCar = document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this
-    
-    
+        
         this.$apagarCar.forEach( (itens)=> {              //adiciono um eventos em todos eles        
         itens.addEventListener("click",function(e){ //executo a funçao aq mesmo para evitar erros
         const id = e.target.dataset.local//id do produto a ser excluido
@@ -257,7 +253,6 @@ apagar: function(){
                 const html = self.corpoHTML(positionCartao)                       
                 teste.innerHTML += html
 return  
-    
            
     })
 

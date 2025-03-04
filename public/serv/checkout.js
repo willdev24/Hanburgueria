@@ -1,4 +1,3 @@
-const { json } = require("express")
 
 
 const main2={
@@ -239,13 +238,12 @@ self.dados.forEach( itens => {
 if(nome.value && telefone.value && endereco.value && complemento.value 
    && numero.value && bairro.value && cep.value  != "" ){
 
-      const obj = localStorage.getItem('car')
-      const produtos = JSON.parse(obj)
-
-      console.log(produtos)
-
       window.location.href = "http://localhost:8080/menu"
 
+   
+      const obj = localStorage.getItem('car')
+      const Pedidos = JSON.parse(obj)
+      console.log(Pedidos)
    }
 
 
