@@ -235,17 +235,17 @@ self.dados.forEach( itens => {
       });
    
 
-//if(nome.value && telefone.value && endereco.value && complemento.value 
-  // && numero.value && bairro.value && cep.value  != "" ){
+if(nome.value && telefone.value && endereco.value && complemento.value 
+   && numero.value && bairro.value && cep.value  != "" ){
 
       //window.location.href = "http://localhost:8080/menu"
 
       
-      //const objP = localStorage.getItem('prodFinais')
+  const objP = localStorage.getItem('prodFinais')
+  const teste = JSON.parse(objP)
 
-
-     // console.log(objP)
-   //}/
+      console.log(teste)
+   }
 
 
 
