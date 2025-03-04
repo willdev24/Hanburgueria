@@ -235,16 +235,17 @@ self.dados.forEach( itens => {
       });
    
 
-if(nome.value && telefone.value && endereco.value && complemento.value 
-   && numero.value && bairro.value && cep.value  != "" ){
+//if(nome.value && telefone.value && endereco.value && complemento.value 
+  // && numero.value && bairro.value && cep.value  != "" ){
 
-      window.location.href = "http://localhost:8080/menu"
+      //window.location.href = "http://localhost:8080/menu"
 
-   
-      const obj = localStorage.getItem('car')
-      const Pedidos = JSON.parse(obj)
-      console.log(Pedidos)
-   }
+      
+      //const objP = localStorage.getItem('prodFinais')
+
+
+     // console.log(objP)
+   //}/
 
 
 
