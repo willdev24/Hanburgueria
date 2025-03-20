@@ -80,7 +80,7 @@ app.get("/menu",(req, res)=>{
 
 
 //produtos
-            app.get("/bebidas",(req, res)=>{
+            app.get("/doce",(req, res)=>{
 
                 const produtos = fs.readFileSync("./cadastrados.json")
                 const produtosOBJ = JSON.parse(produtos)
@@ -102,7 +102,7 @@ app.get("/menu",(req, res)=>{
                     })
                 })
                 
-                    app.get("/pizza",(req, res)=>{
+                    app.get("/promocoes",(req, res)=>{
 
                         const produtos = fs.readFileSync("./cadastrados.json")
                         const produtosOBJ = JSON.parse(produtos)
@@ -112,7 +112,7 @@ app.get("/menu",(req, res)=>{
                             cadastrados:produtosOBJ
                         })
                     })
-                    app.get("/hotdogs",(req, res)=>{
+                    app.get("/fritas",(req, res)=>{
 
                         const produtos = fs.readFileSync("./cadastrados.json")
                         const produtosOBJ = JSON.parse(produtos)
