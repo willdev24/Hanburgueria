@@ -1,6 +1,5 @@
 
 
-
 const main2={
 
    produ:[],
@@ -163,9 +162,9 @@ const complementoUser = document.querySelector("#complemento")
 const numeroUser = document.querySelector("#numero")
 const bairroUser = document.querySelector("#bairro")
 
+//console.log(nome.value)
 
-
-const spannomeFO = document.querySelector("#spannomeFO")
+const spannomeFO = document.getElementById("spannomeFO")
 const spancep = document.querySelector("#spancep")
 const spanend = document.querySelector("#spanend")
 const spanbairro = document.querySelector("#spanbairro")
@@ -174,51 +173,92 @@ const spancomp = document.querySelector("#spancomp")
 const spantel= document.querySelector("#spantel")
 
 
-      function validar(e){
-      e.preventDefault()
+         function validar(e){
+         e.preventDefault()
+      self.dados = [nome, telefone, endereco, complemento, numero ,bairro, cep]
+      self.spans=[spanumero,spantel,spannomeFO,spancomp,spancep,spanend,spanbairro]
+      self.campos = [nomeUser,telefoneUser,cepUser,enderecoUser,complementoUser,numeroUser,bairroUser]
 
-   this.spans=[spanumero,spantel,spannomeFO,spancomp,spancep,spanend,spanbairro]
-   this.campos = [nomeUser,telefoneUser,cepUser,enderecoUser,complementoUser,numeroUser,bairroUser]
 
-if(nome.value =="" && telefone.value =="" && 
-   cep.value =="" && endereco.value =="" &&
-   complemento.value =="" && numero.value =="" 
-   && bairro.value == ""){
+   function campos(id , excluir){
+      console.log(id ,excluir)
 
-   this.campos.forEach((itens)=>{
+         const campoAcionado  = self.campos.find( nome =>  nome.id == id )
+               const done = campoAcionado.classList.contains("vazil")
 
-      const done = itens.classList.contains("vazil")
-
-      if(done == false){
-
-      itens.classList.add("vazil")
-       }
-   })
-
-   this.spans.forEach((erros)=>{
-
-      const done = erros.classList.contains("spans")
-
-      if(done == false){
-         
-         erros.classList.add("spans")
-         erros.innerHTML =" O campo vazil deve ser preenchido "
-      }
-
-   })
-
+               if(done == false){
+                  campoAcionado.classList.add("vazil")
+                  
+               }
+               
+               if(excluir == 0){
+                  campoAcionado.classList.remove("vazil")
+               }
+            }
 
    
-}
+         function spans(_id, excluir){
+            //console.log(_id ,excluir)
 
+            self.spans.forEach( itens => {
+               const validar = itens.attributes.name.value 
 
-      }
+               if(validar == _id){
+                  const done = itens.classList.contains("spans")
 
+                  if(done == false){         
+                     itens.classList.add("spans")
+                     itens.innerHTML =" O campo vazil deve ser preenchido "
+                       }
+                       
+                       if(excluir == 0){
+                        itens.classList.remove("spans")
+                        itens.innerHTML = ""
+                       }
+                     
+                     }
+
+                   })}
+      
+      
+      
+self.dados.forEach( itens => {
+
+         if(itens.value == "" ){ 
+            campos(itens.id)
+            spans(itens.id)
+         
+            }else if(itens.value != ""){
+              campos(itens.id , 0)
+              spans(itens.id, 0)
+         }
+      });
+   
+
+if(nome.value && telefone.value && endereco.value && complemento.value 
+   && numero.value && bairro.value && cep.value  != "" ){
+
+      //window.location.href = "http://localhost:8080/menu"
+
+      
+  const objP = localStorage.getItem('prodFinais')
+  const teste = JSON.parse(objP)
+
+      console.log(teste)
    }
 
+
+
+      
+      }
+
+   
+
 }
 
 
+
+}
 
 
 main2.init()

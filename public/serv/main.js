@@ -170,7 +170,6 @@ const doneDuol = campo.classList.contains('abrirCarrinho')
         if(  doneDuol == false){
     campo.classList.add('abrirCarrinho')
        
-    
 }
 
 },
@@ -181,7 +180,6 @@ addicionarCarrinho_click:function(e){
 const id = e.target.dataset.local  //pega o id do produto que voçe adiciona
 const positionCartao = this.produtos.find( itens => itens.id == id) //passa por todo os array,de produtos, ate encontrar o produto que tem o mesmo id 
                                                                     // usando o find para poder pegar a informaçao completa do produto
-
 
 //verificando se ja tem o mesmo produto no carrinho
 const validar = localStorage.getItem("car")
@@ -206,7 +204,6 @@ if( posisao ){
                                     
     const obj = [localstoragProd, ...saveobj] //junto o produto que ta salvo + o produto que vou adicionar, jogo tudo dentro uma const e atualizo o localstorage
     localStorage.setItem("car", JSON.stringify(obj))
-
                     
     //sempre que excuto uma funçao preciso chamar as demais funçoes novamente para que nao haja erros                 
     this.apagar() 
@@ -220,10 +217,10 @@ if( posisao ){
 //apaga os produtos do carrinho
 apagar: function(){
     
+    
     this.$apagarCar = document.querySelectorAll("#excluir")   //pego toos os butaos que tem o id "excluir"
     const self = this
-    
-    
+        
         this.$apagarCar.forEach( (itens)=> {              //adiciono um eventos em todos eles        
         itens.addEventListener("click",function(e){ //executo a funçao aq mesmo para evitar erros
         const id = e.target.dataset.local//id do produto a ser excluido
@@ -256,12 +253,9 @@ apagar: function(){
                 const html = self.corpoHTML(positionCartao)                       
                 teste.innerHTML += html
 return  
-    
            
     })
 
-
-    
      self.descrementar()
      self.crementar()
      self.apagar()    
@@ -281,7 +275,6 @@ const self = this
 
     const teste =document.querySelector('.menucarrinho') //primeiro eu apago todos os produtos e logo a baixo crio todos eles ja com a quantiade certa 
     teste.innerHTML = ""
-
 // inicio function dinheiro
 
 
@@ -291,29 +284,27 @@ const self = this
     const val = produtoASERsomado.money
     this.dinheiro(val)
     console.log(val)
-        }
         
+}      
         if(valor < 0){       
                 const produtoASERsomado = self.objsalvos.find(itens => itens.id == objss )
-                const val = produtoASERsomado.money
-                
+                const val = produtoASERsomado.money                
                 this.dinheiro(-val)
                 console.log(-val)
             }
 //fim function inheiro
-   
-   
+      
     //encontrando a posiçao do produto dentro do array
  const contabilizar = self.objsalvos.findIndex((element)=> element.id == objss ) //uso em varios lugares: preciso usar como uma funçao pra reduzir o uso desse elemento
        
  self.objsalvos.forEach( positionCartao =>{ // reconstruindo os produtos 
 
-    if(valor == -1){ //se o valor vier negativo ele iradecrementar 
+    if(valor == -1){ //se o valor vier negativo ele irá decrementar 
 
         self.cont = positionCartao.quantidade - 1
 
     }else{ self.cont = positionCartao.quantidade + 1} // caso venha positivo ele ir crementar
-
+0
                 if(positionCartao.id == objss){
                                                             //modificando so a quantidade do array original e no localhost
                 self.objsalvos.splice(contabilizar,1, {    id:positionCartao.id, 

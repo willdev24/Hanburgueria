@@ -43,6 +43,7 @@ app.get("/add/date", (req, res) =>{
                     res.render("checkout")
                 })
 
+                // excluir essa rota para poder mandar direto va requisiçao para painel adm
                     app.post("/finalizando/Compra", (req, res)=>{
 
                         const pedidos = fs.readFileSync("./pedidos.json")
@@ -65,8 +66,9 @@ app.get("/add/date", (req, res) =>{
 
 
 
-
+// vou ter que apagar essa rota possivelmente ou fazer uma requiçao com o fet!! par buscar os produtos no banco
 app.get("/menu",(req, res)=>{
+
 
     const produtos = fs.readFileSync("./cadastrados.json")
     const produtosOBJ = JSON.parse(produtos)
@@ -129,7 +131,7 @@ app.get("/menu",(req, res)=>{
 
 
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3000
 
 app.listen(port,()=>{
     console.log(`servidor rodando na porta ${port}`)
