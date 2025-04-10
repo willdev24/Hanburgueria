@@ -1,5 +1,4 @@
 
-
 const main2={
 
    produ:[],
@@ -181,7 +180,6 @@ const spantel= document.querySelector("#spantel")
 
 
    function campos(id , excluir){
-      console.log(id ,excluir)
 
          const campoAcionado  = self.campos.find( nome =>  nome.id == id )
                const done = campoAcionado.classList.contains("vazil")
@@ -238,21 +236,39 @@ self.dados.forEach( itens => {
 if(nome.value && telefone.value && endereco.value && complemento.value 
    && numero.value && bairro.value && cep.value  != "" ){
 
-      //window.location.href = "http://localhost:8080/menu"
+     
 
       
   const objP = localStorage.getItem('prodFinais')
   const teste = JSON.parse(objP)
 
-      console.log(teste)
+ const OsDados = self.dados.map(itens=>{
+   return itens.value
+
+ })
+
+ 
+ fetch('http://localhost:3001/pedidos',{
+
+         method: 'POST',
+         headers:{
+      'content-type':'application/json; charset=utf-8'
+         },
+         body: JSON.stringify({
+         teste,
+         OsDados
+
+         })
+        })
+ 
+  localStorage.setItem('car', "[]")      
+ window.location.href = "http://localhost:3000/menu"
+  
    }
 
 
-
       
-      }
-
-   
+      }  
 
 }
 
